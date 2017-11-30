@@ -13,32 +13,28 @@ public class InitializeProject : MonoBehaviour {
         openPanel.SetActive(false);
         helpPanel.SetActive(false);
         settingsPanel.SetActive(false);
-
         CreateAndSaveDocumentLocation();
-
     }
 
     void CreateAndSaveDocumentLocation()
     {
-        if (!File.Exists(Application.persistentDataPath + "/defaultProjectValues.dat"))
+        try
         {
-            string documentsPath = Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
-            Debug.Log(documentsPath);
-
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Create(Application.persistentDataPath + "/defaultProjectValues.dat");
-
-            ProjectData projectData = new ProjectData();
-            projectData.filePath = documentsPath;
-
-            bf.Serialize(file, projectData);
-            file.Close();
+            if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UsedValues.projectDir)))
+            {
+                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UsedValues.projectDir));
+                Config config = new Config();
+                config.projectData.projectPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UsedValues.projectDir);
+                Config.Save(config);
+                Debug.Log("Config value: " + config.projectData.projectPath);
+                Globals.SetConfig(config);
+                Debug.Log("Value from file: " + JsonUtility.ToJson(Globals.Config.projectData));
+            }
         }
+        catch (Exception ex)
+        {
+            Debug.Log("Exception:" + ex.StackTrace);
+        }
+        
     }
-}
-
-[Serializable]
-class ProjectData
-{
-    public string filePath;
 }
