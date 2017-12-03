@@ -23,10 +23,10 @@ public class ProjectConfig
         File.WriteAllText(Path.Combine(projectConfig.path, projectConfig.name + ".cfg"), json);
     }
 
-    public static Config Load()
+    public static ProjectConfig Load()
     {
         string json = File.ReadAllText(Path.Combine(Globals.PROJECTPATH, Globals.PROJECTNAME + ".cfg"));
-        return JsonUtility.FromJson<Config>(json);
+        return JsonUtility.FromJson<ProjectConfig>(json);
     }
 
     [Serializable]

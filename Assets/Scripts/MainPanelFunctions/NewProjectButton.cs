@@ -8,14 +8,12 @@ using System.Collections.Generic;
 public class NewProjectButton : MonoBehaviour {
 
     public GameObject newProjectPanel;
-    public GameObject mainPanel;
 
     public InputField projectName;
 
     public void OpenNewProjectPane()
     {
         newProjectPanel.SetActive(true);
-        mainPanel.SetActive(false);
         newProjectPanel.GetComponentInChildren<Text>().text = "";
     }
 
@@ -86,7 +84,6 @@ public class NewProjectButton : MonoBehaviour {
     public void cancelAction()
     {
         newProjectPanel.SetActive(false);
-        mainPanel.SetActive(true);
         projectName.placeholder.color = Color.gray;
         newProjectPanel.GetComponentInChildren<Text>().text = "";
     }

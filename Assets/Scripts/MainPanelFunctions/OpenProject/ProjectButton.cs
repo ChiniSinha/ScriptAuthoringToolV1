@@ -25,7 +25,6 @@ public class ProjectButton : MonoBehaviour {
 
     public void handleClick()
     {
-        //TODO: How to open a project - yet to implement.
         SceneManager.LoadScene(1);
     }
 	

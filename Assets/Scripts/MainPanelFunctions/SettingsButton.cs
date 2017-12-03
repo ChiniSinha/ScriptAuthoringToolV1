@@ -5,20 +5,17 @@ using UnityEngine.UI;
 
 public class SettingsButton : MonoBehaviour {
 
-    public GameObject mainPanel;
     public GameObject settingsPanel;
 
     public InputField defaultPath;
 
     public void settingsOnClick()
     {
-        mainPanel.SetActive(false);
         settingsPanel.SetActive(true);
     }
 
     public void cancelAction()
     {
-        mainPanel.SetActive(true);
         settingsPanel.SetActive(false);
         settingsPanel.GetComponentInChildren<Text>().text = "";
     }

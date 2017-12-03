@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class LoadProjectFiles : MonoBehaviour {
 
     public Transform contentPanel;
-    public SimpleObjectPool textObjectPool;
+    public SimpleObjectPool expObjectPool;
 
     // Use this for initialization
     void Start () {
@@ -16,9 +16,9 @@ public class LoadProjectFiles : MonoBehaviour {
             "*.*", SearchOption.AllDirectories).Where(name => !name.EndsWith(".cfg")); ;
         foreach (var file in allfiles)
         {
-            FileInfo info = new FileInfo(file);
+            //FileInfo info = new FileInfo(file);
             Debug.Log("File: " + file);
-            GameObject newText = textObjectPool.GetObject();
+            GameObject newText = expObjectPool.GetObject();
             newText.transform.SetParent(contentPanel);
 
             Text label = newText.GetComponent<Text>();

@@ -161,7 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751eb0277c0a79f4a8084d27378f0d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPanel: {fileID: 2088414744}
   settingsPanel: {fileID: 1644094604}
   defaultPath: {fileID: 1260762400}
 --- !u!114 &59488309
@@ -561,7 +560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751eb0277c0a79f4a8084d27378f0d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPanel: {fileID: 2088414744}
   settingsPanel: {fileID: 1644094604}
   defaultPath: {fileID: 1260762400}
 --- !u!114 &177981527
@@ -1424,7 +1422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751eb0277c0a79f4a8084d27378f0d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPanel: {fileID: 2088414744}
   settingsPanel: {fileID: 1644094604}
   defaultPath: {fileID: 1260762400}
 --- !u!1 &320346165
@@ -1561,7 +1558,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 396567417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 243.35, y: 37, z: 0}
+  m_LocalPosition: {x: 259.21, y: 37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1159162115}
@@ -1570,8 +1567,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 243.35, y: 37}
-  m_SizeDelta: {x: 76.105, y: 30}
+  m_AnchoredPosition: {x: 259.21, y: 37}
+  m_SizeDelta: {x: 44.38, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &396567419
 MonoBehaviour:
@@ -1584,7 +1581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751eb0277c0a79f4a8084d27378f0d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPanel: {fileID: 2088414744}
   settingsPanel: {fileID: 1644094604}
   defaultPath: {fileID: 1260762400}
 --- !u!114 &396567420
@@ -1658,8 +1654,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b1a0c5c567b0ed643bfcb4b5cabf9db1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1727,7 +1723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1889,7 +1885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newProjectPanel: {fileID: 418217726}
-  mainPanel: {fileID: 2088414744}
   projectName: {fileID: 1869873954}
 --- !u!1 &518426477
 GameObject:
@@ -2926,7 +2921,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Folder
+  m_Text: 
 --- !u!222 &1159162117
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3280,7 +3275,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1260762399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.9, y: 37, z: 0}
+  m_LocalPosition: {x: 57.589996, y: 37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 582471948}
@@ -3290,8 +3285,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 44.9, y: 37}
-  m_SizeDelta: {x: 320.8, y: 30}
+  m_AnchoredPosition: {x: 57.59, y: 37}
+  m_SizeDelta: {x: 346.18, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1298982196
 GameObject:
@@ -3771,7 +3766,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newProjectPanel: {fileID: 418217726}
-  mainPanel: {fileID: 2088414744}
   projectName: {fileID: 1869873954}
 --- !u!1 &1644094604
 GameObject:
@@ -3826,7 +3820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4585,7 +4579,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newProjectPanel: {fileID: 418217726}
-  mainPanel: {fileID: 2088414744}
   projectName: {fileID: 1869873954}
 --- !u!1 &1968013156
 GameObject:
@@ -4744,7 +4737,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2012287516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 434, y: 163, z: 0}
+  m_LocalPosition: {x: 421.5, y: 159.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 70777490}

@@ -25,6 +25,7 @@ public class InitScene : MonoBehaviour {
         config.files = GetFilesInFolder(Globals.PROJECTPATH);
 
         ProjectConfig.save(config);
+        Globals.SetProjectConfig(config);
     }
 
     List<ProjectConfig> GetFolders(string path)
