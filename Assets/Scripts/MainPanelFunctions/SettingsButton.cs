@@ -45,6 +45,10 @@ public class SettingsButton : MonoBehaviour {
 
     public void FolderOnClick()
     {
-        defaultPath.text = EditorUtility.OpenFolderPanel("Select Project Folder", "", "");
+        string selectedPath = EditorUtility.OpenFolderPanel("Select Project Folder", "", "");
+        if (selectedPath != "")
+        {
+            defaultPath.text = selectedPath;
+        }
     }
 }

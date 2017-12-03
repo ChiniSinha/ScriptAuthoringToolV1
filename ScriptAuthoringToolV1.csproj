@@ -223,10 +223,17 @@
     <Compile Include="Assets\Scripts\Configurations\ProjectConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\UsedValues.cs" />
     <Compile Include="Assets\Scripts\InitializeProject.cs" />
+    <Compile Include="Assets\Scripts\InitScene.cs" />
+    <Compile Include="Assets\Scripts\InitScriptScene.cs" />
     <Compile Include="Assets\Scripts\MainPanelFunctions\ExitButton.cs" />
     <Compile Include="Assets\Scripts\MainPanelFunctions\HelpProjectButton.cs" />
     <Compile Include="Assets\Scripts\MainPanelFunctions\NewProjectButton.cs" />
+    <Compile Include="Assets\Scripts\MainPanelFunctions\OpenProject\ProjectButton.cs" />
+    <Compile Include="Assets\Scripts\MainPanelFunctions\OpenProject\SetProjectList.cs" />
+    <Compile Include="Assets\Scripts\MainPanelFunctions\OpenProject\SimpleObjectPool.cs" />
+    <Compile Include="Assets\Scripts\MainPanelFunctions\OpenProjectButton.cs" />
     <Compile Include="Assets\Scripts\MainPanelFunctions\SettingsButton.cs" />
+    <Compile Include="Assets\Scripts\ProjectView\LoadProjectFiles.cs" />
     <Compile Include="Assets\Scripts\Static\Globals.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

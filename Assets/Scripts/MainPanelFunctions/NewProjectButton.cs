@@ -57,6 +57,8 @@ public class NewProjectButton : MonoBehaviour {
                 config.projectList = list;
                 Debug.Log(JsonUtility.ToJson(config));
                 Config.Save(config);
+                Globals.PROJECTNAME = projectName.text;
+                Globals.PROJECTPATH = projectPath;
                 SceneManager.LoadScene(index);
             }
         }

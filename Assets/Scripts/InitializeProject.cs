@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class InitializeProject : MonoBehaviour {
 
-    public GameObject openPanel;
+    public GameObject mainPanel;
+    public GameObject newPanel;
     public GameObject helpPanel;
     public GameObject settingsPanel;
+    public GameObject openProjectPanel;
 
 	void Start () {
-        openPanel.SetActive(false);
+        mainPanel.SetActive(true);
+        newPanel.SetActive(false);
         helpPanel.SetActive(false);
         settingsPanel.SetActive(false);
+        openProjectPanel.SetActive(false);
         CreateAndSaveDocumentLocation();
     }
 

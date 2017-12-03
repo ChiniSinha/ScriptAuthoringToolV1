@@ -10,4 +10,7 @@ public static class Globals {
     {
         Config = config;
     }
+
+    public static string PROJECTNAME;
+    public static string PROJECTPATH;
 }
