@@ -1,0 +1,317 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: LowerBrows
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 24.901194
+        outSlope: 24.901194
+        tangentMode: 10
+      - time: 0.18333334
+        value: 4.565219
+        inSlope: 53.390545
+        outSlope: 53.390545
+        tangentMode: 10
+      - time: 0.73333335
+        value: 49.599167
+        inSlope: 46.04453
+        outSlope: 46.04453
+        tangentMode: 10
+      - time: 1
+        value: 52.32161
+        inSlope: 10.209161
+        outSlope: 10.209161
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: blendShape.Facial_Blends.BrowsDown_Left
+    path: Eyelashes
+    classID: 137
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 22.154388
+        outSlope: 22.154388
+        tangentMode: 10
+      - time: 0.18333334
+        value: 4.061638
+        inSlope: 52.22253
+        outSlope: 52.22253
+        tangentMode: 10
+      - time: 0.73333335
+        value: 49.32151
+        inSlope: 46.770523
+        outSlope: 46.770523
+        tangentMode: 10
+      - time: 1
+        value: 52.32161
+        inSlope: 11.250373
+        outSlope: 11.250373
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: blendShape.Facial_Blends.BrowsDown_Left
+    path: Body
+    classID: 137
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 19.762848
+        outSlope: 19.762848
+        tangentMode: 10
+      - time: 0.18333334
+        value: 3.623189
+        inSlope: 51.622982
+        outSlope: 51.622982
+        tangentMode: 10
+      - time: 0.73333335
+        value: 49.538902
+        inSlope: 46.959133
+        outSlope: 46.959133
+        tangentMode: 10
+      - time: 1
+        value: 52.32161
+        inSlope: 10.435153
+        outSlope: 10.435153
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: blendShape.Facial_Blends.BrowsDown_Right
+    path: Eyelashes
+    classID: 137
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 23.319304
+        outSlope: 23.319304
+        tangentMode: 10
+      - time: 0.18333334
+        value: 4.2752056
+        inSlope: 53.137848
+        outSlope: 53.137848
+        tangentMode: 10
+      - time: 0.73333335
+        value: 49.901222
+        inSlope: 46.016422
+        outSlope: 46.016422
+        tangentMode: 10
+      - time: 1
+        value: 52.32161
+        inSlope: 9.076453
+        outSlope: 9.076453
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: blendShape.Facial_Blends.BrowsDown_Right
+    path: Body
+    classID: 137
+    script: {fileID: 0}
+  m_PPtrCurves: []
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - path: 758186061
+      attribute: 2892108282
+      script: {fileID: 0}
+      classID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - path: 2073732236
+      attribute: 2892108282
+      script: {fileID: 0}
+      classID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - path: 758186061
+      attribute: 2854060682
+      script: {fileID: 0}
+      classID: 137
+      customType: 20
+      isPPtrCurve: 0
+    - path: 2073732236
+      attribute: 2854060682
+      script: {fileID: 0}
+      classID: 137
+      customType: 20
+      isPPtrCurve: 0
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 1
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 24.901194
+        outSlope: 24.901194
+        tangentMode: 10
+      - time: 0.18333334
+        value: 4.565219
+        inSlope: 53.390545
+        outSlope: 53.390545
+        tangentMode: 10
+      - time: 0.73333335
+        value: 49.599167
+        inSlope: 46.04453
+        outSlope: 46.04453
+        tangentMode: 10
+      - time: 1
+        value: 52.32161
+        inSlope: 10.209161
+        outSlope: 10.209161
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: blendShape.Facial_Blends.BrowsDown_Left
+    path: Eyelashes
+    classID: 137
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 22.154388
+        outSlope: 22.154388
+        tangentMode: 10
+      - time: 0.18333334
+        value: 4.061638
+        inSlope: 52.22253
+        outSlope: 52.22253
+        tangentMode: 10
+      - time: 0.73333335
+        value: 49.32151
+        inSlope: 46.770523
+        outSlope: 46.770523
+        tangentMode: 10
+      - time: 1
+        value: 52.32161
+        inSlope: 11.250373
+        outSlope: 11.250373
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: blendShape.Facial_Blends.BrowsDown_Left
+    path: Body
+    classID: 137
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 19.762848
+        outSlope: 19.762848
+        tangentMode: 10
+      - time: 0.18333334
+        value: 3.623189
+        inSlope: 51.622982
+        outSlope: 51.622982
+        tangentMode: 10
+      - time: 0.73333335
+        value: 49.538902
+        inSlope: 46.959133
+        outSlope: 46.959133
+        tangentMode: 10
+      - time: 1
+        value: 52.32161
+        inSlope: 10.435153
+        outSlope: 10.435153
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: blendShape.Facial_Blends.BrowsDown_Right
+    path: Eyelashes
+    classID: 137
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 23.319304
+        outSlope: 23.319304
+        tangentMode: 10
+      - time: 0.18333334
+        value: 4.2752056
+        inSlope: 53.137848
+        outSlope: 53.137848
+        tangentMode: 10
+      - time: 0.73333335
+        value: 49.901222
+        inSlope: 46.016422
+        outSlope: 46.016422
+        tangentMode: 10
+      - time: 1
+        value: 52.32161
+        inSlope: 9.076453
+        outSlope: 9.076453
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: blendShape.Facial_Blends.BrowsDown_Right
+    path: Body
+    classID: 137
+    script: {fileID: 0}
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 0
+  m_Events: []
