@@ -11,8 +11,10 @@ public class ProjectExpButton : MonoBehaviour {
     public Image contentIcon;
     public bool isClicked;
     string contentPath;
+    string jsonPath;
     ContentType type;
     List<ProjectExpButton> childFiles = new List<ProjectExpButton>();
+
 
 	void Start () {
         button.onClick.AddListener(handleClick);
@@ -43,7 +45,10 @@ public class ProjectExpButton : MonoBehaviour {
 
     private void handleFileClick()
     {
-        throw new NotImplementedException();
+        GameObject scriptPanel = GameObject.Find("ScriptView");
+        GameObject tab = scriptPanel.transform.Find("Tab").gameObject;
+        Text tabLabel = tab.GetComponentInChildren<Text>();
+        tabLabel.text = contentName.text;
     }
 
     public void setUp(ExpItem expItem) 
@@ -51,6 +56,7 @@ public class ProjectExpButton : MonoBehaviour {
         contentName.text = expItem.contentName;
         contentIcon.sprite = expItem.contentIcon;
         contentPath = expItem.contentPath;
+        jsonPath = expItem.jsonPath;
         type = expItem.contentType;
         childFiles = expItem.childButtons;
     }

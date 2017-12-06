@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.IO;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class ExpItem
     public string contentName;
     public Sprite contentIcon;
     public string contentPath;
+    public string jsonPath;
     public ContentType contentType;
     public List<ProjectExpButton> childButtons;
 
@@ -36,12 +38,31 @@ public class ProjectExpList : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
-        float counter = 0f;
-        ProjectConfig conf = ProjectConfig.Load();
-        projectName.text = conf.name;
-        setUpFiles(conf.files, counter, null);
-        setUpProject(conf.folders, counter);
+        Init();
 	}
+
+    public void Init()
+    {
+        if (File.Exists(Path.Combine(Globals.PROJECTPATH, Globals.PROJECTNAME + ".cfg")))
+        {
+            ProjectConfig projConfig = new ProjectConfig();
+            projConfig.name = Globals.PROJECTNAME;
+            projConfig.path = Globals.PROJECTPATH;
+            ProjectConfig.save(projConfig);
+            foreach (Transform child in contentPanel)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            ProjectConfig.updateProjectConfig();
+            Debug.Log(JsonUtility.ToJson(ProjectConfig.Load()));
+            float counter = 0f;
+            ProjectConfig conf = ProjectConfig.Load();
+
+            projectName.text = conf.name;
+            setUpFiles(conf.files, counter, null);
+            setUpProject(conf.folders, counter);
+        }
+    }
 
     private ExpItem setUpFiles(List<ProjectConfig.Files> files, float counter, ExpItem folderItem)
     {
@@ -54,6 +75,7 @@ public class ProjectExpList : MonoBehaviour {
             fileItem.contentName = file.fileName;
             fileItem.contentPath = file.filePath;
             fileItem.contentIcon = fileSprite;
+            fileItem.jsonPath = file.jsonFilePath;
             fileItem.contentType = ContentType.FILE;
 
             ProjectExpButton fileButton = newFile.GetComponent<ProjectExpButton>();

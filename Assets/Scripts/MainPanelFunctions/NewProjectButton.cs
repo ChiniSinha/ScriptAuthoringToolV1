@@ -32,9 +32,9 @@ public class NewProjectButton : MonoBehaviour {
 
     void CreateProjectConfigAndFiles(int index)
     {
+        string projectPath = Path.Combine(Config.Load().projectData.projectPath, projectName.text);
         try
         {
-            string projectPath = Path.Combine(Config.Load().projectData.projectPath, projectName.text);
             //Adding Project details to the config file
             Config config = new Config();
             config.projectData.projectPath = Config.Load().projectData.projectPath;
@@ -49,6 +49,7 @@ public class NewProjectButton : MonoBehaviour {
                 Directory.CreateDirectory(projectPath);
                 File.Create(Path.Combine(projectPath, projectName.text + ".cfg"));
                 File.Create(Path.Combine(projectPath, "Top.script"));
+                File.Create(Path.Combine(projectPath, "Top.json"));
                 File.Create(Path.Combine(projectPath, "functions.txt"));
                 Config.ProjectListData newElement = Config.GetNewProjectListItem(projectName.text, projectPath);
                 list.Add(newElement);
@@ -64,7 +65,6 @@ public class NewProjectButton : MonoBehaviour {
         {
             Debug.Log("Exception: " + ex.StackTrace);
         }
-        
     }
 
     private bool CheckDuplicateProject(Config config)

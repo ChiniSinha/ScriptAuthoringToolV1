@@ -10,12 +10,16 @@ public class InitScene : MonoBehaviour {
     public GameObject scriptTab;
     public GameObject topTab;
     public GameObject advancedTab;
+    public GameObject UIPanel;
+    public GameObject scriptPanel;
 
     void Start()
     {
         scriptTab.SetActive(true);
         topTab.SetActive(false);
         advancedTab.SetActive(false);
+        UIPanel.SetActive(false);
+        scriptPanel.SetActive(false);
 
         ProjectConfig config = new ProjectConfig();
         config.name = Globals.PROJECTNAME;
@@ -28,7 +32,7 @@ public class InitScene : MonoBehaviour {
         Globals.SetProjectConfig(config);
     }
 
-    List<ProjectConfig> GetFolders(string path)
+    public List<ProjectConfig> GetFolders(string path)
     {
         List<ProjectConfig> returnFolders = new List<ProjectConfig>();
         string[] allDirectories = Directory.GetDirectories(path);
@@ -47,7 +51,7 @@ public class InitScene : MonoBehaviour {
         return returnFolders;
     }
 
-    List<ProjectConfig.Files> GetFilesInFolder(string path)
+    public List<ProjectConfig.Files> GetFilesInFolder(string path)
     {
         List<ProjectConfig.Files> files = new List<ProjectConfig.Files>();
 

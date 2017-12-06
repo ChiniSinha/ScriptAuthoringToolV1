@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -219,8 +221,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Actions\AddScriptButton.cs" />
+    <Compile Include="Assets\Scripts\Actions\AddStateButton.cs" />
+    <Compile Include="Assets\Scripts\Actions\NewScriptInit.cs" />
+    <Compile Include="Assets\Scripts\Actions\ParentFolderButton.cs" />
+    <Compile Include="Assets\Scripts\Actions\SaveSriptButton.cs" />
     <Compile Include="Assets\Scripts\Configurations\Config.cs" />
     <Compile Include="Assets\Scripts\Configurations\ProjectConfig.cs" />
+    <Compile Include="Assets\Scripts\Configurations\ScriptConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\UsedValues.cs" />
     <Compile Include="Assets\Scripts\InitializeProject.cs" />
     <Compile Include="Assets\Scripts\InitScene.cs" />
@@ -236,6 +244,18 @@
     <Compile Include="Assets\Scripts\ProjectView\LoadProjectFiles.cs" />
     <Compile Include="Assets\Scripts\ProjectView\ProjectExpButton.cs" />
     <Compile Include="Assets\Scripts\ProjectView\ProjectExpList.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\AgentInputObject.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\MenuInputPanelObject.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\ScriptObject\Script.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\ScriptObject\ScriptActions.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\ScriptObject\ScriptUI.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\ScriptObject\State.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\StatePanelObject.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\UIPanel\AgentDoneButton.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\UIPanel\MenuController.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\UIPanel\MenuDoneButton.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\UIPanel\UIPanelSelection.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\UIPanel\UserMenuItem.cs" />
     <Compile Include="Assets\Scripts\Static\Globals.cs" />
     <Compile Include="Assets\Scripts\Tabs\FunctionTextLoader.cs" />
   </ItemGroup>
