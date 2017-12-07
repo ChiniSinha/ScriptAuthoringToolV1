@@ -8812,6 +8812,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4002941293406404}
   - component: {fileID: 95651488873703148}
+  - component: {fileID: 114401019198973482}
+  - component: {fileID: 114492439519311298}
   m_Layer: 0
   m_Name: TanyaFixed
   m_TagString: Untagged
@@ -18626,6 +18628,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: paper
+--- !u!114 &114401019198973482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923685399867824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44051332b1cca46109967dcdbfd71e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 95651488873703148}
+  _blinkDurationMax: 0.5
+  _blinkDurationMin: 0.03
+  _blinkPeriodMax: 5
+  _blinkPeriodMin: 0.2
+  _idleShiftiness: 0
+  _postureShiftiness: 0
+  _randomSacadeFrequency: 0
+  ikActive: 0
+  rightHandLocation: {fileID: 4116156493102546}
+  targetLocation: {fileID: 4834129850220608}
+  rightElbowWeight: 1
+  rightHandWeight: 0
+  rightElbowObj: {fileID: 4963320753208924}
+  finalPointerLocation: {fileID: 4266724636404566}
+  pointerLocation: {fileID: 4019641716227542}
+  paperRenderer: {fileID: 137826183364848852}
+  speed: 0.1
+--- !u!114 &114492439519311298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923685399867824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a627a785cb95541b806d0f74256939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AgentAnimationController: {fileID: 114401019198973482}
+  AudioSource: {fileID: 82545816374990552}
+  lipSync: {fileID: 0}
+  Paper: {fileID: 114078690586347746}
+  LeftHandAttach: {fileID: 4240560669250418}
+  RightHandAttach: {fileID: 4019641716227542}
+  Tts: {fileID: 0}
+  LipSyncPlayer: {fileID: 0}
+  HandSize: 0
 --- !u!114 &114819050831347038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -19103,7 +19154,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 64d4f6d9b4a3848f78924bdbbdca8ac5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
