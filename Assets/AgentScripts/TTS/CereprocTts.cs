@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Xml;
 using AOT;
+using System.IO;
 using UnityEngine;
 
 #endregion
@@ -181,9 +182,23 @@ public class CereprocTts : TTSController, ICereprocTTS
         _audioFilename = filename;
     }
 
+
+    protected WWW GetFileLoader(string uri)
+    {
+        if (uri.Contains("://"))
+        {
+            return new WWW(uri);
+        }
+        if (Path.IsPathRooted(uri))
+        {
+            return new WWW("file://" + uri);
+        }
+        return new WWW("file://" + Path.Combine(Application.streamingAssetsPath, uri));
+    }
+
     protected IEnumerator LoadAndPlayAudio(string sourceUrl)
     {
-        _audioLoader = Globals.Get<ResourceLoader>().GetAudioLoader(sourceUrl);
+        _audioLoader = GetFileLoader(sourceUrl);
         yield return _audioLoader;
 
         if (_audioLoader.GetAudioClip() == null)
@@ -210,11 +225,12 @@ public class CereprocTts : TTSController, ICereprocTTS
     public override void InitTts()
     {
         Debug.Log("Starting up Cereproc TTS");
-        string voiceFile = Globals.Config.Agent.VoiceFile;
+        /*string voiceFile = Globals.Config.Agent.VoiceFile;
         if (string.IsNullOrEmpty(voiceFile))
         {
             voiceFile = "heather";
-        }
+        }*/
+        string voiceFile = "heather";
         string voicePath;
         if (Application.isEditor)
         {
@@ -231,7 +247,7 @@ public class CereprocTts : TTSController, ICereprocTTS
         SetListenerObject(gameObject.name);
         SetCallbacks(CereprocEvent, CereprocFileReady, CereprocError);
 
-        //LoadTTS(voicePath, Application.temporaryCachePath + "/", voiceFile);
+        LoadTTS(voicePath, Application.temporaryCachePath + "/", voiceFile);
     }
 
     public override void SpeakText(string speech)

@@ -30,6 +30,9 @@ public class SingleAgentMediator : MonoBehaviour
         //Globals.EventBus.Register<AgentPerformGestureEvent>(OnPerformGesture);
         //Globals.EventBus.Register<AgentUpdateExpressionEvent>(OnUpdateExpression);
         Globals.EventBus.Register<AgentHeadNodEvent>(OnHeadNod);
+
+        //ENABLE THIS TO TEST SPEECH
+//        Globals.EventBus.Dispatch(new SpeakRequestEvent("Hello World"));
         // ?? (Ask Lazlo)-- Globals.EventBus.Register<EnvironmentReadyEvent>(OnEnvironmentReady);
     }
 

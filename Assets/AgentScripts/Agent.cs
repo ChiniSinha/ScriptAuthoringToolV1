@@ -81,17 +81,17 @@ public class Agent : MonoBehaviour
         }
     }
 
-    private void Awake()
+    public void SetupAgent()
     {
-        if (Globals.Config != null)
-        {
+//        if (Globals.Config != null)
+//        {
             //SetupLipSync();
             SetupTts();
-        }
-        else
-        {
-            Globals.EventBus.Register<ConfigurationLoadedEvent>(OnConfigLoaded);
-        }
+//        }
+//        else
+//        {
+//            Globals.EventBus.Register<ConfigurationLoadedEvent>(OnConfigLoaded);
+//        }
         _mediator = gameObject.AddComponent<SingleAgentMediator>();
         _mediator._primaryAgent = this;
 //        _mediator = new SingleAgentMediator(this);
@@ -109,7 +109,10 @@ public class Agent : MonoBehaviour
 
     private void SetupTts()
     {
-        switch (Globals.Config.Tts.Mode)
+        //TODO: Add drop down to select different tts modes
+        Config.TtsMode ttsMode = Config.TtsMode.LOCAL_CEREVOICE;
+
+        switch (ttsMode)
         {
             case Config.TtsMode.NATIVE:
                 if (Application.platform == RuntimePlatform.WindowsEditor ||

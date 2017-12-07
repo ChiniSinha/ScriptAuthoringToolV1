@@ -2,9 +2,9 @@
 
 using System;
 using System.Collections.Generic;
-//using DG.Tweening;
-//using DG.Tweening.Core;
-//using DG.Tweening.Plugins.Options;
+using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -83,8 +83,9 @@ public class FaceAnimations
         {
             string name = "Viseme_" + i + "_Strength";
             //FIX THIS TO A NORMAL TWEEEN
-//            DOTween.To(delegate { return _animator.GetFloat(name); }, delegate(float v) { _animator.SetFloat(name, v); },
-//                i == visemeId ? 1f : 0f, durationTimeMs/1000f);
+
+            DOTween.To(delegate { return _animator.GetFloat(name); }, delegate(float v) { _animator.SetFloat(name, v); },
+                i == visemeId ? 1f : 0f, durationTimeMs/1000f);
         }
 
         _lastVisemeId = visemeId;

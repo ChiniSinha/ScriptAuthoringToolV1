@@ -43,7 +43,7 @@ public class ProjectExpList : MonoBehaviour {
 
     public void Init()
     {
-        Debug.Log("Test: " + Globals.PROJECTNAME + "" + Globals.PROJECTPATH);
+        Debug.Log("Name: " + Globals.PROJECTNAME + " Path:" + Globals.PROJECTPATH);
         if (File.Exists(Path.Combine(Globals.PROJECTPATH, Globals.PROJECTNAME + ".cfg")))
         {
             project = ProjectConfig.Load();
