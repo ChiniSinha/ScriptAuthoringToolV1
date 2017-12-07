@@ -10,7 +10,7 @@ public class NewScriptInit : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        defaultParent.text = Globals.PROJECTPATH;
+        // defaultParent.text = Globals.PROJECTPATH;
     }
 
 }

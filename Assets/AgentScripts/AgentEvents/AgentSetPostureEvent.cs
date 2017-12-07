@@ -1,4 +1,4 @@
-﻿public class AgentSetPostureEvent : RagEvent
+﻿public class AgentSetPostureEvent : Event
 {
     public AgentSetPostureEvent(string direction)
     {

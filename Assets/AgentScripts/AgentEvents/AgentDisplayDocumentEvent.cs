@@ -1,4 +1,4 @@
-﻿public class AgentDisplayDocumentEvent : RagEvent
+﻿public class AgentDisplayDocumentEvent : Event
 {
     public AgentDisplayDocumentEvent(string docUrl, string hand)
     {

@@ -30,7 +30,7 @@ public class SingleAgentMediator : MonoBehaviour
         //Globals.EventBus.Register<AgentPerformGestureEvent>(OnPerformGesture);
         //Globals.EventBus.Register<AgentUpdateExpressionEvent>(OnUpdateExpression);
         Globals.EventBus.Register<AgentHeadNodEvent>(OnHeadNod);
-        Globals.EventBus.Register<EnvironmentReadyEvent>(OnEnvironmentReady);
+        // ?? (Ask Lazlo)-- Globals.EventBus.Register<EnvironmentReadyEvent>(OnEnvironmentReady);
     }
 
     public void Cleanup()
@@ -40,7 +40,7 @@ public class SingleAgentMediator : MonoBehaviour
         //Globals.EventBus.Unregister<AgentBeatEvent>(OnBeat);
         //Globals.EventBus.Unregister<AgentPauseAnimationEvent>(OnPauseAnimations);
         //Globals.EventBus.Unregister<AgentPlayVisemeEvent>(OnViseme);
-        Globals.EventBus.Unregister<AgentClearPointEvent>(OnResetDoc);
+        // - Globals.EventBus.Unregister<AgentClearPointEvent>(OnResetDoc);
         //Globals.EventBus.Unregister<AgentChangeGazeEvent>(OnGazeChange);
         Globals.EventBus.Unregister<AgentSetIdleEvent>(OnSetIdle);
         Globals.EventBus.Unregister<AgentDisplayDocumentEvent>(OnDisplayDocument);
@@ -49,7 +49,7 @@ public class SingleAgentMediator : MonoBehaviour
         //Globals.EventBus.Unregister<AgentPerformGestureEvent>(OnPerformGesture);
         //Globals.EventBus.Unregister<AgentUpdateExpressionEvent>(OnUpdateExpression);
         Globals.EventBus.Unregister<AgentHeadNodEvent>(OnHeadNod);
-        Globals.EventBus.Unregister<EnvironmentReadyEvent>(OnEnvironmentReady);
+        // -- Ask Lazlo -- Globals.EventBus.Unregister<EnvironmentReadyEvent>(OnEnvironmentReady);
     }
 
     //private void OnPauseAnimations(AgentPauseAnimationEvent e)

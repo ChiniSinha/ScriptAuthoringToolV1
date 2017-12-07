@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.IO;
+using TinyJSON;
 using System.Collections;
 
 public class ScriptConfig : MonoBehaviour
@@ -16,14 +17,14 @@ public class ScriptConfig : MonoBehaviour
     public static void save(Script script, string scriptJsonPath, bool prettyPrint=true)
     {
 
-        string json = JsonUtility.ToJson(script, prettyPrint);
+        var json = JSON.Dump(script);
         File.WriteAllText(scriptJsonPath, json);
     }
 
     public static Script load(string scriptJsonPath)
     {
         string json = File.ReadAllText(scriptJsonPath);
-        return JsonUtility.FromJson<Script>(json);
+        return JSON.Load(json).Make<Script>();
     }
 
 }

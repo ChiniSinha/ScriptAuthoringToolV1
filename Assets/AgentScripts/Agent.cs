@@ -160,13 +160,13 @@ public class Agent : MonoBehaviour
         Globals.Register(LipSyncPlayer);
     }
 */
-/*
+
     private void OnConfigLoaded(ConfigurationLoadedEvent e)
     {
-        SetupLipSync();
+        //SetupLipSync();
         SetupTts();
     }
-*/
+
     private void OnDestroy()
     {
         _mediator.Cleanup();

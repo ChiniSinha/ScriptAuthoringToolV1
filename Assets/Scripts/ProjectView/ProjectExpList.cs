@@ -43,18 +43,21 @@ public class ProjectExpList : MonoBehaviour {
 
     public void Init()
     {
+        Debug.Log("Test: " + Globals.PROJECTNAME + "" + Globals.PROJECTPATH);
         if (File.Exists(Path.Combine(Globals.PROJECTPATH, Globals.PROJECTNAME + ".cfg")))
         {
-            ProjectConfig projConfig = new ProjectConfig();
-            projConfig.name = Globals.PROJECTNAME;
-            projConfig.path = Globals.PROJECTPATH;
-            ProjectConfig.save(projConfig);
+            project = ProjectConfig.Load();
+            Debug.Log(JsonUtility.ToJson(project, true));
+            project.name = Globals.PROJECTNAME;
+            project.path = Globals.PROJECTPATH;
+            
+            ProjectConfig.updateProjectConfig();
+            ProjectConfig.save(project);
             foreach (Transform child in contentPanel)
             {
                 GameObject.Destroy(child.gameObject);
             }
             ProjectConfig.updateProjectConfig();
-            Debug.Log(JsonUtility.ToJson(ProjectConfig.Load()));
             float counter = 0f;
             ProjectConfig conf = ProjectConfig.Load();
 
@@ -81,7 +84,6 @@ public class ProjectExpList : MonoBehaviour {
             ProjectExpButton fileButton = newFile.GetComponent<ProjectExpButton>();
             fileButton = changePosition(fileButton, counter);
             fileButton.setUp(fileItem);
-
             if (folderItem != null)
             {
                 folderItem.childButtons.Add(fileButton);

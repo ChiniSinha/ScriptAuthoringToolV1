@@ -4,7 +4,7 @@
 
 #endregion
 
-public class ProcessUILogicEvent : RagEvent
+public class ProcessUILogicEvent : Event
 {
     public ProcessUILogicEvent(UI ui)
     {

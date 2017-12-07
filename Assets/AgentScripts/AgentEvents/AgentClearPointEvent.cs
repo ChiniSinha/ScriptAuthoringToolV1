@@ -1,3 +1,3 @@
-﻿public class AgentClearPointEvent : RagEvent
+﻿public class AgentClearPointEvent : Event
 {
 }

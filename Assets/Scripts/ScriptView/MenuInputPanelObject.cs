@@ -5,7 +5,6 @@ using System.Collections;
 public class MenuInputPanelObject : MonoBehaviour
 {
 
-    string stateName;
     public InputField userResponse;
     public InputField nextState;
 
@@ -15,9 +14,18 @@ public class MenuInputPanelObject : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetUp(MenuChoice menu)
     {
-
+        // TODO: Needs more kinds of implementation for other UI objects
+        userResponse.text = menu.Text;
+        if(menu.NextState != null)
+        {
+            nextState.text = menu.NextState;
+        }
+        else if (menu.Execute != null)
+        {
+            nextState.text = "$" + menu.Execute + "$";
+        }
+        
     }
 }

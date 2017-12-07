@@ -27,6 +27,11 @@ public class RagMenu : UI
 {
     public List<MenuChoice> Menu;
     public string ElementName;
+
+    public RagMenu()
+    {
+        Menu = new List<MenuChoice>();
+    }
 }
 
 [Serializable]

@@ -1,4 +1,4 @@
-﻿public class AudioEvent : RagEvent
+﻿public class AudioEvent : Event
 {
     public enum Type
     {

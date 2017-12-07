@@ -1,3 +1,3 @@
-﻿public class StopSpeakingRequestEvent : RagEvent
+﻿public class StopSpeakingRequestEvent : Event
 {
 }

@@ -80,6 +80,7 @@ public class WebTTS : TTSController
                     timestamp += 0.000001f;
                 }
 
+                
                 switch (Globals.Config.Tts.VisemeMapping)
                 {
                     case Config.VisemeMapping.SAPI:
@@ -89,6 +90,7 @@ public class WebTTS : TTSController
                         visemeId = CrapiVisemeMap.MapViseme(visemeId);
                         break;
                 }
+                
 
                 //EventQueue.Add(timestamp, new AgentPlayVisemeEvent(visemeId, nextTimestamp - thisTimestamp));
                 CommandQueue.Add(timestamp, new PlayVisemeCommand(visemeId, nextTimestamp - thisTimestamp));

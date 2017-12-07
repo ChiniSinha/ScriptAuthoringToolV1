@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,12 +20,13 @@ public class ProjectButton : MonoBehaviour {
     {
         projectName.text = project.projectName;
         projectLocation.text = project.projectLocationPath;
-        Globals.PROJECTNAME = project.projectName;
-        Globals.PROJECTPATH = project.projectLocationPath;
     }
 
     public void handleClick()
     {
+        
+        Globals.PROJECTNAME = this.transform.GetChild(0).GetComponent<Text>().text;
+        Globals.PROJECTPATH = this.transform.GetChild(1).GetComponent<Text>().text;
         SceneManager.LoadScene(1);
     }
 	

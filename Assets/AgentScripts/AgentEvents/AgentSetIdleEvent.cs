@@ -1,4 +1,4 @@
-﻿public class AgentSetIdleEvent : RagEvent
+﻿public class AgentSetIdleEvent : Event
 {
     public AgentSetIdleEvent(bool shouldIdle)
     {

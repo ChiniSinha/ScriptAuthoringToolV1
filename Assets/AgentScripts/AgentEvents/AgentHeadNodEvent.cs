@@ -1,3 +1,3 @@
-public class AgentHeadNodEvent : RagEvent
+public class AgentHeadNodEvent : Event
 {
 }

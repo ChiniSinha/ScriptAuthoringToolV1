@@ -231,7 +231,7 @@ public class CereprocTts : TTSController, ICereprocTTS
         SetListenerObject(gameObject.name);
         SetCallbacks(CereprocEvent, CereprocFileReady, CereprocError);
 
-        LoadTTS(voicePath, Application.temporaryCachePath + "/", voiceFile);
+        //LoadTTS(voicePath, Application.temporaryCachePath + "/", voiceFile);
     }
 
     public override void SpeakText(string speech)

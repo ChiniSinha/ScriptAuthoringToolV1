@@ -10,7 +10,6 @@ public class InitScene : MonoBehaviour {
     public GameObject scriptTab;
     public GameObject topTab;
     public GameObject advancedTab;
-    public GameObject UIPanel;
     public GameObject scriptPanel;
 
     void Start()
@@ -18,7 +17,6 @@ public class InitScene : MonoBehaviour {
         scriptTab.SetActive(true);
         topTab.SetActive(false);
         advancedTab.SetActive(false);
-        UIPanel.SetActive(false);
         scriptPanel.SetActive(false);
 
         ProjectConfig config = new ProjectConfig();
@@ -62,6 +60,7 @@ public class InitScene : MonoBehaviour {
             ProjectConfig.Files fileToAdd = new ProjectConfig.Files();
             fileToAdd.fileName = info.Name;
             fileToAdd.filePath = info.FullName;
+            fileToAdd.jsonFilePath = info.FullName.Replace(".script", ".json");
             files.Add(fileToAdd);
         }
 

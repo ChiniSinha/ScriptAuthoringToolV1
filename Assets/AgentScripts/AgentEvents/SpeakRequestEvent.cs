@@ -4,7 +4,7 @@ using System.Xml;
 
 #endregion
 
-public class SpeakRequestEvent : RagEvent
+public class SpeakRequestEvent : Event
 {
     public SpeakRequestEvent(XmlNode node)
     {

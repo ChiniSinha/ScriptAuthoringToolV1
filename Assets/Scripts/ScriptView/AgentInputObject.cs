@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Collections.Generic;
 
 public class AgentInputObject : MonoBehaviour
 {
 
     public InputField agentUtterance;
-    string stateName;
 
     // Use this for initialization
     void Start()
@@ -14,9 +13,8 @@ public class AgentInputObject : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetUp(SpeechAction action)
     {
-
+        agentUtterance.text = action.Speech;
     }
 }

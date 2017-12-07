@@ -1,4 +1,4 @@
-﻿public class AgentChangePointEvent : RagEvent
+﻿public class AgentChangePointEvent : Event
 {
     public AgentChangePointEvent(float x, float y, string hand, string shape)
     {

@@ -1,4 +1,4 @@
-﻿public class SpeechCompleteEvent : RagEvent
+﻿public class SpeechCompleteEvent : Event
 {
     public SpeechCompleteEvent(Agent agent)
     {

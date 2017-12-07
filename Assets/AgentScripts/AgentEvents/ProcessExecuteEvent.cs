@@ -4,7 +4,7 @@
 
 #endregion
 
-public class ProcessExecuteEvent : RagEvent
+public class ProcessExecuteEvent : Event
 {
     public ProcessExecuteEvent(string command)
     {
