@@ -10,7 +10,7 @@ public class ParentFolderButton : MonoBehaviour
 
     public void handleClick()
     {
-        string selectedPath = EditorUtility.OpenFolderPanel("Select Script Folder", Globals.PROJECTPATH, "");
+        string selectedPath = EditorUtility.OpenFolderPanel("Select Script Folder", MyGlobals.PROJECTPATH, "");
         if (selectedPath != "")
         {
             defaultPath.text = selectedPath;

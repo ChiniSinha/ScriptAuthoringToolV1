@@ -1,28 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System;
 
 public class SaveSriptButton : MonoBehaviour
 {
     public Transform stateContentPanel;
+    public GameObject savePanel;
 
     public void HandleSave()
     {
-        Debug.Log("Script name:" + Globals.CURRENTSCRIPTNAME);
-        Debug.Log("Script path: " + Globals.CURRENTSCRIPTPATH);
-        ScriptConfig config = new ScriptConfig();
-        config.scriptName = Globals.CURRENTSCRIPTNAME;
-        config.scriptJsonPath = Globals.CURRENTSCRIPTPATH;
-        StatePanelObject[] states = stateContentPanel.GetComponentsInChildren<StatePanelObject>();
-        Script script = new Script();
-        script.States = new List<State>();
-        foreach(StatePanelObject state in states)
+        try
         {
-            Debug.Log("State name: " + state.stateName.text);
-            State addState = GetStateForScript(state);
-            script.States.Add(addState);
+            Debug.Log("Script name:" + MyGlobals.CURRENTSCRIPTNAME);
+            Debug.Log("Script path: " + MyGlobals.CURRENTSCRIPTPATH);
+            ScriptConfig config = new ScriptConfig();
+            config.scriptName = MyGlobals.CURRENTSCRIPTNAME;
+            config.scriptJsonPath = MyGlobals.CURRENTSCRIPTPATH;
+            StatePanelObject[] states = stateContentPanel.GetComponentsInChildren<StatePanelObject>();
+            Script script = new Script();
+            script.States = new List<State>();
+            foreach (StatePanelObject state in states)
+            {
+                Debug.Log("State name: " + state.stateName.text);
+                State addState = GetStateForScript(state);
+                script.States.Add(addState);
+            }
+            ScriptConfig.save(script, config.scriptJsonPath);
+            savePanel.SetActive(true);
+        } 
+        catch(Exception ex)
+        {
+            Debug.Log(ex.StackTrace);
         }
-        ScriptConfig.save(script, config.scriptJsonPath);
     }
 
     private State GetStateForScript(StatePanelObject state)

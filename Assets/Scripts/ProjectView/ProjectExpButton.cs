@@ -53,12 +53,15 @@ public class ProjectExpButton : MonoBehaviour {
         }
         else
         {
+            GameObject scriptTab = GameObject.Find("ScriptView").transform.GetChild(1).gameObject;
+            scriptTab.GetComponent<Button>().onClick.Invoke();
+
             GameObject scriptPanel = GameObject.Find("ScriptView");
             GameObject tab = scriptPanel.transform.Find("Tab").gameObject;
             Text tabLabel = tab.GetComponentInChildren<Text>();
             tabLabel.text = contentName.text;
-            Globals.CURRENTSCRIPTNAME = this.contentName.text;
-            Globals.CURRENTSCRIPTPATH = this.jsonPath;
+            MyGlobals.CURRENTSCRIPTNAME = this.contentName.text;
+            MyGlobals.CURRENTSCRIPTPATH = this.jsonPath;
             GameObject scriptPane = scriptPanel.transform.Find("Pane").gameObject;
             scriptPane.GetComponentInChildren<Text>().gameObject.SetActive(false);
             Transform contentPanel = scriptPane.transform.GetChild(0)
@@ -68,15 +71,19 @@ public class ProjectExpButton : MonoBehaviour {
                 Destroy(child.gameObject);
             }
             Script script = ScriptConfig.load(this.jsonPath);
-            foreach(State state in script.States)
+            if(script != null)
             {
-                GameObject stateObject = stateObjectPool.GetObject();
-                stateObject.transform.SetParent(contentPanel);
+                foreach (State state in script.States)
+                {
+                    GameObject stateObject = stateObjectPool.GetObject();
+                    stateObject.transform.SetParent(contentPanel);
 
-                StatePanelObject statePanel = stateObject.GetComponent<StatePanelObject>();
-                statePanel.setUp(state);
-                
+                    StatePanelObject statePanel = stateObject.GetComponent<StatePanelObject>();
+                    statePanel.setUp(state);
+
+                }
             }
+            
         } 
     }
 

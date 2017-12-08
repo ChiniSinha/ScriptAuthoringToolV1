@@ -15,8 +15,8 @@ public class AddScriptButton : MonoBehaviour
         ProjectConfig.createScript(scriptFolder.text, scriptName.text);
         addScriptPanel.SetActive(false);
         scriptTab.text = scriptName.text + ".script";
-        Globals.CURRENTSCRIPTNAME = scriptName.text;
-        Globals.CURRENTSCRIPTPATH = scriptFolder.text + scriptName.text + ".json";
+        MyGlobals.CURRENTSCRIPTNAME = scriptName.text;
+        MyGlobals.CURRENTSCRIPTPATH = scriptFolder.text + scriptName.text + ".json";
     }
 }
     

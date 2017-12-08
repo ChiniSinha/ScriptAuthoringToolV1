@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region
+
+using System;
 using System.IO;
-using UnityEngine;
 using System.Reflection;
+using UnityEngine;
+
+#endregion
 
 [Serializable]
-public class Config : ICloneable {
-
+public class Config : ICloneable
+{
     public enum CommandMode
     {
         NONE,
@@ -38,9 +41,6 @@ public class Config : ICloneable {
         LOCAL_CEREVOICE
     }
 
-    public ProjectData projectData;
-    public List<ProjectListData> projectList;
-
     public AgentSection Agent;
     public DatabaseSection Database;
     public GuiSection Gui;
@@ -53,9 +53,6 @@ public class Config : ICloneable {
 
     public Config()
     {
-        projectData = new ProjectData();
-        projectList = new List<ProjectListData>();
-
         System = new SystemSection();
         Agent = new AgentSection();
         Database = new DatabaseSection();
@@ -65,6 +62,11 @@ public class Config : ICloneable {
         Gui = new GuiSection();
     }
 
+    public static string DefaultFilepath
+    {
+        get { return Path.Combine(Application.streamingAssetsPath, Consts.ConfigFilename); }
+    }
+
     public object Clone()
     {
         Config clone = new Config();
@@ -72,13 +74,13 @@ public class Config : ICloneable {
         foreach (FieldInfo field in fields)
         {
             object thisSection = field.GetValue(this);
-            ConstructorInfo defaultConstructor = field.FieldType.GetConstructor(new Type[] { });
+            ConstructorInfo defaultConstructor = field.FieldType.GetConstructor(new Type[] {});
             if (defaultConstructor == null)
             {
                 throw new NotImplementedException();
             }
 
-            object otherSection = defaultConstructor.Invoke(new object[] { });
+            object otherSection = defaultConstructor.Invoke(new object[] {});
 
             FieldInfo[] sectionFields = field.FieldType.GetFields();
             foreach (FieldInfo sectionField in sectionFields)
@@ -91,43 +93,20 @@ public class Config : ICloneable {
         return clone;
     }
 
-    public static void Save(Config cfg, bool prettyPrint = false)
+    public static void Save(Config cfg, string filename, bool prettyPrint = false)
     {
         string json = JsonUtility.ToJson(cfg, prettyPrint);
-        File.WriteAllText(Path.Combine(UsedValues.DefaultFilePath, UsedValues.ConfigFileName), json);
+        File.WriteAllText(filename, json);
     }
 
-    public static Config Load() 
+    public static Config LoadFromString(string contents)
     {
-        string json = File.ReadAllText(Path.Combine(UsedValues.DefaultFilePath, UsedValues.ConfigFileName));
-        return JsonUtility.FromJson<Config>(json);
-    }
-
-    public static ProjectListData GetNewProjectListItem(string projName, string projectLocation)
-    {
-        ProjectListData projectListData = new ProjectListData();
-        projectListData.projectName = projName;
-        projectListData.projectLocationPath = projectLocation;
-        return projectListData;
-    }
-
-    [Serializable]
-    public class ProjectData
-    {
-        public string projectPath;
-    }
-
-    [Serializable]
-    public class ProjectListData
-    {
-        public string projectName;
-        public string projectLocationPath;
+        return JsonUtility.FromJson<Config>(contents);
     }
 
     [Serializable]
     public class SystemSection
     {
-        //public RagLog.MessageType LogMask;
         public CommandMode Mode;
         public string ProjectTitle;
     }

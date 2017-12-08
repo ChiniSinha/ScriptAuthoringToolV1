@@ -43,16 +43,25 @@ public class ProjectExpList : MonoBehaviour {
 
     public void Init()
     {
-        Debug.Log("Name: " + Globals.PROJECTNAME + " Path:" + Globals.PROJECTPATH);
-        if (File.Exists(Path.Combine(Globals.PROJECTPATH, Globals.PROJECTNAME + ".cfg")))
+        Debug.Log("Name: " + MyGlobals.PROJECTNAME + " Path:" + MyGlobals.PROJECTPATH);
+        if (File.Exists(Path.Combine(MyGlobals.PROJECTPATH, MyGlobals.PROJECTNAME + ".cfg")))
         {
-            project = ProjectConfig.Load();
+            // nNew project flow
+            if (ProjectConfig.Load() == null)
+            {
+                project = new ProjectConfig();
+                project.name = MyGlobals.PROJECTNAME;
+                project.path = MyGlobals.PROJECTPATH;
+
+                ProjectConfig.save(project);
+            }
+            else
+            {
+                project = ProjectConfig.Load();
+                ProjectConfig.updateProjectConfig();
+            }
             Debug.Log(JsonUtility.ToJson(project, true));
-            project.name = Globals.PROJECTNAME;
-            project.path = Globals.PROJECTPATH;
             
-            ProjectConfig.updateProjectConfig();
-            ProjectConfig.save(project);
             foreach (Transform child in contentPanel)
             {
                 GameObject.Destroy(child.gameObject);

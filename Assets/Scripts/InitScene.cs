@@ -20,14 +20,14 @@ public class InitScene : MonoBehaviour {
         scriptPanel.SetActive(false);
 
         ProjectConfig config = new ProjectConfig();
-        config.name = Globals.PROJECTNAME;
-        config.path = Globals.PROJECTPATH;
+        config.name = MyGlobals.PROJECTNAME;
+        config.path = MyGlobals.PROJECTPATH;
 
-        config.folders = GetFolders(Globals.PROJECTPATH);
-        config.files = GetFilesInFolder(Globals.PROJECTPATH);
+        config.folders = GetFolders(MyGlobals.PROJECTPATH);
+        config.files = GetFilesInFolder(MyGlobals.PROJECTPATH);
 
         ProjectConfig.save(config);
-        Globals.SetProjectConfig(config);
+        MyGlobals.SetProjectConfig(config);
     }
 
     public List<ProjectConfig> GetFolders(string path)

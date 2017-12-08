@@ -32,13 +32,12 @@ public class NewProjectButton : MonoBehaviour {
 
     void CreateProjectConfigAndFiles(int index)
     {
-        string projectPath = Path.Combine(Config.Load().projectData.projectPath, projectName.text);
+        string projectPath = Path.Combine(MyConfig.Load().projectData.projectPath, projectName.text);
         try
         {
             //Adding Project details to the config file
-            Config config = new Config();
-            config.projectData.projectPath = Config.Load().projectData.projectPath;
-            List<Config.ProjectListData> list = Config.Load().projectList;
+            MyConfig config = MyConfig.Load();
+            List<MyConfig.ProjectListData> list = config.projectList;
             if (CheckDuplicateProject(config))
             {
                 newProjectPanel.GetComponentInChildren<Text>().text = "Project Name Already Exist!";
@@ -51,13 +50,13 @@ public class NewProjectButton : MonoBehaviour {
                 File.Create(Path.Combine(projectPath, "Top.script"));
                 File.Create(Path.Combine(projectPath, "Top.json"));
                 File.Create(Path.Combine(projectPath, "functions.txt"));
-                Config.ProjectListData newElement = Config.GetNewProjectListItem(projectName.text, projectPath);
+                MyConfig.ProjectListData newElement = MyConfig.GetNewProjectListItem(projectName.text, projectPath);
                 list.Add(newElement);
                 config.projectList = list;
                 Debug.Log(JsonUtility.ToJson(config));
-                Config.Save(config);
-                Globals.PROJECTNAME = projectName.text;
-                Globals.PROJECTPATH = projectPath;
+                MyConfig.Save(config);
+                MyGlobals.PROJECTNAME = projectName.text;
+                MyGlobals.PROJECTPATH = projectPath;
                 SceneManager.LoadScene(index);
             }
         }
@@ -67,11 +66,11 @@ public class NewProjectButton : MonoBehaviour {
         }
     }
 
-    private bool CheckDuplicateProject(Config config)
+    private bool CheckDuplicateProject(MyConfig config)
     {
-        List<Config.ProjectListData> list = Config.Load().projectList;
+        List<MyConfig.ProjectListData> list = MyConfig.Load().projectList;
         bool duplicate = false;
-        foreach (Config.ProjectListData data in list)
+        foreach (MyConfig.ProjectListData data in list)
         {
             if (data.projectName == projectName.text)
             {

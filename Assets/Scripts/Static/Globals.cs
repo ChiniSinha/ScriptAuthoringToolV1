@@ -13,7 +13,6 @@ public static class Globals {
     }
 
     public static Config Config { get; private set; }
-    public static ProjectConfig ProjectConfig { get; private set; }
 
     public static Flag Flags;
 
@@ -79,11 +78,6 @@ public static class Globals {
         Config = config;
     }
 
-    public static void SetProjectConfig(ProjectConfig projectConfig)
-    {
-        ProjectConfig = projectConfig;
-    }
-
     public static void SetEventBus(EventBus e)
     {
         if (EventBus)
@@ -105,10 +99,4 @@ public static class Globals {
 
         CommandQueue = q;
     }
-
-    public static string PROJECTNAME;
-    public static string PROJECTPATH;
-
-    public static string CURRENTSCRIPTNAME;
-    public static string CURRENTSCRIPTPATH;
 }

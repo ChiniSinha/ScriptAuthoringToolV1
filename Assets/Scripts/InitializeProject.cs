@@ -27,12 +27,16 @@ public class InitializeProject : MonoBehaviour {
             if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UsedValues.projectDir)))
             {
                 Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UsedValues.projectDir));
-                Config config = new Config();
+            }
+            if(!File.Exists(Path.Combine(UsedValues.DefaultFilePath, UsedValues.ConfigFileName)))
+            {
+                
+                MyConfig config = new MyConfig();
                 config.projectData.projectPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UsedValues.projectDir);
-                Config.Save(config);
+                MyConfig.Save(config);
                 Debug.Log("Config value: " + config.projectData.projectPath);
-                Globals.SetConfig(config);
-                Debug.Log("Value from file: " + JsonUtility.ToJson(Globals.Config.projectData));
+                MyGlobals.SetConfig(config);
+                Debug.Log("Value from file: " + JsonUtility.ToJson(MyGlobals.Config.projectData));
             }
         }
         catch (Exception ex)

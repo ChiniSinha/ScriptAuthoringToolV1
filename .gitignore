@@ -75,3 +75,5 @@ Assets/Plugins/Cereproc/CereprocWin/x64/
 Assets/Plugins/Cereproc/CereprocWin/Release/
 Assets/Plugins/Cereproc/CereprocWin/Release.meta
 Assets/Plugins/Cereproc/CereprocWin/x64.meta
+
+Assets/StreamingAssets/project.cfg*

@@ -16,7 +16,7 @@ public class ProjectButton : MonoBehaviour {
         button.onClick.AddListener(handleClick);    
     }
 
-    public void SetUp(Config.ProjectListData project)
+    public void SetUp(MyConfig.ProjectListData project)
     {
         projectName.text = project.projectName;
         projectLocation.text = project.projectLocationPath;
@@ -24,9 +24,9 @@ public class ProjectButton : MonoBehaviour {
 
     public void handleClick()
     {
-        
-        Globals.PROJECTNAME = this.transform.GetChild(0).GetComponent<Text>().text;
-        Globals.PROJECTPATH = this.transform.GetChild(1).GetComponent<Text>().text;
+
+        MyGlobals.PROJECTNAME = this.transform.GetChild(0).GetComponent<Text>().text;
+        MyGlobals.PROJECTPATH = this.transform.GetChild(1).GetComponent<Text>().text;
         SceneManager.LoadScene(1);
     }
 	

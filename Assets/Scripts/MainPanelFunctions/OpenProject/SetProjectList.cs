@@ -6,19 +6,19 @@ using UnityEngine.UI;
 
 public class SetProjectList : MonoBehaviour {
 
-    List<Config.ProjectListData> projectList = new List<Config.ProjectListData>();
+    List<MyConfig.ProjectListData> projectList = new List<MyConfig.ProjectListData>();
     public Transform contentPanel;
     public SimpleObjectPool buttonObjectPool;
 
     private void Start()
     {
-        projectList = Config.Load().projectList;
+        projectList = MyConfig.Load().projectList;
         AddProjectButtons();
     }
 
     private void AddProjectButtons()
     {
-        foreach(Config.ProjectListData project in projectList)
+        foreach(MyConfig.ProjectListData project in projectList)
         {
             GameObject newProject = buttonObjectPool.GetObject();
             newProject.transform.SetParent(contentPanel);

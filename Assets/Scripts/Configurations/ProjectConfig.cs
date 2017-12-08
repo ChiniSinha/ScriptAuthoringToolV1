@@ -62,7 +62,7 @@ public class ProjectConfig
 
     public static ProjectConfig Load()
     {
-        string json = File.ReadAllText(Path.Combine(Globals.PROJECTPATH, Globals.PROJECTNAME + ".cfg"));
+        string json = File.ReadAllText(Path.Combine(MyGlobals.PROJECTPATH, MyGlobals.PROJECTNAME + ".cfg"));
         return JsonUtility.FromJson<ProjectConfig>(json);
     }
 

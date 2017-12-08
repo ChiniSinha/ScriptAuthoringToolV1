@@ -24,7 +24,11 @@ public class ScriptConfig : MonoBehaviour
     public static Script load(string scriptJsonPath)
     {
         string json = File.ReadAllText(scriptJsonPath);
-        return JSON.Load(json).Make<Script>();
+        if (json.Length > 0)
+            return JSON.Load(json).Make<Script>();
+        else
+            return null;
+        
     }
 
 }

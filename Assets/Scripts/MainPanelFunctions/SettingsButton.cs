@@ -22,7 +22,7 @@ public class SettingsButton : MonoBehaviour {
 
     public void getDefaultPath()
     {
-        defaultPath.text = Config.Load().projectData.projectPath;
+        defaultPath.text = MyConfig.Load().projectData.projectPath;
     }
 
     public void updateDefaultPath()
@@ -30,12 +30,12 @@ public class SettingsButton : MonoBehaviour {
         string documentsPath = Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
         Debug.Log(documentsPath);
 
-        Config config = new Config();
+        MyConfig config = new MyConfig();
         config.projectData.projectPath = settingsPanel.GetComponentInChildren<InputField>().text;
-        Config.Save(config);
+        MyConfig.Save(config);
         Debug.Log("Config value: " + config.projectData.projectPath);
-        Globals.SetConfig(config);
-        Debug.Log("Value from file: " + JsonUtility.ToJson(Globals.Config.projectData));
+        MyGlobals.SetConfig(config);
+        Debug.Log("Value from file: " + JsonUtility.ToJson(MyGlobals.Config.projectData));
 
         settingsPanel.GetComponentInChildren<Text>().text = "Update Successful!";
     }

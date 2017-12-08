@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -219,6 +217,9 @@
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>C:/Users/chini/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets/ThirdParty/DOTween/DOTween.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AgentScripts\Agent.cs" />
@@ -280,6 +281,7 @@
     <Compile Include="Assets\AgentScripts\Commands\SetPostureCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\WaitForUserInputCommand.cs" />
     <Compile Include="Assets\AgentScripts\Extensions.cs" />
+    <Compile Include="Assets\AgentScripts\GlobalStarter.cs" />
     <Compile Include="Assets\AgentScripts\Mediators\SingleAgentMediator.cs" />
     <Compile Include="Assets\AgentScripts\MessageDeserializer\DefaultRAG2Deserializer.cs" />
     <Compile Include="Assets\AgentScripts\MessageDeserializer\IMessageDeserializer.cs" />
@@ -314,6 +316,7 @@
     <Compile Include="Assets\Scripts\Actions\ParentFolderButton.cs" />
     <Compile Include="Assets\Scripts\Actions\SaveSriptButton.cs" />
     <Compile Include="Assets\Scripts\Configurations\Config.cs" />
+    <Compile Include="Assets\Scripts\Configurations\MyConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\ProjectConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\ScriptConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\UsedValues.cs" />
@@ -345,6 +348,7 @@
     <Compile Include="Assets\Scripts\ScriptView\UIPanel\UserMenuItem.cs" />
     <Compile Include="Assets\Scripts\Static\Consts.cs" />
     <Compile Include="Assets\Scripts\Static\Globals.cs" />
+    <Compile Include="Assets\Scripts\Static\MyGlobals.cs" />
     <Compile Include="Assets\Scripts\Tabs\FunctionTextLoader.cs" />
     <Compile Include="Assets\ThirdParty\TinyJSON\Decoder.cs" />
     <Compile Include="Assets\ThirdParty\TinyJSON\EncodeOptions.cs" />
@@ -364,8 +368,8 @@
     <None Include="Assets\DefaultResourcesExtra\Normal-VertexLit.shader" />
     <None Include="Assets\DefaultResourcesExtra\Standard.shader" />
     <None Include="Assets\Shaders\Double Sided Shaders\Double Sided Transparent Diffuse Bump Cutout.shader" />
+    <None Include="Assets\ThirdParty\DOTween\DOTween.XML" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>
