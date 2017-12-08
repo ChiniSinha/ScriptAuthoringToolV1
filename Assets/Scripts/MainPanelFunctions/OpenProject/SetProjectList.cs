@@ -22,6 +22,7 @@ public class SetProjectList : MonoBehaviour {
         {
             GameObject newProject = buttonObjectPool.GetObject();
             newProject.transform.SetParent(contentPanel);
+            //newProject.transform.Reset();
 
             ProjectButton projectButton = newProject.GetComponent<ProjectButton>();
             projectButton.SetUp(project);

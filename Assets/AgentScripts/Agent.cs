@@ -103,7 +103,7 @@ public class Agent : MonoBehaviour
 
     private void Start()
     {
-        //Globals.EventBus.Dispatch(new AgentChangeGazeEvent("TOWARDS"));
+        Globals.EventBus.Dispatch(new AgentChangeGazeEvent("TOWARDS"));
         Globals.CommandQueue.Enqueue(new GazeCommand("TOWARDS"));
     }
 

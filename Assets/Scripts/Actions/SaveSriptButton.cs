@@ -7,6 +7,8 @@ public class SaveSriptButton : MonoBehaviour
 {
     public Transform stateContentPanel;
     public GameObject savePanel;
+    public Transform stateViewContentPanel;
+    public SimpleObjectPool stateViewObjectPool;
 
     public void HandleSave()
     {
@@ -25,6 +27,12 @@ public class SaveSriptButton : MonoBehaviour
                 Debug.Log("State name: " + state.stateName.text);
                 State addState = GetStateForScript(state);
                 script.States.Add(addState);
+
+                GameObject stateElement = stateViewObjectPool.GetObject();
+                stateElement.transform.SetParent(stateViewContentPanel);
+                stateElement.transform.Reset();
+                stateElement.transform.GetComponent<SelectStateButton>().state = state;
+
             }
             ScriptConfig.save(script, config.scriptJsonPath);
             savePanel.SetActive(true);

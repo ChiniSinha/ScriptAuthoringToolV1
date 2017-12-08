@@ -24,4 +24,10 @@ public static class MyGlobals
     public static string CURRENTSCRIPTNAME;
     public static string CURRENTSCRIPTPATH;
 
+    public static void Reset(this Transform transform)
+    {
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+        transform.localScale = Vector3.one;
+    }
 }

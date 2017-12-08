@@ -45,6 +45,7 @@ public class StatePanelObject : MonoBehaviour
                     this.gameObject.transform.Find("AgentToggle").GetComponent<Toggle>().isOn = true;
                     GameObject agentObject = agentPool.GetObject();
                     agentObject.transform.SetParent(agentContent);
+                    agentObject.transform.Reset();
 
                     AgentInputObject agent = agentObject.GetComponent<AgentInputObject>();
                     agent.SetUp((SpeechAction)action);
@@ -60,6 +61,7 @@ public class StatePanelObject : MonoBehaviour
             {
                 GameObject menuObject = menuPool.GetObject();
                 menuObject.transform.SetParent(menuContent);
+                menuObject.transform.Reset();
 
                 MenuInputPanelObject choice = menuObject.GetComponent<MenuInputPanelObject>();
                 choice.SetUp(menu);

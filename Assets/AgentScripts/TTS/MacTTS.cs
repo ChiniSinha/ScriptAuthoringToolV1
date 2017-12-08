@@ -62,7 +62,7 @@ public class MacTTS : TTSController
 		//TODO: FIGURE OUT WHY THIS IS NEEDED
 		sync = "" + currentSync;
 		currentSync++;
-		//RagLog.Log("sync:" + sync);
+		//Debug.Log("sync:" + sync);
 		//END OF SYNC-HACK
 		PendingSyncQueue.Enqueue(int.Parse(sync));
 	 }
@@ -70,9 +70,9 @@ public class MacTTS : TTSController
 	public override void InitTts(){
 		int result = createTTS(PrintPhoneme,PrintSync);
 		if (result == 1) {
-			RagLog.Log("MacTTS created");
+			Debug.Log("MacTTS created");
 		} else {
-			RagLog.Log("MacTTS init failed!");
+			Debug.Log("MacTTS init failed!");
 		}
 	}
 		
@@ -96,7 +96,7 @@ public class MacTTS : TTSController
 		input = input.Replace ("<speech>", "");
 		input = input.Replace ("</speech>", "");
 		//Add sync blocks
-		RagLog.Log("MacTTS: Orginal Input:" + input);
+		Debug.Log("MacTTS: Orginal Input:" + input);
 		int syncCount = 1;
 		try {
 		    Regex regex = new Regex(@"<[^>]+>");
@@ -104,15 +104,15 @@ public class MacTTS : TTSController
 				syncMessages[syncCount] = regex.Match(input).Value;
 				syncMessages[syncCount] = syncMessages[syncCount].Substring(1,syncMessages[syncCount].Length - 3);
 				input = ReplaceFirst(input,regex.Match(input).Value,"[[sync R" + ReverseNumber(syncCount) + "]]");
-				//RagLog.Log("[sync R" + ReverseNumber(syncCount) + "]]" + " | " + syncMessages[syncCount]);
+				//Debug.Log("[sync R" + ReverseNumber(syncCount) + "]]" + " | " + syncMessages[syncCount]);
 				syncCount++;
 		    }
 		} catch (Exception e) {
-			RagLog.Log("Problem cleaning speak input: " + e);
+			Debug.Log("Problem cleaning speak input: " + e);
 		    // Syntax error in the regular expression
 		}
 		
-		//RagLog.Log("sync ready input = " + input);
+		//Debug.Log("sync ready input = " + input);
 		
 		speakText (input);
 	}
@@ -125,7 +125,7 @@ public class MacTTS : TTSController
 		} else if(org >= 10 && org < 100){
 			s = "0" + s;
 		} else {
-			RagLog.Log("Error flipping for sync message, org count is :" + org);
+			Debug.Log("Error flipping for sync message, org count is :" + org);
 		}
 		char[] arr = s.ToCharArray();
 		Array.Reverse(arr);
@@ -139,7 +139,7 @@ public class MacTTS : TTSController
 			if (_endSpeechFlag)
 			{
 				//check for end of speaking
-				RagLog.Log("MacTTS: Endspeak received!");
+				Debug.Log("MacTTS: Endspeak received!");
 				Agent.AnimationController.PlayViseme(0, 0);
 				SpeakComplete();
 			}

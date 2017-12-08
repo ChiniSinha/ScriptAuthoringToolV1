@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour
     {
         GameObject newObject = objectPool.GetObject();
         newObject.transform.SetParent(contentPanel);
+        newObject.transform.Reset();
         this.transform.parent.GetComponent<StatePanelObject>().agentUtterances.Add(newObject.GetComponent<AgentInputObject>());
     }
     public void addMenu()
@@ -18,6 +19,7 @@ public class MenuController : MonoBehaviour
 
         GameObject newObject = objectPool.GetObject();
         newObject.transform.SetParent(contentPanel);
+        newObject.transform.Reset();
         this.transform.parent.GetComponent<StatePanelObject>().usermenu.Add(newObject.GetComponent<MenuInputPanelObject>());
     }
 

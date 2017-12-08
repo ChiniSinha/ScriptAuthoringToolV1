@@ -13,5 +13,7 @@ public class AddStateButton : MonoBehaviour {
     {
         GameObject newState = stateObjectPool.GetObject();
         newState.transform.SetParent(contentPanel);
+        newState.transform.Reset();
+
     }
 }

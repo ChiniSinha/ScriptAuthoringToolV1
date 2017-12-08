@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -211,34 +213,18 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets/ThirdParty/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/chini/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>C:/Users/chini/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets/ThirdParty/DOTween/DOTween.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AgentScripts\Agent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentBeatEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentChangeGazeEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentChangePointEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentClearPointEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentDisplayDocumentEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentHeadNodEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentPerformGestureEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentPlayVisemeEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentSetIdleEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentSetPostureEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\AgentUpdateExpressionEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\ProcessExecuteEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\ProcessUILogicEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\SpeakRequestEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\SpeechCompleteEvent.cs" />
-    <Compile Include="Assets\AgentScripts\AgentEvents\StopSpeakingRequestEvent.cs" />
     <Compile Include="Assets\AgentScripts\AnimationControllers\AgentAnimationController.cs" />
     <Compile Include="Assets\AgentScripts\AnimationControllers\Animations\AgentAnimation.cs" />
     <Compile Include="Assets\AgentScripts\AnimationControllers\Animations\ArmAnimation.cs" />
@@ -254,7 +240,6 @@
     <Compile Include="Assets\AgentScripts\AnimationControllers\IK\SimpleLookIk.cs" />
     <Compile Include="Assets\AgentScripts\AnimationControllers\Side.cs" />
     <Compile Include="Assets\AgentScripts\AnimationControllers\Utils\AnimationNoise.cs" />
-    <Compile Include="Assets\AgentScripts\AudioEvent.cs" />
     <Compile Include="Assets\AgentScripts\Commands\AgentHeadNodCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\AnimationDelayCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\BaseCommand.cs" />
@@ -271,6 +256,21 @@
     <Compile Include="Assets\AgentScripts\Commands\GeneralCommands\ProcessUILogicCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\GeneralCommands\SpeakCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\GestureCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\ClearGuiCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\DisplayTableWithMenuCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\DisplayWhiteboardCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\PauseButtonCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\SetInteractivityCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\ShowChecklistCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\ShowImageCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\ShowKeyboardCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\ShowKeypadCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\ShowMenuCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\ShowSliderCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\ShowTextInputCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\ShowTieredChecklistCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\UpdateGuiLayoutCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\GuiCommands\UpdateTitleCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\IdleCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\LoadCommands\LoadAgentCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\NoOpCommand.cs" />
@@ -280,7 +280,101 @@
     <Compile Include="Assets\AgentScripts\Commands\SetExpressionCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\SetPostureCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\WaitForUserInputCommand.cs" />
-    <Compile Include="Assets\AgentScripts\Extensions.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentBeatEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentChangeGazeEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentChangePointEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentClearPointEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentDisplayDocumentEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentHeadNodEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentPerformGestureEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentPlayVisemeEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentSetIdleEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentSetPostureEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentUpdateExpressionEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\ProcessExecuteEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\ProcessUILogicEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\SpeakRequestEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\SpeechCompleteEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentEvents\StopSpeakingRequestEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AgentPauseAnimationEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AllDatabaseTablesReadyEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AnimationCompleteEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\AudioEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\CameraDistanceUpdateEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\CameraEvents\CameraFadeOutTransitionEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\CameraEvents\CameraMoveEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\CameraEvents\ChangeCameraEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\CameraEvents\ChangeCameraTargetEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\CameraEvents\PoIAvailableEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\CameraEvents\PoIRemovedEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\ChangeEnvironmentEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\EndOfSequenceEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\EnvironmentTransitionCompleteEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\EventBus.cs" />
+    <Compile Include="Assets\AgentScripts\Events\ExternalProcessEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\GuiLoadedEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\LoadCompleteEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\LoadEvents\AgentReadyEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\LoadEvents\CameraReadyEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\LoadEvents\ConfigurationLoadedEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\LoadEvents\EnvironmentReadyEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\LoadEvents\GraphicalAssetsLoadedEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\LoadEvents\PropertiesLoadedEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\LoadEvents\ResourceLoaderReadyEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\LoadEvents\ScriptingInterfaceLoadedEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\NetworkStatusEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\OpenHtmlRequestEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\OpenUrlRequestEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\PauseEvents\HidePauseButtonEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\PauseEvents\PauseSelectedEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\PauseEvents\ShowPauseButtonEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\PlayAudioRequestEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\PrintRequestEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\PrintWebPageRequestEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\SetLoginEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\SetReportEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\StartEnvironmentTransitionEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\ChecklistEvents\CheckboxSubmitEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\ChecklistEvents\HideBasicChecklistEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\ChecklistEvents\HideTieredChecklistEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\ChecklistEvents\ShowBasicChecklistEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\ChecklistEvents\ShowTieredChecklistEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\ClearUiEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\GuiAnimationEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\HideKeyboardEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\ImageEvents\HideImageEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\ImageEvents\ShowImageEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\InteractableChangeEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\KeyboardInputEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\LayoutChangeEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\MenuEvents\HideMenuEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\MenuEvents\MenuSelectedEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\MenuEvents\ShowMenuEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\NoChangeUiEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\NumberKeypadEvents\HideNumberKeypadEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\NumberKeypadEvents\NumberKeypadSubmitEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\NumberKeypadEvents\ShowNumberKeypadEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\SetDebugTextEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\SetErrorTextEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\ShowKeyboardEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\SliderEvents\HideSliderEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\SliderEvents\ShowSliderEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\SliderEvents\SliderInputSubmitEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\TableViewEvents\HideTableViewEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\TableViewEvents\ShowTableViewEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\TableViewEvents\TableDisplayInputEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\TextInputEvents\HideTextInputEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\TextInputEvents\ShowTextInputEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\TextInputEvents\TextInputSubmitEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\TitleEvents\SetTitleEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\UIEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\UserTimeoutEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\WhiteboardEvents\DisplayWhiteboardEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\UIEvents\WhiteboardEvents\HideWhiteboardEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\VoiceRecognitionEvents\CancelledVoiceRecognitionEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\VoiceRecognitionEvents\EmotionDataAvailableEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\VoiceRecognitionEvents\PossibleVoiceRecognitionEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Events\XMLMessageReceived.cs" />
     <Compile Include="Assets\AgentScripts\GlobalStarter.cs" />
     <Compile Include="Assets\AgentScripts\Mediators\SingleAgentMediator.cs" />
     <Compile Include="Assets\AgentScripts\MessageDeserializer\DefaultRAG2Deserializer.cs" />
@@ -295,25 +389,96 @@
     <Compile Include="Assets\AgentScripts\TTS\VisemeMappings\SapiVisemeMap.cs" />
     <Compile Include="Assets\AgentScripts\TTS\WebTTS.cs" />
     <Compile Include="Assets\AgentScripts\TTS\WindowsTTS.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\AgentReadyEvent.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\AssetBundlePrefixAttribute.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\CameraMoveEvent.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\ChangeCameraEvent.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\ChangeCameraTargetEvent.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\ConfigurationLoadedEvent.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\EndOfSequenceEvent.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\EnvironmentReadyEvent.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\EventBus.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\Components\ButtonScrollbar.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\Components\ChecklistItem.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\Components\ClampedContentSizeFitter.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\Components\LoadingIndicator.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\Components\MenuButton.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\Components\TableDisplayRow.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\Components\TextInputItem.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\Components\TextReference.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\ConstrainedGridLayoutGroup.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\LoadingScreen.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\TableLayoutGroup\TableSubElement.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\TableLayoutGroup\VerticalTableLayoutGroup.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\UIElement.cs" />
+    <Compile Include="Assets\AgentScripts\UIElements\UIElementWithMenu.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\EnvironmentModules\Environments\BasicEnvironment.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\EnvironmentModules\Environments\Environment.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\EnvironmentModules\Mediators\BasicEnvironmentMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\EnvironmentModules\Mediators\IEnvironmentMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\AspectPreservingImagePanel.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\BasicChecklist.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\DebugText.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\ErrorText.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\GuiBundle.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\ImageDisplay.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\KeyboardKey.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\MenuPanel.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\NumericKeypadPanel.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\PauseButton.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\PinchZoomImagePanel.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\SliderPanel.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\SoftKeyboard.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\TableView.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\TextInput.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\TieredChecklist.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\TitleDisplay.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\UiAnimators\AppearUiAnimator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\UiAnimators\ScalingUiAnimator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\UiAnimators\SlidingUiAnimator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\UiAnimators\UiAnimator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\WhiteboardView.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Elements\ZoomableImagePanel.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\DebugTextMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\ErrorTextMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\IChecklistMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\IDebugTextMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\IErrorTextMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\IFullscreenQuestionnaireMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\IGuiElementMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\IImageDisplayMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\IKeypadMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\IMenuMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\ISliderMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\ITableViewMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\ITextInputMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\ITieredChecklistMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\ITitleMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\Interfaces\IWhiteboardDisplayMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\PauseButtonMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleBasicChecklistMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleImageMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleKeyboardMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleKeypadMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleMenuMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleSliderMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleTableViewMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleTextInputMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleTieredChecklistMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleTitleMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\GuiModules\Mediators\SimpleWhiteboardDisplayMediator.cs" />
     <Compile Include="Assets\AgentScripts\Utils\IEventBroker.cs" />
     <Compile Include="Assets\AgentScripts\Utils\IMediator.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\OpenUrlRequestEvent.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\PlayAudioRequestEvent.cs" />
+    <Compile Include="Assets\AgentScripts\Utils\PointOfInterest.cs" />
     <Compile Include="Assets\AgentScripts\Utils\ResourceLoader.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\AnimationUtils.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\Attributes\AssetBundlePrefixAttribute.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\Attributes\OptionalFloatAttribute.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\DataTable.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\Extensions.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\FPSDisplay.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\MovingPointOfInterest.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\NestedString.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\SimpleAudioVisualizer.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\TabManagerScript.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\Utils.cs" />
     <Compile Include="Assets\Scripts\Actions\AddScriptButton.cs" />
     <Compile Include="Assets\Scripts\Actions\AddStateButton.cs" />
     <Compile Include="Assets\Scripts\Actions\ExitButtonAction.cs" />
     <Compile Include="Assets\Scripts\Actions\NewScriptInit.cs" />
     <Compile Include="Assets\Scripts\Actions\ParentFolderButton.cs" />
+    <Compile Include="Assets\Scripts\Actions\PreviewButton.cs" />
     <Compile Include="Assets\Scripts\Actions\SaveSriptButton.cs" />
     <Compile Include="Assets\Scripts\Configurations\Config.cs" />
     <Compile Include="Assets\Scripts\Configurations\MyConfig.cs" />
@@ -346,6 +511,7 @@
     <Compile Include="Assets\Scripts\ScriptView\UIPanel\MenuDoneButton.cs" />
     <Compile Include="Assets\Scripts\ScriptView\UIPanel\UIPanelSelection.cs" />
     <Compile Include="Assets\Scripts\ScriptView\UIPanel\UserMenuItem.cs" />
+    <Compile Include="Assets\Scripts\StateView\SelectStateButton.cs" />
     <Compile Include="Assets\Scripts\Static\Consts.cs" />
     <Compile Include="Assets\Scripts\Static\Globals.cs" />
     <Compile Include="Assets\Scripts\Static\MyGlobals.cs" />

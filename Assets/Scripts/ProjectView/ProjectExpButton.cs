@@ -63,13 +63,22 @@ public class ProjectExpButton : MonoBehaviour {
             MyGlobals.CURRENTSCRIPTNAME = this.contentName.text;
             MyGlobals.CURRENTSCRIPTPATH = this.jsonPath;
             GameObject scriptPane = scriptPanel.transform.Find("Pane").gameObject;
-            scriptPane.GetComponentInChildren<Text>().gameObject.SetActive(false);
             Transform contentPanel = scriptPane.transform.GetChild(0)
                 .transform.GetChild(0).transform.GetChild(0).transform;
             foreach(Transform child in contentPanel)
             {
                 Destroy(child.gameObject);
             }
+
+            GameObject statePane = GameObject.Find("StateView");
+            Transform stateContentPanel = statePane.transform.GetChild(0)
+                .transform.GetChild(0).transform.GetChild(0).transform;
+            foreach (Transform child in stateContentPanel)
+            {
+                Destroy(child.gameObject);
+            }
+
+            SimpleObjectPool stateViewPool = GameObject.Find("StateViewObjectPool").GetComponent<SimpleObjectPool>();
             Script script = ScriptConfig.load(this.jsonPath);
             if(script != null)
             {
@@ -77,9 +86,17 @@ public class ProjectExpButton : MonoBehaviour {
                 {
                     GameObject stateObject = stateObjectPool.GetObject();
                     stateObject.transform.SetParent(contentPanel);
+                    stateObject.transform.Reset();
 
                     StatePanelObject statePanel = stateObject.GetComponent<StatePanelObject>();
                     statePanel.setUp(state);
+
+                    GameObject stateViewObject = stateViewPool.GetObject();
+                    stateViewObject.transform.SetParent(stateContentPanel);
+                    stateViewObject.transform.Reset();
+
+                    SelectStateButton stateButton = stateViewObject.GetComponent<SelectStateButton>();
+                    stateButton.state = statePanel;
 
                 }
             }
@@ -95,6 +112,6 @@ public class ProjectExpButton : MonoBehaviour {
         jsonPath = expItem.jsonPath;
         type = expItem.contentType;
         childFiles = expItem.childButtons;
-    }
+    } 
 
 }

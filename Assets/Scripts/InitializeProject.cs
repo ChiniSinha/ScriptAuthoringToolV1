@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
 
@@ -24,15 +23,15 @@ public class InitializeProject : MonoBehaviour {
     {
         try
         {
-            if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UsedValues.projectDir)))
+            if (!Directory.Exists(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), UsedValues.projectDir)))
             {
-                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UsedValues.projectDir));
+                Directory.CreateDirectory(Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), UsedValues.projectDir));
             }
             if(!File.Exists(Path.Combine(UsedValues.DefaultFilePath, UsedValues.ConfigFileName)))
             {
                 
                 MyConfig config = new MyConfig();
-                config.projectData.projectPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), UsedValues.projectDir);
+                config.projectData.projectPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), UsedValues.projectDir);
                 MyConfig.Save(config);
                 Debug.Log("Config value: " + config.projectData.projectPath);
                 MyGlobals.SetConfig(config);

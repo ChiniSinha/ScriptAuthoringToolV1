@@ -82,6 +82,7 @@ public class ProjectExpList : MonoBehaviour {
         {
             GameObject newFile = expButtonPool.GetObject();
             newFile.transform.SetParent(contentPanel);
+            newFile.transform.Reset();
 
             ExpItem fileItem = new ExpItem();
             fileItem.contentName = file.fileName;
@@ -109,6 +110,7 @@ public class ProjectExpList : MonoBehaviour {
         {
             GameObject newFolder = expButtonPool.GetObject();
             newFolder.transform.SetParent(contentPanel);
+            newFolder.transform.Reset();
 
             ExpItem folderItem = new ExpItem();
             folderItem.contentName = folder.name;
@@ -120,18 +122,19 @@ public class ProjectExpList : MonoBehaviour {
             folderButton = changePosition(folderButton, counter);
             folderButton.setUp(folderItem);
 
-            folderItem = setUpFiles(folder.files, counter+10f, folderItem);
-            setUpProject(folder.folders, counter+10f);
+            folderItem = setUpFiles(folder.files, counter+0.75f, folderItem);
+            setUpProject(folder.folders, counter+0.75f);
         }
     }
 
     ProjectExpButton changePosition(ProjectExpButton projectExp, float counter)
     {
         Vector3 imagePos = projectExp.contentIcon.transform.position;
-        Debug.Log("x: " + imagePos.x + " y: " + imagePos.y + " z:" + imagePos.z);
+        //Debug.Log("x: " + imagePos.x + " y: " + imagePos.y + " z:" + imagePos.z);
         imagePos.x += counter;
-        Debug.Log("x: " + imagePos.x + " y: " + imagePos.y + " z:" + imagePos.z);
+        //Debug.Log("x: " + imagePos.x + " y: " + imagePos.y + " z:" + imagePos.z);
         projectExp.contentIcon.transform.position = imagePos;
+        //projectExp.contentIcon.transform.Reset();
 
         Vector3 textPos = projectExp.contentName.transform.position;
         textPos.x += counter;

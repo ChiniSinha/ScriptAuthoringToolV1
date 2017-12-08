@@ -27,7 +27,7 @@ public class SettingsButton : MonoBehaviour {
 
     public void updateDefaultPath()
     {
-        string documentsPath = Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+        string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
         Debug.Log(documentsPath);
 
         MyConfig config = new MyConfig();
