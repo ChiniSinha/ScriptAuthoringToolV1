@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-public class Script
+public class MyScript
 {
 
     public List<State> States;

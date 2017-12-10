@@ -184,18 +184,18 @@ public class AgentAnimationController : MonoBehaviour
         }
 
         // TODO: there's a better way to do this
-        Vector3 cameraPos = Camera.main.transform.position;
-        Vector3 agentToCamera = cameraPos - transform.position;
-        Vector3 agentToCameraFlat = Vector3.ProjectOnPlane(agentToCamera, transform.up).normalized;
-        float distance = agentToCamera.magnitude;
-        float angle = Mathf.Acos(Vector3.Dot(transform.forward, agentToCameraFlat))*Mathf.Rad2Deg;
-        if (angle > 180)
-        {
-            angle -= 360;
-        }
+        //Vector3 cameraPos = Camera.main.transform.position;
+        //Vector3 agentToCamera = cameraPos - transform.position;
+        //Vector3 agentToCameraFlat = Vector3.ProjectOnPlane(agentToCamera, transform.up).normalized;
+        //float distance = agentToCamera.magnitude;
+        //float angle = Mathf.Acos(Vector3.Dot(transform.forward, agentToCameraFlat))*Mathf.Rad2Deg;
+        //if (angle > 180)
+        //{
+          //  angle -= 360;
+        //}
 
-        _animator.SetFloat("CameraDistance", distance);
-        _animator.SetFloat("CameraAngle", angle);
+        //_animator.SetFloat("CameraDistance", distance);
+        //_animator.SetFloat("CameraAngle", angle);
     }
 
     private void UpdateQueue(Queue<AgentAnimation> queue, Side side = Side.CENTER)

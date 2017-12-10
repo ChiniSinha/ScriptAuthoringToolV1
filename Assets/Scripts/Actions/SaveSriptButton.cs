@@ -2,40 +2,43 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System;
+using System.IO;
+using System.Linq;
 
 public class SaveSriptButton : MonoBehaviour
 {
     public Transform stateContentPanel;
     public GameObject savePanel;
+    public GameObject errorMessage;
     public Transform stateViewContentPanel;
     public SimpleObjectPool stateViewObjectPool;
+    public Transform errorViewContentPanel;
+    public SimpleObjectPool errorViewObjectPool;
 
+    
     public void HandleSave()
     {
+        hasErrors = false;
         try
         {
+            foreach(Transform child in errorViewContentPanel)
+            {
+                Destroy(child.gameObject);
+            }
             Debug.Log("Script name:" + MyGlobals.CURRENTSCRIPTNAME);
             Debug.Log("Script path: " + MyGlobals.CURRENTSCRIPTPATH);
             ScriptConfig config = new ScriptConfig();
             config.scriptName = MyGlobals.CURRENTSCRIPTNAME;
             config.scriptJsonPath = MyGlobals.CURRENTSCRIPTPATH;
-            StatePanelObject[] states = stateContentPanel.GetComponentsInChildren<StatePanelObject>();
-            Script script = new Script();
-            script.States = new List<State>();
-            foreach (StatePanelObject state in states)
-            {
-                Debug.Log("State name: " + state.stateName.text);
-                State addState = GetStateForScript(state);
-                script.States.Add(addState);
+            config.script = ScriptConfig.load(MyGlobals.CURRENTSCRIPTPATH);
 
-                GameObject stateElement = stateViewObjectPool.GetObject();
-                stateElement.transform.SetParent(stateViewContentPanel);
-                stateElement.transform.Reset();
-                stateElement.transform.GetComponent<SelectStateButton>().state = state;
-
-            }
-            ScriptConfig.save(script, config.scriptJsonPath);
-            savePanel.SetActive(true);
+            saveScript();
+            
+            bool result = checkErrorsInProject();
+            if (result)
+                errorMessage.SetActive(true);
+            else
+                savePanel.SetActive(true);
         } 
         catch(Exception ex)
         {
@@ -43,8 +46,101 @@ public class SaveSriptButton : MonoBehaviour
         }
     }
 
+    void saveScript()
+    {
+        StatePanelObject[] states = stateContentPanel.GetComponentsInChildren<StatePanelObject>();
+        MyScript script = new MyScript();
+        script.States = new List<State>();
+        foreach (Transform child in stateViewContentPanel)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (StatePanelObject state in states)
+        {
+            Debug.Log("State name: " + state.stateName.text);
+            State addState = GetStateForScript(state);
+            script.States.Add(addState);
+
+            GameObject stateElement = stateViewObjectPool.GetObject();
+            stateElement.transform.SetParent(stateViewContentPanel);
+            stateElement.transform.Reset();
+            stateElement.transform.GetComponent<SelectStateButton>().state = state;
+
+        }
+        ScriptConfig.save(script, MyGlobals.CURRENTSCRIPTPATH);
+
+    }
+
+    private void CheckUIErrors(StatePanelObject state)
+    {
+        if(state.stateName.text == "")
+        {
+            hasErrors = true;
+            spawnErrorViewObject("StateName is required");
+        }
+        if(state.mediaToggle.isOn && (state.url.text == "" || state.media.value < 1)) 
+        {
+            hasErrors = true;
+            spawnErrorViewObject("Media not added at " + state.stateName.text);
+        }
+        if(state.actionToggle.isOn && state.action.text == "")
+        {
+            hasErrors = true;
+            spawnErrorViewObject("Action not added to state: " + state.stateName.text);
+        }
+        if(state.agentToggle.isOn)
+        {
+            if (state.agentUtterances.Count > 0)
+            {
+                foreach (AgentInputObject agent in state.agentUtterances)
+                {
+                    if (agent.agentUtterance.text == "")
+                    {
+                        hasErrors = true;
+                        spawnErrorViewObject("Agent utterance is empty at: " + state.stateName.text);
+                    }
+                }
+            }
+            else
+            {
+                hasErrors = true;
+                spawnErrorViewObject("Add Agent Utterances using plus sign to " + state.stateName.text);
+            }
+        }
+        if(state.menuToggle.isOn)
+        {
+            if (state.usermenu.Count > 0)
+            {
+                foreach (MenuInputPanelObject menu in state.usermenu)
+                {
+                    if (menu.nextState.text == "")
+                    {
+                        hasErrors = true;
+                        spawnErrorViewObject("Next state text empty at: " + state.stateName.text);
+                    }
+                    if (menu.userResponse.text == "")
+                    {
+                        hasErrors = true;
+                        spawnErrorViewObject("User Response text empty at:" + state.stateName.text);
+                    }
+                }
+            }
+            else
+            {
+                hasErrors = true;
+                spawnErrorViewObject("No user response added. Please click on plus button to add more responses at " + state.stateName.text);
+            }
+        }
+        if (!state.mediaToggle.isOn && !state.actionToggle.isOn && !state.agentToggle.isOn && !state.menuToggle.isOn)
+        {
+            hasErrors = true;
+            spawnErrorViewObject("Incomplete state, add other components. State:" + state.stateName.text);
+        }
+    }
+
     private State GetStateForScript(StatePanelObject state)
     {
+        CheckUIErrors(state);
         State addState = new State();
         addState.ActionSets = new List<List<Action>>();
         //State Name
@@ -171,5 +267,136 @@ public class SaveSriptButton : MonoBehaviour
             addState.Ui = menu;
         }
         return addState;
+    }
+
+    static List<string> ScriptNames = new List<string>();
+    static List<string> Transitions = new List<string>();
+    static List<string> scriptNames = new List<string>();
+    static bool hasErrors = false;
+
+    bool checkErrorsInProject()
+    {
+        checkErrors();
+        foreach(string targetStates in Transitions)
+        {
+            if(!scriptNames.Contains(targetStates))
+            {
+                spawnErrorViewObject("Bad transition: Create" + targetStates);
+                hasErrors = true;
+            }
+        }
+        return hasErrors;
+    }
+
+    private void checkErrors()
+    {
+        var files = Directory.GetFiles(MyGlobals.PROJECTPATH).Where(name => name.EndsWith(".json")); ;
+        foreach (var file in files)
+        {
+            FileInfo info = new FileInfo(file);
+            string scriptName = info.FullName.Replace(MyGlobals.PROJECTPATH, ".");
+            if(scriptName.Contains("\\"))
+            {
+                scriptName = scriptName.Replace(".\\", ".");
+                scriptName = scriptName.Replace("\\", ".");
+            }
+            else if (scriptName.Contains("/"))
+            {
+                scriptName = scriptName.Replace("./", ".");
+                scriptName = scriptName.Replace("/", ".");
+            }
+            scriptName = scriptName.Replace(".json", "");
+            scriptNames.Add(scriptName);
+            GetStateTransitions(info.FullName);
+        }
+    }
+
+    private void GetStateTransitions(string filePath)
+    {
+        FileInfo info = new FileInfo(filePath);
+        MyScript script = ScriptConfig.load(filePath);
+        List<string> states = new List<string>();
+        List<string> transitions = new List<string>();
+        foreach(State state in script.States)
+        {
+            states.Add(state.StateName);
+            if (state.Ui != null)
+            {
+                List<MenuChoice> choices = null;
+                if (state.Ui is RagMenu){
+		    			choices = ((RagMenu) state.Ui).Menu;
+	    		}
+                if(choices != null)
+                {
+                    foreach (MenuChoice choice in choices)
+                    {
+                        if(choice.Text == null)
+                        {
+                            hasErrors = true;
+                            spawnErrorViewObject("Missing Text:" + state.StateName + " Script: " + info.Name.Replace(".json", ".script"));
+                        }
+                        if (choice.NextState != null)
+                        {
+                            if (choice.NextState.Contains("GO"))
+                            {
+                                hasErrors = true;
+                                spawnErrorViewObject("Bad syntax in state: " + state.StateName + " Script:" + info.Name.Replace(".json", ".script"));
+                            }
+                            if (choice.NextState.Contains("."))
+                                Transitions.Add(choice.NextState);
+                            else
+                                transitions.Add(choice.NextState);
+                            if (choice.Execute != null)
+                            {
+                                if (choice.Execute.Contains("GO"))
+                                {
+                                    string target = choice.Execute;
+                                    Regex regex = new Regex("GO\\(\".* \"\\)");
+                                    Match match = regex.Match(target);
+                                    while (match.Success)
+                                    {
+                                        foreach(Group g in match.Groups)
+                                        {
+                                            String output = g.ToString();
+                                            output = output.Replace("GO(\"", "");
+                                            output = output.Replace("\")", "");
+                                            if (output.Contains("."))
+                                            {
+                                                if (!output.StartsWith("."))
+                                                    output = "." + output;
+                                                hasErrors = true;
+                                                spawnErrorViewObject("Bad syntax in state: " + state.StateName + " Script:" + info.Name.Replace(".json", ".script"));
+                                                Transitions.Add(output);
+                                            }
+                                            else
+                                            {
+                                                transitions.Add(output);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
+        }
+        //check for mismatch
+        foreach(string targetStates in transitions)
+        {
+            if (!states.Contains(targetStates))
+            {
+                hasErrors = true;
+                spawnErrorViewObject("Bad transition: Create" + targetStates + " Script:" + info.Name.Replace(".json", ".script"));
+            }
+        }
+    }
+
+    private void spawnErrorViewObject(string error)
+    {
+        GameObject errorElement = errorViewObjectPool.GetObject();
+        errorElement.transform.SetParent(errorViewContentPanel);
+        errorElement.transform.Reset();
+        errorElement.transform.GetComponent<ErrorViewPanel>().errorText.text = error;
     }
 }

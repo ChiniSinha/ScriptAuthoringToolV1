@@ -14,18 +14,17 @@ public class StatePanelObject : MonoBehaviour
     public SimpleObjectPool menuPool;
     public Transform agentContent;
     public Transform menuContent;
-
-    void Start()
-    {
-        Debug.Log("test media dropdown: " + media.captionText.text);
-    }
+    public Toggle mediaToggle;
+    public Toggle agentToggle;
+    public Toggle actionToggle;
+    public Toggle menuToggle;
 
     public void setUp(State state)
     {
         stateName.text = state.StateName;
         if(action.text != "")
         {
-            this.gameObject.transform.Find("ActionToggle").GetComponent<Toggle>().isOn = true;
+            actionToggle.isOn = true;
             action.text = state.Execute;
             
         }
@@ -35,14 +34,14 @@ public class StatePanelObject : MonoBehaviour
             {
                 if(action is WhiteboardAction)
                 {
-                    this.gameObject.transform.Find("MediaToggle").GetComponent<Toggle>().isOn = true;
+                    mediaToggle.isOn = true;
                     media.value = 1;
                     url.text = ((WhiteboardAction)action).Url;
                     break;
                 }
                 if (action is SpeechAction)
                 {
-                    this.gameObject.transform.Find("AgentToggle").GetComponent<Toggle>().isOn = true;
+                    agentToggle.isOn = true;
                     GameObject agentObject = agentPool.GetObject();
                     agentObject.transform.SetParent(agentContent);
                     agentObject.transform.Reset();
@@ -54,9 +53,9 @@ public class StatePanelObject : MonoBehaviour
             }
         }
         UI ui = state.Ui;
-        if(ui is RagMenu)
+        if(ui is RagMenu && ((RagMenu)ui).Menu != null)
         {
-            this.gameObject.transform.Find("MenuToggle").GetComponent<Toggle>().isOn = true;
+            menuToggle.isOn = true;
             foreach (MenuChoice menu in ((RagMenu)ui).Menu)
             {
                 GameObject menuObject = menuPool.GetObject();

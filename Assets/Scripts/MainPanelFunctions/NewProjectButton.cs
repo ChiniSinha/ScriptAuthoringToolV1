@@ -50,6 +50,7 @@ public class NewProjectButton : MonoBehaviour {
                 File.Create(Path.Combine(projectPath, "Top.script"));
                 File.Create(Path.Combine(projectPath, "Top.json"));
                 File.Create(Path.Combine(projectPath, "functions.txt"));
+                File.Create(Path.Combine(projectPath, UsedValues.propertyFile));
                 MyConfig.ProjectListData newElement = MyConfig.GetNewProjectListItem(projectName.text, projectPath);
                 list.Add(newElement);
                 config.projectList = list;
