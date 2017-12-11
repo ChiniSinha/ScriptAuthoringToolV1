@@ -28,7 +28,9 @@ public class LocalCommandProtocol : ICommandProtocol
     }
 
     
-
+    public void PreviewScript(){
+        
+    }
     
 
     public void SendSequenceComplete()

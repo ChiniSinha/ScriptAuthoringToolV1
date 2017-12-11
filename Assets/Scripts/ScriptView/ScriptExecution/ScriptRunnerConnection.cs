@@ -12,6 +12,7 @@ public class ScriptRunnerConnection : ExternalConnection
     private void Awake()
     {
         _scriptRunner = new ScriptRunner();
+        Globals.Register<ScriptRunner>(_scriptRunner);
         ScriptCommandProtocol protocol = new ScriptCommandProtocol(_scriptRunner);
         Globals.Register<ICommandProtocol>(protocol);
         Globals.EventBus.Register<LoadCompleteEvent>(OnLoadComplete);

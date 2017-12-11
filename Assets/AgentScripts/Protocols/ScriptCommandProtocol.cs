@@ -12,6 +12,10 @@ public class ScriptCommandProtocol : ICommandProtocol
 
     public ScriptRunner ScriptRunner { get; private set; }
 
+    public void PreviewScript(){
+        ScriptRunner.PreviewScript();
+    }
+
     public void TryConnect()
     {
         ScriptRunner.Init();

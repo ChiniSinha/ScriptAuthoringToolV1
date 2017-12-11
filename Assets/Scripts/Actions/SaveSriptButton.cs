@@ -232,12 +232,15 @@ public class SaveSriptButton : MonoBehaviour
         {
             foreach(List<Action> actions in addState.ActionSets)
             {
-                actions.Add(mediaAction);
+                if(mediaAction != null)
+                    actions.Add(mediaAction);
             }
         }
 
         // Agent Action
         addState.Execute = Regex.Replace(state.action.text, "\\$", "").Trim();
+        if(addState.Execute == "")
+            addState.Execute = null;
 
 
         // User Menu

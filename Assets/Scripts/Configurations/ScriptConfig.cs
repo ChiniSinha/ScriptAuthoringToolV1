@@ -17,7 +17,7 @@ public class ScriptConfig : MonoBehaviour
     public static void save(MyScript script, string scriptJsonPath, bool prettyPrint=true)
     {
 
-        var json = JSON.Dump(script);
+        var json = JSON.Dump(script,EncodeOptions.PrettyPrint);
         File.WriteAllText(scriptJsonPath, json);
     }
 

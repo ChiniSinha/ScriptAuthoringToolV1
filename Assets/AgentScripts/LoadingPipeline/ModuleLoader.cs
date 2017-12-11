@@ -37,7 +37,7 @@ namespace RAG.Loading
         {
             Globals.SetConfig(e.Configuration);
             _modules.Add(new AgentModule());
-            _modules.Add(new EnvironmentModule());
+            //_modules.Add(new EnvironmentModule());
             _modules.Add(new GuiModule());
             _modules.Add(new ScriptingModule());
             _modules.Add(new ResourceLoaderModule());
@@ -47,7 +47,7 @@ namespace RAG.Loading
                 _modules.Add(new SpeechRecognitionModule());
             }
 
-            _modules.Add(new GraphicsReadyLoadEvent());
+            //_modules.Add(new GraphicsReadyLoadEvent());
             _modules.Add(new ScriptingInterfaceReadyLoadEvent());
 
             _configReady = true;

@@ -6,8 +6,10 @@ namespace RAG.Loading
     {
         private const string AgentLoadTag = "agent";
 
-        public AgentModule() : base(typeof(ResourceLoaderModule), typeof(EnvironmentModule))
+        //, typeof(EnvironmentModule))
+        public AgentModule() : base(typeof(ResourceLoaderModule))
         {
+
         }
 
         protected override void DoLoad()
@@ -21,6 +23,7 @@ namespace RAG.Loading
         {
             Object.Instantiate(loadedObject);
             Status = LoadingStatus.LOADED;
+            
         }
     }
 }

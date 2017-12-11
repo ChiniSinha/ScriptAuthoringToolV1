@@ -12,6 +12,8 @@ public static class Globals {
         GUI_WATING_FOR_DUPLICATE_COMMAND = 1 << 1
     }
 
+    public static GameObject Ui;
+
     public static Config Config { get; private set; }
 
     public static Flag Flags;

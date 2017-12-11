@@ -16,9 +16,18 @@ public class PreviewButton : MonoBehaviour
 
     public void ShowAgentView()
     {
+        //enable gui
+        Globals.Ui.SetActive(true);
+        Globals.EventBus.Dispatch(new ClearUiEvent());
         agentCamera.enabled = true;
         mainCamera.enabled = false;
-        starter.SetActive(true);
+        //get current script
+        ScriptRunner scriptRunner = Globals.Get<ScriptRunner>();
+        //call scriptrunner with script
+        scriptRunner.PreviewScript();
+ 
+        //starter.SetActive(true);
+        //TODO: Enable vert3
        // viewPanel.SetActive(true);
     }
 }

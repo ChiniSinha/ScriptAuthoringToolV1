@@ -62,8 +62,9 @@ public class ScriptRunner
 
     public void Start()
     {
-        LoadScript(MyGlobals.CURRENTSCRIPTNAME);
+        //LoadScript(MyGlobals.CURRENTSCRIPTNAME);
     }
+
 
     public void PushScript(string scriptName, string returnName)
     {
@@ -82,6 +83,10 @@ public class ScriptRunner
         _currentState = scriptStack.Peek().GetStartingState();
         allowExecute = true;
         shouldProcessState = true;
+    }
+
+    public void PreviewScript(){
+        LoadScript(MyGlobals.CURRENTSCRIPTNAME);
     }
 
     protected void LoadScript(string scriptName)
