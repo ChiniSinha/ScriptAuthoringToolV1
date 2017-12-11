@@ -19,23 +19,7 @@ public class GazeCommand : BaseCommand
     {
         _agent.OnGazeChange(_target);
 
-/*        if (_agent.AgentAnimationController.GazeTarget)
-        {
-            if (_target.Equals("towards", StringComparison.CurrentCultureIgnoreCase))
-            {
-                _target = "camera";
-            }
-
-            if (PointOfInterest.PoIs.ContainsKey(_target))
-            {
-                PointOfInterest poi = PointOfInterest.PoIs[_target];
-                if (_gazeTween != null)
-                {
-                    _gazeTween.Kill();
-                }
-                _agent.AgentAnimationController.GazeTarget.SetParent(poi.transform, true);
-                _gazeTween = _agent.AgentAnimationController.GazeTarget.DOLocalMove(Vector3.zero, Random.Range(0.5f, 1.5f));
-            }
+       
 
             if (_target.Equals("away", StringComparison.CurrentCultureIgnoreCase))
             {
@@ -45,6 +29,6 @@ public class GazeCommand : BaseCommand
             {
                 _agent.AgentAnimationController.EnqueueAnimation(new HeadAnimation(HeadAnimation.Type.GAZE));
             }
-        }*/
+        
     }
 }

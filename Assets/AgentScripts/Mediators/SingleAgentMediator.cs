@@ -9,10 +9,10 @@ public class SingleAgentMediator : MonoBehaviour
     //private Tweener _gazeTween;
     private float _armMoveSpeed = 2f;
 
-    /*public SingleAgentMediator(Agent agent)
+    public SingleAgentMediator(Agent agent)
     {
         _primaryAgent = agent;
-    }*/
+    }
 
     public void Setup()
     {

@@ -5,6 +5,8 @@ public class PreviewButton : MonoBehaviour
 {
     public Camera mainCamera;
     public Camera agentCamera;
+    public GameObject starter;
+    //public GameObject viewPanel;
 
     public void ShowUIPanel()
     {
@@ -16,6 +18,7 @@ public class PreviewButton : MonoBehaviour
     {
         agentCamera.enabled = true;
         mainCamera.enabled = false;
-        Debug.Log("Current Script Json Path: " + MyGlobals.CURRENTSCRIPTPATH);
+        starter.SetActive(true);
+       // viewPanel.SetActive(true);
     }
 }

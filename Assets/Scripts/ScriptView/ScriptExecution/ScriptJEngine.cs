@@ -75,12 +75,15 @@ public class ScriptJEngine : JintEngine
     //TO DO: Creating a Property file System
     private void SetVariable(string name, object value)
     {
-        //Globals.Get<Database>().GetTable<PropertyTable>().Set(name, value.ToString());
+        Property prop = new Property();
+        prop.property = name;
+        prop.value = value.ToString();
+        Properties.SetProperty(prop);
     }
 
     private string GetVariable(string name)
     {
-        return ""; // Globals.Get<Database>().GetTable<PropertyTable>().Get(name);
+        return Properties.GetProperty(name);
     }
 
     private string GetText()

@@ -26,7 +26,7 @@ public class Properties
         return JsonUtility.FromJson<Properties>(json);
     } 
 
-    public static Property GetProperty(string property)
+    public static string GetProperty(string property)
     {
         Property prop = new Property();
         Properties properties = Properties.Load();
@@ -37,7 +37,7 @@ public class Properties
             prop = p;
         }
 
-        return prop;
+        return prop.value;
     }
 
     public static void SetProperty(Property property)

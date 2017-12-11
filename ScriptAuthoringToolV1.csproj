@@ -213,6 +213,9 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>Assets/Plugins/Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets/ThirdParty/DOTween/DOTween.dll</HintPath>
     </Reference>
@@ -221,9 +224,6 @@
     </Reference>
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>C:/Users/chini/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime">
-      <HintPath>Assets/Plugins/Antlr3.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -249,6 +249,9 @@
     <Compile Include="Assets\AgentScripts\AnimationControllers\IK\SimpleLookIk.cs" />
     <Compile Include="Assets\AgentScripts\AnimationControllers\Side.cs" />
     <Compile Include="Assets\AgentScripts\AnimationControllers\Utils\AnimationNoise.cs" />
+    <Compile Include="Assets\AgentScripts\AssetBundleManager\AssetBundleLoadOperation.cs" />
+    <Compile Include="Assets\AgentScripts\AssetBundleManager\AssetBundleManager.cs" />
+    <Compile Include="Assets\AgentScripts\AssetBundleManager\Utility.cs" />
     <Compile Include="Assets\AgentScripts\Commands\AgentHeadNodCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\AnimationDelayCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\BaseCommand.cs" />
@@ -282,6 +285,11 @@
     <Compile Include="Assets\AgentScripts\Commands\GuiCommands\UpdateTitleCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\IdleCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\LoadCommands\LoadAgentCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\LoadCommands\LoadGuiCommand.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\MessageDeserialization\DefaultMessageParser.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\MessageDeserialization\DefaultRAG2Deserializer.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\MessageDeserialization\IMessageDeserializer.cs" />
+    <Compile Include="Assets\AgentScripts\Commands\MessageDeserialization\ScriptLanguageDeserializer.cs" />
     <Compile Include="Assets\AgentScripts\Commands\NoOpCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\PlayAudioCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\PlayVisemeCommand.cs" />
@@ -289,6 +297,7 @@
     <Compile Include="Assets\AgentScripts\Commands\SetExpressionCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\SetPostureCommand.cs" />
     <Compile Include="Assets\AgentScripts\Commands\WaitForUserInputCommand.cs" />
+    <Compile Include="Assets\AgentScripts\ConfigLoader.cs" />
     <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentBeatEvent.cs" />
     <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentChangeGazeEvent.cs" />
     <Compile Include="Assets\AgentScripts\Events\AgentEvents\AgentChangePointEvent.cs" />
@@ -385,10 +394,29 @@
     <Compile Include="Assets\AgentScripts\Events\VoiceRecognitionEvents\PossibleVoiceRecognitionEvent.cs" />
     <Compile Include="Assets\AgentScripts\Events\XMLMessageReceived.cs" />
     <Compile Include="Assets\AgentScripts\GlobalStarter.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\LoadableModule.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\LoadEvent.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\LoadEvents\GraphicsReadyLoadEvent.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\LoadEvents\ScriptingInterfaceReadyLoadEvent.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\ModuleLoader.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\ModuleLoaders\AgentModule.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\ModuleLoaders\EnvironmentModule.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\ModuleLoaders\GuiModule.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\ModuleLoaders\ResourceLoaderModule.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\ModuleLoaders\ScriptingModule.cs" />
+    <Compile Include="Assets\AgentScripts\LoadingPipeline\ModuleLoaders\SpeechRecognitionModule.cs" />
     <Compile Include="Assets\AgentScripts\Mediators\SingleAgentMediator.cs" />
-    <Compile Include="Assets\AgentScripts\MessageDeserializer\DefaultRAG2Deserializer.cs" />
-    <Compile Include="Assets\AgentScripts\MessageDeserializer\IMessageDeserializer.cs" />
+    <Compile Include="Assets\AgentScripts\Mediators\WindowsEmotionDetector.cs" />
+    <Compile Include="Assets\AgentScripts\Mediators\WindowsSpeechRecognitionMediator.cs" />
+    <Compile Include="Assets\AgentScripts\Mediators\WindowsSpeechRecognizer.cs" />
+    <Compile Include="Assets\AgentScripts\PlatformController.cs" />
+    <Compile Include="Assets\AgentScripts\Protocols\ICommandProtocol.cs" />
+    <Compile Include="Assets\AgentScripts\Protocols\LocalCommandProtocol.cs" />
+    <Compile Include="Assets\AgentScripts\Protocols\ScriptCommandProtocol.cs" />
     <Compile Include="Assets\AgentScripts\RagEvent.cs" />
+    <Compile Include="Assets\AgentScripts\ResourceLoaderModules\ResourceLoader.cs" />
+    <Compile Include="Assets\AgentScripts\ResourceLoaderModules\Services\LocalResourceLoader.cs" />
+    <Compile Include="Assets\AgentScripts\ResourceLoaderModules\Services\WebResourceLoader.cs" />
     <Compile Include="Assets\AgentScripts\TTS\CereprocTts.cs" />
     <Compile Include="Assets\AgentScripts\TTS\ExternalTTSServer.cs" />
     <Compile Include="Assets\AgentScripts\TTS\ICereprocTTS.cs" />
@@ -470,7 +498,6 @@
     <Compile Include="Assets\AgentScripts\Utils\IEventBroker.cs" />
     <Compile Include="Assets\AgentScripts\Utils\IMediator.cs" />
     <Compile Include="Assets\AgentScripts\Utils\PointOfInterest.cs" />
-    <Compile Include="Assets\AgentScripts\Utils\ResourceLoader.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\AnimationUtils.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\Attributes\AssetBundlePrefixAttribute.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\Attributes\OptionalFloatAttribute.cs" />
@@ -480,6 +507,7 @@
     <Compile Include="Assets\AgentScripts\UtilScripts\MovingPointOfInterest.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\NestedString.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\SimpleAudioVisualizer.cs" />
+    <Compile Include="Assets\AgentScripts\UtilScripts\StandaloneController.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\TabManagerScript.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\Utils.cs" />
     <Compile Include="Assets\Scripts\Actions\AddScriptButton.cs" />
@@ -496,17 +524,17 @@
     <Compile Include="Assets\Scripts\Configurations\ScriptConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\UsedValues.cs" />
     <Compile Include="Assets\Scripts\ErrorView\ErrorViewPanel.cs" />
+    <Compile Include="Assets\Scripts\ErrorView\MainPanelFunctions\ExitButton.cs" />
+    <Compile Include="Assets\Scripts\ErrorView\MainPanelFunctions\HelpProjectButton.cs" />
+    <Compile Include="Assets\Scripts\ErrorView\MainPanelFunctions\NewProjectButton.cs" />
+    <Compile Include="Assets\Scripts\ErrorView\MainPanelFunctions\OpenProject\ProjectButton.cs" />
+    <Compile Include="Assets\Scripts\ErrorView\MainPanelFunctions\OpenProject\SetProjectList.cs" />
+    <Compile Include="Assets\Scripts\ErrorView\MainPanelFunctions\OpenProject\SimpleObjectPool.cs" />
+    <Compile Include="Assets\Scripts\ErrorView\MainPanelFunctions\OpenProjectButton.cs" />
+    <Compile Include="Assets\Scripts\ErrorView\MainPanelFunctions\SettingsButton.cs" />
     <Compile Include="Assets\Scripts\InitializeProject.cs" />
     <Compile Include="Assets\Scripts\InitScene.cs" />
     <Compile Include="Assets\Scripts\InitScriptScene.cs" />
-    <Compile Include="Assets\Scripts\MainPanelFunctions\ExitButton.cs" />
-    <Compile Include="Assets\Scripts\MainPanelFunctions\HelpProjectButton.cs" />
-    <Compile Include="Assets\Scripts\MainPanelFunctions\NewProjectButton.cs" />
-    <Compile Include="Assets\Scripts\MainPanelFunctions\OpenProject\ProjectButton.cs" />
-    <Compile Include="Assets\Scripts\MainPanelFunctions\OpenProject\SetProjectList.cs" />
-    <Compile Include="Assets\Scripts\MainPanelFunctions\OpenProject\SimpleObjectPool.cs" />
-    <Compile Include="Assets\Scripts\MainPanelFunctions\OpenProjectButton.cs" />
-    <Compile Include="Assets\Scripts\MainPanelFunctions\SettingsButton.cs" />
     <Compile Include="Assets\Scripts\ProjectView\ProjectExpButton.cs" />
     <Compile Include="Assets\Scripts\ProjectView\ProjectExpList.cs" />
     <Compile Include="Assets\Scripts\ScriptView\AgentInputObject.cs" />
@@ -514,14 +542,11 @@
     <Compile Include="Assets\Scripts\ScriptView\InitTop.cs" />
     <Compile Include="Assets\Scripts\ScriptView\MenuInputPanelObject.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\BaseCommandMediator.cs" />
-    <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\DefaultMessageParser.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\EditorScriptLibrary.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ExternalConnection.cs" />
-    <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ICommandProtocol.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\IScriptLibrary.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\Script.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ScriptCommandMediator.cs" />
-    <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ScriptCommandProtocol.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ScriptJEngine.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ScriptRunner.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ScriptRunnerConnection.cs" />
@@ -561,7 +586,6 @@
     <None Include="Assets\Shaders\Double Sided Shaders\Double Sided Transparent Diffuse Bump Cutout.shader" />
     <None Include="Assets\ThirdParty\DOTween\DOTween.XML" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

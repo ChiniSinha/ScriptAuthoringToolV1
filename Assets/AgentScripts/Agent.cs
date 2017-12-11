@@ -83,18 +83,18 @@ public class Agent : MonoBehaviour
 
     public void SetupAgent()
     {
-//        if (Globals.Config != null)
-//        {
+       if (Globals.Config != null)
+        {
             //SetupLipSync();
             SetupTts();
-//        }
-//        else
-//        {
-//            Globals.EventBus.Register<ConfigurationLoadedEvent>(OnConfigLoaded);
-//        }
+       }
+        else
+        {
+            Globals.EventBus.Register<ConfigurationLoadedEvent>(OnConfigLoaded);
+        }
         _mediator = gameObject.AddComponent<SingleAgentMediator>();
         _mediator._primaryAgent = this;
-//        _mediator = new SingleAgentMediator(this);
+        _mediator = new SingleAgentMediator(this);
         _mediator.Setup();
 
         Globals.Register(this);

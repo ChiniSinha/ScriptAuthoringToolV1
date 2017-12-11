@@ -93,15 +93,16 @@ public class Config : ICloneable
         return clone;
     }
 
-    public static void Save(Config cfg, string filename, bool prettyPrint = false)
+    public static void Save(Config cfg, bool prettyPrint = false)
     {
         string json = JsonUtility.ToJson(cfg, prettyPrint);
-        File.WriteAllText(filename, json);
+        File.WriteAllText(Path.Combine(Application.streamingAssetsPath, UsedValues.agentConfigFileName), json);
     }
 
-    public static Config LoadFromString(string contents)
+    public static Config Load()
     {
-        return JsonUtility.FromJson<Config>(contents);
+        string json = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, UsedValues.agentConfigFileName));
+        return JsonUtility.FromJson<Config>(json);
     }
 
     [Serializable]

@@ -1957,7 +1957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000013812060176
 GameObject:
   m_ObjectHideFlags: 1
@@ -5076,7 +5076,7 @@ Animator:
   m_GameObject: {fileID: 1722117561628538}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bf9e19b679c076a478d3f3240554f99c, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6258,10 +6258,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrimaryAnimator: {fileID: 114000012263212632}
+  AllowScaling: 0
   AutoClose: 0
+  Contents: {fileID: 0}
   HideUnclickedButtons: 0
+  IsDefault: 1
+  MaximumVerticalHeight: 720
   MenuArea: {fileID: 224000012386842862}
-  CaptionPrefab: {fileID: 0}
   MenuButtonPrefab: {fileID: 114490064093351328}
   MenuButtons: []
   CheckLimit: 0
@@ -6359,17 +6362,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrimaryAnimator: {fileID: 114000013147226328}
+  AllowScaling: 0
   AutoClose: 0
+  Contents: {fileID: 0}
   HideUnclickedButtons: 0
+  IsDefault: 1
+  MaximumVerticalHeight: 720
   MenuArea: {fileID: 224000012666528964}
-  CaptionPrefab: {fileID: 0}
   MenuButtonPrefab: {fileID: 114178887517813992}
   MenuButtons: []
   MaxValueText: {fileID: 114000011163467024}
   MinValueText: {fileID: 114000010596421370}
   PanelLabel: {fileID: 114000010532488510}
   Slider: {fileID: 114000010470141696}
-  HashPrototype: {fileID: 114863736557714264}
 --- !u!114 &114000010676457596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6582,10 +6587,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrimaryAnimator: {fileID: 114000010379505224}
+  AllowScaling: 0
   AutoClose: 0
+  Contents: {fileID: 0}
   HideUnclickedButtons: 0
+  IsDefault: 1
+  MaximumVerticalHeight: 720
   MenuArea: {fileID: 224000014043569600}
-  CaptionPrefab: {fileID: 0}
   MenuButtonPrefab: {fileID: 114178887517813992}
   MenuButtons: []
   CheckLimit: 0
@@ -7288,10 +7296,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrimaryAnimator: {fileID: 114874141127749492}
+  AllowScaling: 0
   AutoClose: 0
+  Contents: {fileID: 0}
   HideUnclickedButtons: 1
+  IsDefault: 1
+  MaximumVerticalHeight: 720
   MenuArea: {fileID: 224429191698294198}
-  CaptionPrefab: {fileID: 114833961783637596}
   MenuButtonPrefab: {fileID: 114178887517813992}
   MenuButtons: []
 --- !u!114 &114000011267084296
@@ -8446,7 +8457,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224000012430495012}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999976
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8465,8 +8476,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   ButtonAmount: 0.2
-  UpButton: {fileID: 114000011536954390}
-  DownButton: {fileID: 114000012701361064}
 --- !u!114 &114000012088882634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9668,10 +9677,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrimaryAnimator: {fileID: 114000012396561800}
+  AllowScaling: 0
   AutoClose: 0
+  Contents: {fileID: 0}
   HideUnclickedButtons: 0
+  IsDefault: 1
+  MaximumVerticalHeight: 720
   MenuArea: {fileID: 224000010622505014}
-  CaptionPrefab: {fileID: 0}
   MenuButtonPrefab: {fileID: 114178887517813992}
   MenuButtons: []
   InputButtons:
@@ -10021,10 +10033,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrimaryAnimator: {fileID: 114000012178723756}
+  AllowScaling: 0
   AutoClose: 0
+  Contents: {fileID: 0}
   HideUnclickedButtons: 0
+  IsDefault: 1
+  MaximumVerticalHeight: 720
   MenuArea: {fileID: 224000010423999032}
-  CaptionPrefab: {fileID: 0}
   MenuButtonPrefab: {fileID: 114178887517813992}
   MenuButtons: []
   InputText: {fileID: 114000012655268174}
@@ -14983,7 +14998,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 3}
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
@@ -18401,10 +18416,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrimaryAnimator: {fileID: 114746783505106214}
+  AllowScaling: 0
   AutoClose: 0
+  Contents: {fileID: 0}
   HideUnclickedButtons: 0
+  IsDefault: 1
+  MaximumVerticalHeight: 720
   MenuArea: {fileID: 224256687752991144}
-  CaptionPrefab: {fileID: 0}
   MenuButtonPrefab: {fileID: 114178887517813992}
   MenuButtons: []
   _capsLockButton: {fileID: 114004922812151644}
@@ -21935,7 +21953,7 @@ Canvas:
   m_GameObject: {fileID: 1000013791779242}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
@@ -23631,9 +23649,9 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013791779242}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.014768835, y: -0.028744547, z: -0.0012099479, w: 0.99947697}
+  m_LocalPosition: {x: 0, y: 0, z: 99.79113}
+  m_LocalScale: {x: 0.048275333, y: 0.048275333, z: 0.048275333}
   m_Children:
   - {fileID: 224736128109642352}
   - {fileID: 224000012457488838}
@@ -27151,7 +27169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25.056604, y: -35}
+  m_AnchoredPosition: {x: 25.056602, y: -35}
   m_SizeDelta: {x: 50.11321, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224922568354620850
