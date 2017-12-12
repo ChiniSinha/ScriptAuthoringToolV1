@@ -10,15 +10,19 @@ public class PropertiesView : MonoBehaviour
 
     void Start()
     {
-        Properties properties = Properties.Load();
-        foreach(Property property in properties.properties)
+        Properties properties = new Properties();
+        if (properties.properties != null)
         {
-            GameObject newProperty = propertyPool.GetObject();
-            newProperty.transform.SetParent(contentPanel);
-            newProperty.transform.Reset();
+            foreach (Property property in properties.properties)
+            {
+                GameObject newProperty = propertyPool.GetObject();
+                newProperty.transform.SetParent(contentPanel);
+                newProperty.transform.Reset();
 
-            PropertyValuePanel propView = newProperty.GetComponent<PropertyValuePanel>();
-            propView.SetUp(property);
+                PropertyValuePanel propView = newProperty.GetComponent<PropertyValuePanel>();
+                propView.SetUp(property);
+            }
         }
     }
+
 }

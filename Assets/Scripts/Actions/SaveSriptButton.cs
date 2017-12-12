@@ -79,12 +79,33 @@ public class SaveSriptButton : MonoBehaviour
         foreach(StatePanelObject state in states)
         {
             script.AppendLine("STATE: " + state.stateName.text);
-            foreach(AgentInputObject agent in state.agentUtterances)
+            if(state.mediaToggle.isOn)
             {
-                script.AppendLine("AGENT:" + agent.agentUtterance.text);
+                script.AppendLine("MEDIA: [" + state.media.captionText.text + "] " + state.url.text);
             }
-            
+            if (state.agentUtterances.Count > 0)
+            {
+                foreach (AgentInputObject agent in state.agentUtterances)
+                {
+                    script.AppendLine("AGENT: " + agent.agentUtterance.text);
+                }
+            }
+            if (state.actionToggle.isOn)
+            {
+                script.AppendLine("ACTION: " + state.action.text);
+            }
+            else if (state.menuToggle.isOn)
+            {
+                if(state.usermenu.Count > 0)
+                {
+                    //foreach(MenuChoice menu in state.usermenu)
+                    //{
+
+                    //} 
+                } 
+            }
         }
+
         string filePath = MyGlobals.CURRENTSCRIPTPATH.Replace(".json", ".script");
         File.WriteAllText(filePath, script.ToString());
     }

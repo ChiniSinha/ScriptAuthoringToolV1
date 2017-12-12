@@ -22,10 +22,10 @@ public class StatePanelObject : MonoBehaviour
     public void setUp(State state)
     {
         stateName.text = state.StateName;
-        if(action.text != "")
+        if(state.Execute != null)
         {
             actionToggle.isOn = true;
-            action.text = state.Execute;
+            action.text = "$" + state.Execute + " $";
             
         }
         foreach(List<Action> set in state.ActionSets)
@@ -49,23 +49,28 @@ public class StatePanelObject : MonoBehaviour
                     AgentInputObject agent = agentObject.GetComponent<AgentInputObject>();
                     agent.SetUp((SpeechAction)action);
                     agentUtterances.Add(agent);
+                    break;
                 }
             }
         }
+
         UI ui = state.Ui;
         if(ui is RagMenu && ((RagMenu)ui).Menu != null)
         {
-            menuToggle.isOn = true;
-            foreach (MenuChoice menu in ((RagMenu)ui).Menu)
+            if(((RagMenu)ui).Menu.Count > 0)
             {
-                GameObject menuObject = menuPool.GetObject();
-                menuObject.transform.SetParent(menuContent);
-                menuObject.transform.Reset();
+                menuToggle.isOn = true;
+                foreach (MenuChoice menu in ((RagMenu)ui).Menu)
+                {
+                    GameObject menuObject = menuPool.GetObject();
+                    menuObject.transform.SetParent(menuContent);
+                    menuObject.transform.Reset();
 
-                MenuInputPanelObject choice = menuObject.GetComponent<MenuInputPanelObject>();
-                choice.SetUp(menu);
-                usermenu.Add(choice);
-            }
+                    MenuInputPanelObject choice = menuObject.GetComponent<MenuInputPanelObject>();
+                    choice.SetUp(menu);
+                    usermenu.Add(choice);
+                }
+            }     
         }
     }
 }

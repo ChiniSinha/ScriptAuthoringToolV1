@@ -83,6 +83,12 @@ public class CommandQueue : MonoBehaviour
         }
     }
 
+    public void Clear()
+    {
+        Queue.Clear();
+        ThreadSafeQueue.Clear();
+    }
+
     void OnGUI()
     {
        

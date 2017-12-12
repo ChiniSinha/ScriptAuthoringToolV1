@@ -86,7 +86,9 @@ public class ScriptRunner
     }
 
     public void PreviewScript(){
-        Init();
+        string functionFileContent = File.ReadAllText(Path.Combine(MyGlobals.PROJECTPATH, UsedValues.functionFile));
+        _jEngine = new ScriptJEngine(this, functionFileContent);
+        Globals.ClearQueue();
         scriptStack.Clear();
         LoadScript(MyGlobals.CURRENTSCRIPTNAME);
     }

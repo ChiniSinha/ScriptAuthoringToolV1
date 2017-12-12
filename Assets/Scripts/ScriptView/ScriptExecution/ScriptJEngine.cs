@@ -6,6 +6,7 @@ using UnityEngine;
 public class ScriptJEngine : JintEngine
 {
     private readonly ScriptRunner _runner;
+    public static Properties properties = new Properties();
 
     public ScriptJEngine(ScriptRunner runner, string functions)
     {
@@ -22,7 +23,7 @@ public class ScriptJEngine : JintEngine
         SetFunction("POP", new Jint.Delegates.Action(_runner.Pop));
         SetFunction("EXIT", new Jint.Delegates.Action(_runner.Exit));
         //Database Functions
-        SetFunction("SET", new Jint.Delegates.Action<string, object>(SetVariable));
+        SetFunction("SET", new Jint.Delegates.Action<string, string>(SetVariable));
         SetFunction("GET", new Jint.Delegates.Func<string, string>(GetVariable));
 
         //Generic Functions
@@ -72,18 +73,18 @@ public class ScriptJEngine : JintEngine
         return Application.isEditor;
     }
 
-    //TO DO: Creating a Property file System
-    private void SetVariable(string name, object value)
+    private void SetVariable(string name, string value)
     {
         Property prop = new Property();
         prop.property = name;
-        prop.value = value.ToString();
-        Properties.SetProperty(prop);
+        prop.value = value;
+        properties.SetProperty(prop);
     }
 
     private string GetVariable(string name)
     {
-        return Properties.GetProperty(name);
+       
+        return properties.GetProperty(name);
     }
 
     private string GetText()

@@ -518,6 +518,7 @@
     <Compile Include="Assets\Scripts\Actions\SaveSriptButton.cs" />
     <Compile Include="Assets\Scripts\AdvancedView\PropertiesView.cs" />
     <Compile Include="Assets\Scripts\AdvancedView\PropertyActions.cs" />
+    <Compile Include="Assets\Scripts\AdvancedView\PropertyAddButton.cs" />
     <Compile Include="Assets\Scripts\AdvancedView\PropertyValuePanel.cs" />
     <Compile Include="Assets\Scripts\AdvancedView\RawScriptLoader.cs" />
     <Compile Include="Assets\Scripts\Configurations\Config.cs" />

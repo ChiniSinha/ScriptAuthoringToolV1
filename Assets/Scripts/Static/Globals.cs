@@ -95,4 +95,9 @@ public static class Globals {
 
         CommandQueue = q;
     }
+
+    public static void ClearQueue()
+    {
+        CommandQueue.Clear();
+    }
 }
