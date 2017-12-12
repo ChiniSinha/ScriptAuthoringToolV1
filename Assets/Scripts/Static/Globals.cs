@@ -14,6 +14,10 @@ public static class Globals {
 
     public static GameObject Ui;
 
+    public static GameObject mainCanvas;
+
+    public static string speechString;
+
     public static Config Config { get; private set; }
 
     public static Flag Flags;
@@ -82,22 +86,12 @@ public static class Globals {
 
     public static void SetEventBus(EventBus e)
     {
-        if (EventBus)
-        {
-            throw new Exception(
-                "Trying to register another global event bus! This will break all event handlers and is unsupported");
-        }
 
         EventBus = e;
     }
 
     public static void SetCommandQueue(CommandQueue q)
     {
-        if (CommandQueue)
-        {
-            throw new Exception(
-                "Trying to register another global event bus! This will break all event handlers and is unsupported");
-        }
 
         CommandQueue = q;
     }

@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public class Properties
 {
-    HashSet<Property> properties;
+    public HashSet<Property> properties;
 
     public Properties()
     {
@@ -38,6 +38,21 @@ public class Properties
         }
 
         return prop.value;
+    }
+
+    public static void DeleteProperty(Property property)
+    {
+        Property prop = new Property();
+        Properties properties = Properties.Load();
+        IEnumerable<Property> query = properties.properties.Where(p => p == property);
+
+        foreach(Property p in query)
+        {
+            prop = p;
+        }
+
+        properties.properties.Remove(prop);
+        Properties.Save(properties);
     }
 
     public static void SetProperty(Property property)

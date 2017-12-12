@@ -1,0 +1,242 @@
+EXPORTS
+    CPRCPMOD_pmod @1
+    CPRCPMOD_spurt_synth @2
+    _Z17disableExtensionsj @3
+    _Z19detectCPUextensionsv @4
+    _ZN10soundtouch10PeakFinder10detectPeakEPKfii @5
+    _ZN10soundtouch10PeakFinderC1Ev @6
+    _ZN10soundtouch10PeakFinderC2Ev @7
+    _ZN10soundtouch10SoundTouch10putSamplesEPKfj @8
+    _ZN10soundtouch10SoundTouch10setSettingEii @9
+    _ZN10soundtouch10SoundTouch11setChannelsEj @10
+    _ZN10soundtouch10SoundTouch12getVersionIdEv @11
+    _ZN10soundtouch10SoundTouch13flush_correctEv @12
+    _ZN10soundtouch10SoundTouch13setRateChangeEf @13
+    _ZN10soundtouch10SoundTouch13setSampleRateEj @14
+    _ZN10soundtouch10SoundTouch14setTempoChangeEf @15
+    _ZN10soundtouch10SoundTouch15setPitchOctavesEf @16
+    _ZN10soundtouch10SoundTouch16getVersionStringEv @17
+    _ZN10soundtouch10SoundTouch17setPitchSemiTonesEf @18
+    _ZN10soundtouch10SoundTouch17setPitchSemiTonesEi @19
+    _ZN10soundtouch10SoundTouch25calcEffectiveRateAndTempoEv @20
+    _ZN10soundtouch10SoundTouch5clearEv @21
+    _ZN10soundtouch10SoundTouch5flushEv @22
+    _ZN10soundtouch10SoundTouch7setRateEf @23
+    _ZN10soundtouch10SoundTouch8setPitchEf @24
+    _ZN10soundtouch10SoundTouch8setTempoEf @25
+    _ZN10soundtouch10SoundTouchC1Ev @26
+    _ZN10soundtouch10SoundTouchC2Ev @27
+    _ZN10soundtouch10SoundTouchD0Ev @28
+    _ZN10soundtouch10SoundTouchD1Ev @29
+    _ZN10soundtouch10SoundTouchD2Ev @30
+    _ZN10soundtouch13FIFOProcessor14receiveSamplesEPfj @31
+    _ZN10soundtouch13FIFOProcessor14receiveSamplesEj @32
+    _ZN10soundtouch13FIFOProcessor8ptrBeginEv @33
+    _ZN10soundtouch13FIFOProcessorD0Ev @34
+    _ZN10soundtouch13FIFOProcessorD1Ev @35
+    _ZN10soundtouch14FIFOSamplePipeD0Ev @36
+    _ZN10soundtouch14FIFOSamplePipeD1Ev @37
+    _ZN10soundtouch14RateTransposer10downsampleEPKfj @38
+    _ZN10soundtouch14RateTransposer10putSamplesEPKfj @39
+    _ZN10soundtouch14RateTransposer11getAAFilterEv @40
+    _ZN10soundtouch14RateTransposer11newInstanceEv @41
+    _ZN10soundtouch14RateTransposer11setChannelsEi @42
+    _ZN10soundtouch14RateTransposer14enableAAFilterEi @43
+    _ZN10soundtouch14RateTransposer14processSamplesEPKfj @44
+    _ZN10soundtouch14RateTransposer5clearEv @45
+    _ZN10soundtouch14RateTransposer7setRateEf @46
+    _ZN10soundtouch14RateTransposer8upsampleEPKfj @47
+    _ZN10soundtouch14RateTransposerC1Ev @48
+    _ZN10soundtouch14RateTransposerC2Ev @49
+    _ZN10soundtouch14RateTransposerD0Ev @50
+    _ZN10soundtouch14RateTransposerD1Ev @51
+    _ZN10soundtouch14RateTransposerD2Ev @52
+    _ZN10soundtouch14RateTransposernwEj @53
+    _ZN10soundtouch16FIFOSampleBuffer10putSamplesEPKfj @54
+    _ZN10soundtouch16FIFOSampleBuffer10putSamplesEj @55
+    _ZN10soundtouch16FIFOSampleBuffer11setChannelsEi @56
+    _ZN10soundtouch16FIFOSampleBuffer14ensureCapacityEj @57
+    _ZN10soundtouch16FIFOSampleBuffer14receiveSamplesEPfj @58
+    _ZN10soundtouch16FIFOSampleBuffer14receiveSamplesEj @59
+    _ZN10soundtouch16FIFOSampleBuffer5clearEv @60
+    _ZN10soundtouch16FIFOSampleBuffer6ptrEndEj @61
+    _ZN10soundtouch16FIFOSampleBuffer6rewindEv @62
+    _ZN10soundtouch16FIFOSampleBuffer8ptrBeginEv @63
+    _ZN10soundtouch16FIFOSampleBufferC1Ei @64
+    _ZN10soundtouch16FIFOSampleBufferC2Ei @65
+    _ZN10soundtouch16FIFOSampleBufferD0Ev @66
+    _ZN10soundtouch16FIFOSampleBufferD1Ev @67
+    _ZN10soundtouch16FIFOSampleBufferD2Ev @68
+    _ZN10soundtouch8AAFilter13setCutoffFreqEd @69
+    _ZN10soundtouch8AAFilter15calculateCoeffsEv @70
+    _ZN10soundtouch8AAFilter9setLengthEj @71
+    _ZN10soundtouch8AAFilterC1Ej @72
+    _ZN10soundtouch8AAFilterC2Ej @73
+    _ZN10soundtouch8AAFilterD1Ev @74
+    _ZN10soundtouch8AAFilterD2Ev @75
+    _ZN10soundtouch9BPMDetect11updateXCorrEi @76
+    _ZN10soundtouch9BPMDetect12calcEnvelopeEPfi @77
+    _ZN10soundtouch9BPMDetect12inputSamplesEPKfi @78
+    _ZN10soundtouch9BPMDetect6getBpmEv @79
+    _ZN10soundtouch9BPMDetect8decimateEPfPKfi @80
+    _ZN10soundtouch9BPMDetectC1Eii @81
+    _ZN10soundtouch9BPMDetectC2Eii @82
+    _ZN10soundtouch9BPMDetectD0Ev @83
+    _ZN10soundtouch9BPMDetectD1Ev @84
+    _ZN10soundtouch9BPMDetectD2Ev @85
+    _ZN10soundtouch9FIRFilter11newInstanceEv @86
+    _ZN10soundtouch9FIRFilter15setCoefficientsEPKfjj @87
+    _ZN10soundtouch9FIRFilterC1Ev @88
+    _ZN10soundtouch9FIRFilterC2Ev @89
+    _ZN10soundtouch9FIRFilterD0Ev @90
+    _ZN10soundtouch9FIRFilterD1Ev @91
+    _ZN10soundtouch9FIRFilterD2Ev @92
+    _ZN10soundtouch9FIRFilternwEj @93
+    _ZN10soundtouch9TDStretch10clearInputEv @94
+    _ZN10soundtouch9TDStretch10putSamplesEPKfj @95
+    _ZN10soundtouch9TDStretch11newInstanceEv @96
+    _ZN10soundtouch9TDStretch11setChannelsEi @97
+    _ZN10soundtouch9TDStretch13setParametersEiiii @98
+    _ZN10soundtouch9TDStretch14clearMidBufferEv @99
+    _ZN10soundtouch9TDStretch14processSamplesEv @100
+    _ZN10soundtouch9TDStretch15enableQuickSeekEi @101
+    _ZN10soundtouch9TDStretch17calcSeqParametersEv @102
+    _ZN10soundtouch9TDStretch19clearCrossCorrStateEv @103
+    _ZN10soundtouch9TDStretch22acceptNewOverlapLengthEi @104
+    _ZN10soundtouch9TDStretch22calculateOverlapLengthEi @105
+    _ZN10soundtouch9TDStretch23seekBestOverlapPositionEPKf @106
+    _ZN10soundtouch9TDStretch24precalcCorrReferenceMonoEv @107
+    _ZN10soundtouch9TDStretch26precalcCorrReferenceStereoEv @108
+    _ZN10soundtouch9TDStretch27seekBestOverlapPositionMonoEPKf @109
+    _ZN10soundtouch9TDStretch29seekBestOverlapPositionStereoEPKf @110
+    _ZN10soundtouch9TDStretch32seekBestOverlapPositionMonoQuickEPKf @111
+    _ZN10soundtouch9TDStretch34seekBestOverlapPositionStereoQuickEPKf @112
+    _ZN10soundtouch9TDStretch5clearEv @113
+    _ZN10soundtouch9TDStretch8setTempoEf @114
+    _ZN10soundtouch9TDStretchC1Ev @115
+    _ZN10soundtouch9TDStretchC2Ev @116
+    _ZN10soundtouch9TDStretchD0Ev @117
+    _ZN10soundtouch9TDStretchD1Ev @118
+    _ZN10soundtouch9TDStretchD2Ev @119
+    _ZN10soundtouch9TDStretchnwEj @120
+    _ZN15CPRCPMOD_buffer5clearEv @121
+    _ZN15CPRCPMOD_buffer6extendEi @122
+    _ZN15CPRCPMOD_bufferC1Ev @123
+    _ZN15CPRCPMOD_bufferC2Ev @124
+    _ZN15CPRCPMOD_bufferD1Ev @125
+    _ZN15CPRCPMOD_bufferD2Ev @126
+    _ZN16CPRCPMOD_pmodmgr10set_phonesEP9CPRC_abufi @127
+    _ZN16CPRCPMOD_pmodmgr12process_abufEP9CPRC_abuf @128
+    _ZN16CPRCPMOD_pmodmgr16get_next_dsptodoEP9CPRC_abufi @129
+    _ZN16CPRCPMOD_pmodmgr20process_phones_peaksEP9CPRC_abuf @130
+    _ZN16CPRCPMOD_pmodmgr20process_phones_pitchEP9CPRC_abuf @131
+    _ZN16CPRCPMOD_pmodmgr20process_phones_tempoEP9CPRC_abuf @132
+    _ZN16CPRCPMOD_pmodmgr21process_phones_volumeEP9CPRC_abuf @133
+    _ZN16CPRCPMOD_pmodmgr25process_phones_resettransEP9CPRC_abuf @134
+    _ZN16CPRCPMOD_pmodmgr26process_phones_insertaudioEP9CPRC_abuf @135
+    _ZN16CPRCPMOD_pmodmgr32CPRCPMOD_pmodmgr_soundtouch_initEv @136
+    _ZN16CPRCPMOD_pmodmgr5clearEv @137
+    _ZN16CPRCPMOD_pmodmgr9get_phoneEi @138
+    _ZN16CPRCPMOD_pmodmgrC1Ei @139
+    _ZN16CPRCPMOD_pmodmgrC2Ei @140
+    _ZN16CPRCPMOD_pmodmgrD1Ev @141
+    _ZN16CPRCPMOD_pmodmgrD2Ev @142
+    _ZN18CPRCPMOD_pmodphone10set_tempoiEiii @143
+    _ZN18CPRCPMOD_pmodphone12volumemodnewEffP15CPRCPMOD_bufferPvS2_ @144
+    _ZN18CPRCPMOD_pmodphone16calc_tempochangeEi @145
+    _ZN18CPRCPMOD_pmodphone16init_pitchchangeEP15CPRC_abuf_transff @146
+    _ZN18CPRCPMOD_pmodphone17reset_pitchparamsEv @147
+    _ZN18CPRCPMOD_pmodphone19set_phone_processedEi @148
+    _ZN18CPRCPMOD_pmodphone4initEP16CPRCPMOD_pmodmgriP15CPRC_abuf_transi @149
+    _ZN18CPRCPMOD_pmodphone6volumeEv @150
+    _ZN18CPRCPMOD_pmodphone8pitchmodEiP15CPRCPMOD_bufferS1_ @151
+    _ZN18CPRCPMOD_pmodphone9volumemodEffP15CPRCPMOD_buffer @152
+    _ZN18CPRCPMOD_pmodphoneC1Ev @153
+    _ZN18CPRCPMOD_pmodphoneC2Ev @154
+    _ZN18CPRCPMOD_pmodphoneD1Ev @155
+    _ZN18CPRCPMOD_pmodphoneD2Ev @156
+    _ZN19RateTransposerFloat13transposeMonoEPfPKfj @157
+    _ZN19RateTransposerFloat14resetRegistersEv @158
+    _ZN19RateTransposerFloat15transposeStereoEPfPKfj @159
+    _ZN19RateTransposerFloatC1Ev @160
+    _ZN19RateTransposerFloatC2Ev @161
+    _ZN19RateTransposerFloatD0Ev @162
+    _ZN19RateTransposerFloatD1Ev @163
+    _ZN19RateTransposerFloatD2Ev @164
+    _ZN21RateTransposerInteger13transposeMonoEPfPKfj @165
+    _ZN21RateTransposerInteger14resetRegistersEv @166
+    _ZN21RateTransposerInteger15transposeStereoEPfPKfj @167
+    _ZN21RateTransposerInteger7setRateEf @168
+    _ZN21RateTransposerIntegerC1Ev @169
+    _ZN21RateTransposerIntegerC2Ev @170
+    _ZN21RateTransposerIntegerD0Ev @171
+    _ZN21RateTransposerIntegerD1Ev @172
+    _ZN21RateTransposerIntegerD2Ev @173
+    _ZNK10soundtouch10PeakFinder10findGroundEPKfii @174
+    _ZNK10soundtouch10PeakFinder13getPeakCenterEPKfi @175
+    _ZNK10soundtouch10PeakFinder14calcMassCenterEPKfii @176
+    _ZNK10soundtouch10PeakFinder17findCrossingLevelEPKffii @177
+    _ZNK10soundtouch10SoundTouch10getSettingEi @178
+    _ZNK10soundtouch10SoundTouch21numUnprocessedSamplesEv @179
+    _ZNK10soundtouch13FIFOProcessor10numSamplesEv @180
+    _ZNK10soundtouch13FIFOProcessor7isEmptyEv @181
+    _ZNK10soundtouch14RateTransposer17isAAFilterEnabledEv @182
+    _ZNK10soundtouch14RateTransposer7isEmptyEv @183
+    _ZNK10soundtouch16FIFOSampleBuffer10numSamplesEv @184
+    _ZNK10soundtouch16FIFOSampleBuffer11getCapacityEv @185
+    _ZNK10soundtouch16FIFOSampleBuffer7isEmptyEv @186
+    _ZNK10soundtouch8AAFilter8evaluateEPfPKfjj @187
+    _ZNK10soundtouch8AAFilter9getLengthEv @188
+    _ZNK10soundtouch9FIRFilter18evaluateFilterMonoEPfPKfj @189
+    _ZNK10soundtouch9FIRFilter20evaluateFilterStereoEPfPKfj @190
+    _ZNK10soundtouch9FIRFilter8evaluateEPfPKfjj @191
+    _ZNK10soundtouch9FIRFilter9getLengthEv @192
+    _ZNK10soundtouch9TDStretch11overlapMonoEPfPKf @193
+    _ZNK10soundtouch9TDStretch13getParametersEPiS1_S1_S1_ @194
+    _ZNK10soundtouch9TDStretch13overlapStereoEPfPKf @195
+    _ZNK10soundtouch9TDStretch17calcCrossCorrMonoEPKfS2_ @196
+    _ZNK10soundtouch9TDStretch18isQuickSeekEnabledEv @197
+    _ZNK10soundtouch9TDStretch19calcCrossCorrStereoEPKfS2_ @198
+    _ZTI19RateTransposerFloat @199 DATA
+    _ZTI21RateTransposerInteger @200 DATA
+    _ZTIN10soundtouch10SoundTouchE @201 DATA
+    _ZTIN10soundtouch13FIFOProcessorE @202 DATA
+    _ZTIN10soundtouch14FIFOSamplePipeE @203 DATA
+    _ZTIN10soundtouch14RateTransposerE @204 DATA
+    _ZTIN10soundtouch16FIFOSampleBufferE @205 DATA
+    _ZTIN10soundtouch9BPMDetectE @206 DATA
+    _ZTIN10soundtouch9FIRFilterE @207 DATA
+    _ZTIN10soundtouch9TDStretchE @208 DATA
+    _ZTISt13runtime_error @209 DATA
+    _ZTISt9exception @210 DATA
+    _ZTS19RateTransposerFloat @211 DATA
+    _ZTS21RateTransposerInteger @212 DATA
+    _ZTSN10soundtouch10SoundTouchE @213 DATA
+    _ZTSN10soundtouch13FIFOProcessorE @214 DATA
+    _ZTSN10soundtouch14FIFOSamplePipeE @215 DATA
+    _ZTSN10soundtouch14RateTransposerE @216 DATA
+    _ZTSN10soundtouch16FIFOSampleBufferE @217 DATA
+    _ZTSN10soundtouch9BPMDetectE @218 DATA
+    _ZTSN10soundtouch9FIRFilterE @219 DATA
+    _ZTSN10soundtouch9TDStretchE @220 DATA
+    _ZTSSt13runtime_error @221 DATA
+    _ZTSSt9exception @222 DATA
+    _ZTV19RateTransposerFloat @223 DATA
+    _ZTV21RateTransposerInteger @224 DATA
+    _ZTVN10soundtouch10SoundTouchE @225 DATA
+    _ZTVN10soundtouch13FIFOProcessorE @226 DATA
+    _ZTVN10soundtouch14FIFOSamplePipeE @227 DATA
+    _ZTVN10soundtouch14RateTransposerE @228 DATA
+    _ZTVN10soundtouch16FIFOSampleBufferE @229 DATA
+    _ZTVN10soundtouch9BPMDetectE @230 DATA
+    _ZTVN10soundtouch9FIRFilterE @231 DATA
+    _ZTVN10soundtouch9TDStretchE @232 DATA
+    pkiss_fft @233
+    pkiss_fft_alloc @234
+    pkiss_fft_cleanup @235
+    pkiss_fft_next_fast_size @236
+    pkiss_fft_stride @237
+    pkiss_fftr @238
+    pkiss_fftr_alloc @239
+    pkiss_fftri @240
+    soundtouch_ac_test @241

@@ -33,7 +33,7 @@ public class ScriptRunner
     protected List<MenuChoice> _lastChoices = new List<MenuChoice>();
 
     // TA: I still really don't like that these values are hardcoded
-    protected MenuChoice _repeatChoice = new MenuChoice("Could you repeat that?|Can you say that again?|I didn't catch that", "Repeat");
+    protected MenuChoice _repeatChoice = new MenuChoice("Could you repeat that?", "Repeat");
 
     protected IScriptLibrary _scriptLibrary;
 
@@ -86,6 +86,8 @@ public class ScriptRunner
     }
 
     public void PreviewScript(){
+        Init();
+        scriptStack.Clear();
         LoadScript(MyGlobals.CURRENTSCRIPTNAME);
     }
 
@@ -95,7 +97,7 @@ public class ScriptRunner
         Script script = new Script();
         script.States = myScript.States;
         scriptStack.Push(script);
-        _currentState = scriptStack.Peek().GetStartingState();
+        _currentState = scriptStack.Peek().GetStartingState();       
         // Update the current state in the StaticClass' "currentState" variable:
         _currentScriptName = MyGlobals.CURRENTSCRIPTNAME;
         allowExecute = true;

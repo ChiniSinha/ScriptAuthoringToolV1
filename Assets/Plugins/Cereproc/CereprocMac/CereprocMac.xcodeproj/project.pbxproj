@@ -1,0 +1,658 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A6A809991E535AF10013738E /* cerevoice_plugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A809931E535AF10013738E /* cerevoice_plugin.cpp */; };
+		A6A8099A1E535AF10013738E /* phoneme_viseme_mapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A809951E535AF10013738E /* phoneme_viseme_mapping.cpp */; };
+		A6A809AC1E53613B0013738E /* osx_harness.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A809AB1E53613B0013738E /* osx_harness.cpp */; };
+		A6A809B71E53707E0013738E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A6A809B61E53707E0013738E /* main.c */; };
+		A6A809BD1E53723A0013738E /* osx_harness.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A809AB1E53613B0013738E /* osx_harness.cpp */; };
+		A6A809BE1E5372420013738E /* cerevoice_plugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A809931E535AF10013738E /* cerevoice_plugin.cpp */; };
+		A6A809BF1E53724D0013738E /* phoneme_viseme_mapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A809951E535AF10013738E /* phoneme_viseme_mapping.cpp */; };
+		A6A809C21E5388620013738E /* osx_harness.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A809AB1E53613B0013738E /* osx_harness.cpp */; };
+		A6A809C31E5388620013738E /* phoneme_viseme_mapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A809951E535AF10013738E /* phoneme_viseme_mapping.cpp */; };
+		A6A809C41E5388620013738E /* cerevoice_plugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A809931E535AF10013738E /* cerevoice_plugin.cpp */; };
+		A6A809CD1E538A750013738E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809CC1E538A750013738E /* Carbon.framework */; };
+		A6A809CF1E538A7E0013738E /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809CE1E538A7E0013738E /* AudioUnit.framework */; };
+		A6A809D11E538A840013738E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809D01E538A840013738E /* AudioToolbox.framework */; };
+		A6A809D31E538A890013738E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809D21E538A890013738E /* CoreAudio.framework */; };
+		A6A809D41E538A910013738E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809D21E538A890013738E /* CoreAudio.framework */; };
+		A6A809D51E538A910013738E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809D01E538A840013738E /* AudioToolbox.framework */; };
+		A6A809D61E538A910013738E /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809CE1E538A7E0013738E /* AudioUnit.framework */; };
+		A6A809D71E538A910013738E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809CC1E538A750013738E /* Carbon.framework */; };
+		A6A809D81E538AC60013738E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809D21E538A890013738E /* CoreAudio.framework */; };
+		A6A809D91E538AC60013738E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809D01E538A840013738E /* AudioToolbox.framework */; };
+		A6A809DA1E538AC60013738E /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809CE1E538A7E0013738E /* AudioUnit.framework */; };
+		A6A809DB1E538AC60013738E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A809CC1E538A750013738E /* Carbon.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A6A809B21E53707E0013738E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A60167121E53B08F0077263D /* cereproc_plugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cereproc_plugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6169FD41E53556D00472A50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6A809931E535AF10013738E /* cerevoice_plugin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cerevoice_plugin.cpp; path = ../../src/cerevoice_plugin.cpp; sourceTree = "<group>"; };
+		A6A809941E535AF10013738E /* cerevoice_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cerevoice_plugin.h; path = ../../src/cerevoice_plugin.h; sourceTree = "<group>"; };
+		A6A809951E535AF10013738E /* phoneme_viseme_mapping.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = phoneme_viseme_mapping.cpp; path = ../../src/phoneme_viseme_mapping.cpp; sourceTree = "<group>"; };
+		A6A809961E535AF10013738E /* phoneme_viseme_mapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = phoneme_viseme_mapping.h; path = ../../src/phoneme_viseme_mapping.h; sourceTree = "<group>"; };
+		A6A809981E535AF10013738E /* unity_callbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unity_callbacks.h; path = ../../src/unity_callbacks.h; sourceTree = "<group>"; };
+		A6A8099D1E535B230013738E /* libcerehts_shared.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcerehts_shared.dylib; path = ../lib/osx/cerehts/lib/libcerehts_shared.dylib; sourceTree = "<group>"; };
+		A6A809A01E535B380013738E /* libcerevoice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcerevoice.a; sourceTree = "<group>"; };
+		A6A809A11E535B380013738E /* libcerevoice.a.meta */ = {isa = PBXFileReference; lastKnownFileType = text; path = libcerevoice.a.meta; sourceTree = "<group>"; };
+		A6A809A21E535B380013738E /* libcerevoice_shared.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libcerevoice_shared.dylib; sourceTree = "<group>"; };
+		A6A809A31E535B380013738E /* libcerevoice_shared.dylib.meta */ = {isa = PBXFileReference; lastKnownFileType = text; path = libcerevoice_shared.dylib.meta; sourceTree = "<group>"; };
+		A6A809A51E535B560013738E /* libcerevoice_aud_shared.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcerevoice_aud_shared.dylib; path = ../lib/osx/cerevoice_aud/lib/libcerevoice_aud_shared.dylib; sourceTree = "<group>"; };
+		A6A809A71E535B620013738E /* libcerevoice_eng_shared.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcerevoice_eng_shared.dylib; path = ../lib/osx/cerevoice_eng/lib/libcerevoice_eng_shared.dylib; sourceTree = "<group>"; };
+		A6A809A91E535B6F0013738E /* libcerevoice_pmod_shared.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcerevoice_pmod_shared.dylib; path = ../lib/osx/cerevoice_pmod/lib/libcerevoice_pmod_shared.dylib; sourceTree = "<group>"; };
+		A6A809AB1E53613B0013738E /* osx_harness.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = osx_harness.cpp; sourceTree = "<group>"; };
+		A6A809AE1E5369FC0013738E /* en */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = en; path = en.lproj/cereproc_plugin.bundle; sourceTree = "<group>"; };
+		A6A809B41E53707E0013738E /* CereprocMacTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CereprocMacTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6A809B61E53707E0013738E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		A6A809BC1E5370E40013738E /* osx_harness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = osx_harness.h; sourceTree = "<group>"; };
+		A6A809CA1E5388620013738E /* CereprocMac64.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CereprocMac64.bundle; path = cereproc_plugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6A809CB1E5388620013738E /* CereprocMac copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CereprocMac copy-Info.plist"; path = "/Users/jenkins/unityclient/Assets/Plugins/Cereproc/CereprocMac/CereprocMac copy-Info.plist"; sourceTree = "<absolute>"; };
+		A6A809CC1E538A750013738E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		A6A809CE1E538A7E0013738E /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		A6A809D01E538A840013738E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A6A809D21E538A890013738E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A6169FCE1E53556D00472A50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A809D31E538A890013738E /* CoreAudio.framework in Frameworks */,
+				A6A809D11E538A840013738E /* AudioToolbox.framework in Frameworks */,
+				A6A809CF1E538A7E0013738E /* AudioUnit.framework in Frameworks */,
+				A6A809CD1E538A750013738E /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A809B11E53707E0013738E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A809D81E538AC60013738E /* CoreAudio.framework in Frameworks */,
+				A6A809D91E538AC60013738E /* AudioToolbox.framework in Frameworks */,
+				A6A809DA1E538AC60013738E /* AudioUnit.framework in Frameworks */,
+				A6A809DB1E538AC60013738E /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A809C51E5388620013738E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A809D41E538A910013738E /* CoreAudio.framework in Frameworks */,
+				A6A809D51E538A910013738E /* AudioToolbox.framework in Frameworks */,
+				A6A809D61E538A910013738E /* AudioUnit.framework in Frameworks */,
+				A6A809D71E538A910013738E /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A6169FC81E53556D00472A50 = {
+			isa = PBXGroup;
+			children = (
+				A6169FD31E53556D00472A50 /* CereprocMac */,
+				A6A809B51E53707E0013738E /* CereprocMacTest */,
+				A6169FD21E53556D00472A50 /* Products */,
+				A6A8099C1E535B230013738E /* Frameworks */,
+				A6A809CB1E5388620013738E /* CereprocMac copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		A6169FD21E53556D00472A50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6A809AF1E5369FC0013738E /* cereproc_plugin.bundle */,
+				A6A809B41E53707E0013738E /* CereprocMacTest */,
+				A6A809CA1E5388620013738E /* CereprocMac64.bundle */,
+				A60167121E53B08F0077263D /* cereproc_plugin.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6169FD31E53556D00472A50 /* CereprocMac */ = {
+			isa = PBXGroup;
+			children = (
+				A6A809931E535AF10013738E /* cerevoice_plugin.cpp */,
+				A6A809941E535AF10013738E /* cerevoice_plugin.h */,
+				A6A809951E535AF10013738E /* phoneme_viseme_mapping.cpp */,
+				A6A809961E535AF10013738E /* phoneme_viseme_mapping.h */,
+				A6A809981E535AF10013738E /* unity_callbacks.h */,
+				A6169FD41E53556D00472A50 /* Info.plist */,
+				A6A809AB1E53613B0013738E /* osx_harness.cpp */,
+			);
+			path = CereprocMac;
+			sourceTree = "<group>";
+		};
+		A6A8099C1E535B230013738E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6A809D21E538A890013738E /* CoreAudio.framework */,
+				A6A809D01E538A840013738E /* AudioToolbox.framework */,
+				A6A809CE1E538A7E0013738E /* AudioUnit.framework */,
+				A6A809CC1E538A750013738E /* Carbon.framework */,
+				A6A809A91E535B6F0013738E /* libcerevoice_pmod_shared.dylib */,
+				A6A809A71E535B620013738E /* libcerevoice_eng_shared.dylib */,
+				A6A809A51E535B560013738E /* libcerevoice_aud_shared.dylib */,
+				A6A8099F1E535B380013738E /* lib */,
+				A6A8099D1E535B230013738E /* libcerehts_shared.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6A8099F1E535B380013738E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A6A809A01E535B380013738E /* libcerevoice.a */,
+				A6A809A11E535B380013738E /* libcerevoice.a.meta */,
+				A6A809A21E535B380013738E /* libcerevoice_shared.dylib */,
+				A6A809A31E535B380013738E /* libcerevoice_shared.dylib.meta */,
+			);
+			name = lib;
+			path = ../lib/osx/cerevoice/lib;
+			sourceTree = "<group>";
+		};
+		A6A809B51E53707E0013738E /* CereprocMacTest */ = {
+			isa = PBXGroup;
+			children = (
+				A6A809B61E53707E0013738E /* main.c */,
+				A6A809BC1E5370E40013738E /* osx_harness.h */,
+			);
+			path = CereprocMacTest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A6169FD01E53556D00472A50 /* CereprocMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6169FD71E53556D00472A50 /* Build configuration list for PBXNativeTarget "CereprocMac" */;
+			buildPhases = (
+				A6169FCD1E53556D00472A50 /* Sources */,
+				A6169FCE1E53556D00472A50 /* Frameworks */,
+				A6169FCF1E53556D00472A50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CereprocMac;
+			productName = CereprocMac;
+			productReference = A60167121E53B08F0077263D /* cereproc_plugin.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A6A809B31E53707E0013738E /* CereprocMacTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6A809B81E53707E0013738E /* Build configuration list for PBXNativeTarget "CereprocMacTest" */;
+			buildPhases = (
+				A6A809B01E53707E0013738E /* Sources */,
+				A6A809B11E53707E0013738E /* Frameworks */,
+				A6A809B21E53707E0013738E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CereprocMacTest;
+			productName = CereprocMacTest;
+			productReference = A6A809B41E53707E0013738E /* CereprocMacTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		A6A809C01E5388620013738E /* CereprocMac64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6A809C71E5388620013738E /* Build configuration list for PBXNativeTarget "CereprocMac64" */;
+			buildPhases = (
+				A6A809C11E5388620013738E /* Sources */,
+				A6A809C51E5388620013738E /* Frameworks */,
+				A6A809C61E5388620013738E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CereprocMac64;
+			productName = CereprocMac;
+			productReference = A6A809CA1E5388620013738E /* CereprocMac64.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A6169FC91E53556D00472A50 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = RAG;
+				TargetAttributes = {
+					A6169FD01E53556D00472A50 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					A6A809B31E53707E0013738E = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A6169FCC1E53556D00472A50 /* Build configuration list for PBXProject "CereprocMac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A6169FC81E53556D00472A50;
+			productRefGroup = A6169FD21E53556D00472A50 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6169FD01E53556D00472A50 /* CereprocMac */,
+				A6A809B31E53707E0013738E /* CereprocMacTest */,
+				A6A809C01E5388620013738E /* CereprocMac64 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A6169FCF1E53556D00472A50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A809C61E5388620013738E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A6169FCD1E53556D00472A50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A809AC1E53613B0013738E /* osx_harness.cpp in Sources */,
+				A6A8099A1E535AF10013738E /* phoneme_viseme_mapping.cpp in Sources */,
+				A6A809991E535AF10013738E /* cerevoice_plugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A809B01E53707E0013738E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A809BE1E5372420013738E /* cerevoice_plugin.cpp in Sources */,
+				A6A809B71E53707E0013738E /* main.c in Sources */,
+				A6A809BF1E53724D0013738E /* phoneme_viseme_mapping.cpp in Sources */,
+				A6A809BD1E53723A0013738E /* osx_harness.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A809C11E5388620013738E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A809C21E5388620013738E /* osx_harness.cpp in Sources */,
+				A6A809C31E5388620013738E /* phoneme_viseme_mapping.cpp in Sources */,
+				A6A809C41E5388620013738E /* cerevoice_plugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A6A809AF1E5369FC0013738E /* cereproc_plugin.bundle */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6A809AE1E5369FC0013738E /* en */,
+			);
+			name = cereproc_plugin.bundle;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A6169FD51E53556D00472A50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../lib/osx/cerevoice_eng/include,
+					../lib/osx/cerevoice_aud/include,
+					../lib/osx/3rdparty/include,
+				);
+				LIBRARY_SEARCH_PATHS = "../lib/osx/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lcerevoice_eng",
+					"-lcerevoice",
+					"-lcerevoice_pmod",
+					"-lcerehts",
+					"-lstdc++",
+				);
+				SDKROOT = macosx;
+				VALID_ARCHS = i386;
+			};
+			name = Debug;
+		};
+		A6169FD61E53556D00472A50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../lib/osx/cerevoice_eng/include,
+					../lib/osx/cerevoice_aud/include,
+					../lib/osx/3rdparty/include,
+				);
+				LIBRARY_SEARCH_PATHS = "../lib/osx/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-lcerevoice_eng",
+					"-lcerevoice",
+					"-lcerevoice_pmod",
+					"-lcerehts",
+					"-lstdc++",
+				);
+				SDKROOT = macosx;
+				VALID_ARCHS = i386;
+			};
+			name = Release;
+		};
+		A6169FD81E53556D00472A50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					../lib/osx/cerevoice_eng/include,
+					../lib/osx/cerevoice_aud/include,
+					../lib/osx/3rdparty/include,
+				);
+				INFOPLIST_FILE = CereprocMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = "../lib/osx/**";
+				OBJROOT = build;
+				OTHER_LDFLAGS = (
+					"-lcerevoice_eng",
+					"-lcerevoice",
+					"-lcerevoice_pmod",
+					"-lcerehts",
+					"-lstdc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RAG.CereprocMac;
+				PRODUCT_NAME = cereproc_plugin;
+				SKIP_INSTALL = YES;
+				SYMROOT = ../bin/osx;
+				VALID_ARCHS = i386;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		A6169FD91E53556D00472A50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(ARCHS)/";
+				HEADER_SEARCH_PATHS = (
+					../lib/osx/cerevoice_eng/include,
+					../lib/osx/cerevoice_aud/include,
+					../lib/osx/3rdparty/include,
+				);
+				INFOPLIST_FILE = CereprocMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = "../lib/osx/**";
+				OBJROOT = build;
+				OTHER_LDFLAGS = (
+					"-lcerevoice_eng",
+					"-lcerevoice",
+					"-lcerevoice_pmod",
+					"-lcerehts",
+					"-lstdc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RAG.CereprocMac;
+				PRODUCT_NAME = cereproc_plugin;
+				SKIP_INSTALL = YES;
+				SYMROOT = ../bin/osx;
+				VALID_ARCHS = i386;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		A6A809B91E53707E0013738E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "-";
+				HEADER_SEARCH_PATHS = (
+					../lib/osx/cerevoice_eng/include,
+					../lib/osx/cerevoice_aud/include,
+					../lib/osx/3rdparty/include,
+				);
+				LIBRARY_SEARCH_PATHS = "../lib/osx/**";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A6A809BA1E53707E0013738E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				HEADER_SEARCH_PATHS = (
+					../lib/osx/cerevoice_eng/include,
+					../lib/osx/cerevoice_aud/include,
+					../lib/osx/3rdparty/include,
+				);
+				LIBRARY_SEARCH_PATHS = "../lib/osx/**";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A6A809C81E5388620013738E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					../lib/osx/cerevoice_eng/include,
+					../lib/osx/cerevoice_aud/include,
+					../lib/osx/3rdparty/include,
+				);
+				INFOPLIST_FILE = "CereprocMac copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = "../lib/osx/**";
+				OBJROOT = build;
+				OTHER_LDFLAGS = (
+					"-lcerevoice_eng",
+					"-lcerevoice",
+					"-lcerevoice_pmod",
+					"-lcerehts",
+					"-lstdc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RAG.CereprocMac;
+				PRODUCT_NAME = cereproc_plugin;
+				SKIP_INSTALL = YES;
+				SYMROOT = ../bin/osx;
+				VALID_ARCHS = x86_64;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		A6A809C91E5388620013738E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(ARCHS)/";
+				HEADER_SEARCH_PATHS = (
+					../lib/osx/cerevoice_eng/include,
+					../lib/osx/cerevoice_aud/include,
+					../lib/osx/3rdparty/include,
+				);
+				INFOPLIST_FILE = "CereprocMac copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = "../lib/osx/**";
+				OBJROOT = build;
+				OTHER_LDFLAGS = (
+					"-lcerevoice_eng",
+					"-lcerevoice",
+					"-lcerevoice_pmod",
+					"-lcerehts",
+					"-lstdc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RAG.CereprocMac;
+				PRODUCT_NAME = cereproc_plugin;
+				SKIP_INSTALL = YES;
+				SYMROOT = ../bin/osx;
+				VALID_ARCHS = x86_64;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A6169FCC1E53556D00472A50 /* Build configuration list for PBXProject "CereprocMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6169FD51E53556D00472A50 /* Debug */,
+				A6169FD61E53556D00472A50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6169FD71E53556D00472A50 /* Build configuration list for PBXNativeTarget "CereprocMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6169FD81E53556D00472A50 /* Debug */,
+				A6169FD91E53556D00472A50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6A809B81E53707E0013738E /* Build configuration list for PBXNativeTarget "CereprocMacTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6A809B91E53707E0013738E /* Debug */,
+				A6A809BA1E53707E0013738E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6A809C71E5388620013738E /* Build configuration list for PBXNativeTarget "CereprocMac64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6A809C81E5388620013738E /* Debug */,
+				A6A809C91E5388620013738E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A6169FC91E53556D00472A50 /* Project object */;
+}

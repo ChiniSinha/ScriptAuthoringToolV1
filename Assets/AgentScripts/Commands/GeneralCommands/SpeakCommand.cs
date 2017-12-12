@@ -24,6 +24,7 @@ public class SpeakCommand : BaseCommand
     public SpeakCommand(string speechString)
     {
         _speechString = speechString;
+        Globals.speechString = speechString;
     }
 
     public override void Execute()

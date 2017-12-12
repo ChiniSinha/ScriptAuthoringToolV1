@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 public class SaveSriptButton : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class SaveSriptButton : MonoBehaviour
     void saveScript()
     {
         StatePanelObject[] states = stateContentPanel.GetComponentsInChildren<StatePanelObject>();
+        SaveRawScriptFile(states);
         MyScript script = new MyScript();
         script.States = new List<State>();
         foreach (Transform child in stateViewContentPanel)
@@ -69,6 +71,22 @@ public class SaveSriptButton : MonoBehaviour
         }
         ScriptConfig.save(script, MyGlobals.CURRENTSCRIPTPATH);
 
+    }
+
+    private void SaveRawScriptFile(StatePanelObject[] states)
+    {
+        StringBuilder script = new StringBuilder();
+        foreach(StatePanelObject state in states)
+        {
+            script.AppendLine("STATE: " + state.stateName.text);
+            foreach(AgentInputObject agent in state.agentUtterances)
+            {
+                script.AppendLine("AGENT:" + agent.agentUtterance.text);
+            }
+            
+        }
+        string filePath = MyGlobals.CURRENTSCRIPTPATH.Replace(".json", ".script");
+        File.WriteAllText(filePath, script.ToString());
     }
 
     private void CheckUIErrors(StatePanelObject state)

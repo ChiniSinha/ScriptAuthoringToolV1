@@ -85,18 +85,7 @@ public class CommandQueue : MonoBehaviour
 
     void OnGUI()
     {
-        if (Debug)
-        {
-            string debugString = "";
-            debugString += 1/Time.deltaTime + " fps\n";
-            foreach (BaseCommand baseCommand in Queue)
-            {
-                debugString += baseCommand + "\n";
-            }
-            GUIStyle s = new GUIStyle();
-            s.normal.textColor = Color.red;
-            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), debugString, s);
-        }
+       
     }
 
     /// <summary>

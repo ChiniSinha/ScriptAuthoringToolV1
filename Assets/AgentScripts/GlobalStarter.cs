@@ -11,12 +11,17 @@ public class GlobalStarter : MonoBehaviour
     public PlatformController standaloneController;
 
 
-    private void Awake()
+    private void Start()
+    {
+        init();
+    }
+
+    public void init()
     {
         Globals.SystemObject = gameObject;
         Globals.SetEventBus(EventBus);
         Globals.SetCommandQueue(CommandQueue);
-        
+
         Globals.RegisterEventBroker(standaloneController);
         Globals.SystemObject.AddComponent<ModuleLoader>();
 

@@ -20,7 +20,7 @@ public abstract class PlatformController : MonoBehaviour, IEventBroker
 
     public void Deactivate()
     {
-        throw new NotImplementedException();
+
     }
 
     private void OnApplicationPause(bool paused)

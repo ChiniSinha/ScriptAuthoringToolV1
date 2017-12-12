@@ -14,6 +14,7 @@ public class InitScene : MonoBehaviour {
 
     void Start()
     {
+        Globals.mainCanvas = gameObject;
         scriptTab.SetActive(true);
         topTab.SetActive(false);
         advancedTab.SetActive(false);
@@ -53,7 +54,7 @@ public class InitScene : MonoBehaviour {
     {
         List<ProjectConfig.Files> files = new List<ProjectConfig.Files>();
 
-        var allfiles = Directory.GetFiles(path).Where(name => !name.EndsWith(".cfg") && !name.EndsWith(".json"));
+        var allfiles = Directory.GetFiles(path).Where(name => !name.EndsWith(".cfg") && !name.EndsWith(".json") && !name.EndsWith(".dat"));
         foreach (var file in allfiles)
         {
             FileInfo info = new FileInfo(file);

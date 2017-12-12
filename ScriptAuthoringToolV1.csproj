@@ -503,7 +503,6 @@
     <Compile Include="Assets\AgentScripts\UtilScripts\Attributes\OptionalFloatAttribute.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\DataTable.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\Extensions.cs" />
-    <Compile Include="Assets\AgentScripts\UtilScripts\FPSDisplay.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\MovingPointOfInterest.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\NestedString.cs" />
     <Compile Include="Assets\AgentScripts\UtilScripts\SimpleAudioVisualizer.cs" />
@@ -517,6 +516,10 @@
     <Compile Include="Assets\Scripts\Actions\ParentFolderButton.cs" />
     <Compile Include="Assets\Scripts\Actions\PreviewButton.cs" />
     <Compile Include="Assets\Scripts\Actions\SaveSriptButton.cs" />
+    <Compile Include="Assets\Scripts\AdvancedView\PropertiesView.cs" />
+    <Compile Include="Assets\Scripts\AdvancedView\PropertyActions.cs" />
+    <Compile Include="Assets\Scripts\AdvancedView\PropertyValuePanel.cs" />
+    <Compile Include="Assets\Scripts\AdvancedView\RawScriptLoader.cs" />
     <Compile Include="Assets\Scripts\Configurations\Config.cs" />
     <Compile Include="Assets\Scripts\Configurations\MyConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\ProjectConfig.cs" />
@@ -554,6 +557,7 @@
     <Compile Include="Assets\Scripts\ScriptView\ScriptObject\ScriptActions.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptObject\ScriptUI.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptObject\State.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\SetUpStateUi.cs" />
     <Compile Include="Assets\Scripts\ScriptView\StatePanelObject.cs" />
     <Compile Include="Assets\Scripts\ScriptView\UIPanel\AgentDoneButton.cs" />
     <Compile Include="Assets\Scripts\ScriptView\UIPanel\MenuController.cs" />
