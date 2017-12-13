@@ -840,8 +840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc090d1b8a8331419f4162e7885806b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPanel: {fileID: 0}
-  helpPanel: {fileID: 0}
+  mainPanel: {fileID: 2088414744}
+  helpPanel: {fileID: 1726335167}
 --- !u!114 &211215890
 MonoBehaviour:
   m_ObjectHideFlags: 0

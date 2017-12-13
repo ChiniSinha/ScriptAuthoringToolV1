@@ -28,31 +28,35 @@ public class StatePanelObject : MonoBehaviour
             action.text = "$" + state.Execute + " $";
             
         }
-        foreach(List<Action> set in state.ActionSets)
+        if (state.ActionSets != null)
         {
-            foreach(Action action in set)
+            foreach (List<Action> set in state.ActionSets)
             {
-                if(action is WhiteboardAction)
+                foreach (Action action in set)
                 {
-                    mediaToggle.isOn = true;
-                    media.value = 1;
-                    url.text = ((WhiteboardAction)action).Url;
-                    break;
-                }
-                if (action is SpeechAction)
-                {
-                    agentToggle.isOn = true;
-                    GameObject agentObject = agentPool.GetObject();
-                    agentObject.transform.SetParent(agentContent);
-                    agentObject.transform.Reset();
+                    if (action is WhiteboardAction)
+                    {
+                        mediaToggle.isOn = true;
+                        media.value = 1;
+                        url.text = ((WhiteboardAction)action).Url;
+                        break;
+                    }
+                    if (action is SpeechAction)
+                    {
+                        agentToggle.isOn = true;
+                        GameObject agentObject = agentPool.GetObject();
+                        agentObject.transform.SetParent(agentContent);
+                        agentObject.transform.Reset();
 
-                    AgentInputObject agent = agentObject.GetComponent<AgentInputObject>();
-                    agent.SetUp((SpeechAction)action);
-                    agentUtterances.Add(agent);
-                    break;
+                        AgentInputObject agent = agentObject.GetComponent<AgentInputObject>();
+                        agent.SetUp((SpeechAction)action);
+                        agentUtterances.Add(agent);
+
+                    }
                 }
             }
         }
+        
 
         UI ui = state.Ui;
         if(ui is RagMenu && ((RagMenu)ui).Menu != null)

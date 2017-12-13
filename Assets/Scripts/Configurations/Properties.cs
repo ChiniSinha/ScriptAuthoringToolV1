@@ -11,78 +11,62 @@ public class Properties
 
     public Properties()
     {
-        //        properties = new List<Property>();
-        Load();
+        properties = new List<Property>();
     }
 
-    public void Save(List<Property> properties) 
+    public static void Save(Properties properties, bool prettyPrint = true)
     {
-        Debug.Log("Property Path: " + Path.Combine(MyGlobals.PROJECTPATH, UsedValues.propertyFile));
-        string json = JsonUtility.ToJson(properties);
-        File.WriteAllText(json, Path.Combine(MyGlobals.PROJECTPATH, UsedValues.propertyFile));
+        string json = JsonUtility.ToJson(properties, prettyPrint);
+        File.WriteAllText(Path.Combine(MyGlobals.PROJECTPATH, UsedValues.propertyFile), json);
     }
 
-    public void Load()
+    public static Properties Load()
     {
         string json = File.ReadAllText(Path.Combine(MyGlobals.PROJECTPATH, UsedValues.propertyFile));
-        Properties loadedProps = JsonUtility.FromJson<Properties>(json);
-        this.properties = loadedProps.properties;
-    } 
-
-    public string GetProperty(string property)
-    {
-        Property prop = new Property();
-        //Properties properties = Load();
-        IEnumerable<Property> query = properties.Where(p => p.property == property);
-
-        foreach(Property p in query)
-        {
-            prop = p;
-        }
-
-        return prop.value;
+        return JsonUtility.FromJson<Properties>(json);
     }
 
-    public void DeleteProperty(Property property)
+    public static string GetProperty(string property)
     {
-        //Property prop = new Property();
-        //properties = Load();
-        /*if(properties == null)
+        Property prop = new Property();
+        Properties properties = Properties.Load();
+        if(properties != null)
         {
-            properties = new Properties();
-            Save(properties);
-        }*/
-        IEnumerable<Property> query = properties.Where(p => p == property);
-
-        foreach(Property p in query)
-        {
-            property = p;
+            IEnumerable<Property> query = properties.properties.Where(p => p.property == property);
+            foreach (Property p in query)
+            {
+                prop = p;
+            }
+            return prop.value;
         }
+        return null;
+       
+        
+    }
 
-        properties.Remove(property);
+    public static void DeleteProperty(Property property)
+    {
+        Property prop = new Property();
+        Properties properties = Properties.Load();
+        var itemToRemove = properties.properties.Single(r => r.property == property.property);
+        properties.properties.Remove(itemToRemove);
         Save(properties);
     }
 
-    public void SetProperty(Property property)
+    public static void SetProperty(Property property)
     {
-        Property returnProp = new Property();
-        /*
-        Properties prop = Load();
+        Properties prop = Properties.Load();
         if (prop == null)
         {
             prop = new Properties();
-            Save(properties);
-        }*/
-        IEnumerable<Property> query = properties.Where(p => p == property);
-        if (query != null) {
-            foreach (Property p in query)
-            {
-                returnProp = p;
-            }
-            DeleteProperty(returnProp);
         }
-        properties.Add(property);
-        Save(properties);
+        var itemToRemove = prop.properties.Single(r => r.property == property.property);
+        if(itemToRemove != null)
+        {
+            prop.properties.Remove(itemToRemove);
+        }
+        prop.properties.Add(property);
+        Properties.Save(prop);
     }
 }
 

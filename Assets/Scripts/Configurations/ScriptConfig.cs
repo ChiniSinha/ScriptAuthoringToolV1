@@ -7,25 +7,25 @@ public class ScriptConfig : MonoBehaviour
 {
     public string scriptName;
     public string scriptJsonPath;
-    public MyScript script;
+    public Script script;
 
     public ScriptConfig()
     {
-        script = new MyScript();
+        script = new Script();
     }
  
-    public static void save(MyScript script, string scriptJsonPath, bool prettyPrint=true)
+    public static void save(Script script, string scriptJsonPath, bool prettyPrint=true)
     {
 
         var json = JSON.Dump(script,EncodeOptions.PrettyPrint);
         File.WriteAllText(scriptJsonPath, json);
     }
 
-    public static MyScript load(string scriptJsonPath)
+    public static Script load(string scriptJsonPath)
     {
         string json = File.ReadAllText(scriptJsonPath);
         if (json.Length > 0)
-            return JSON.Load(json).Make<MyScript>();
+            return JSON.Load(json).Make<Script>();
         else
             return null;
         

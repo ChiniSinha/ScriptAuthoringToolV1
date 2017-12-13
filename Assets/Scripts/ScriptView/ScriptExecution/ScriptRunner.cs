@@ -70,7 +70,8 @@ public class ScriptRunner
     {
         if (returnName.Contains("."))
         {
-            Script nextScript = _scriptLibrary.GetScript(returnName);
+            string path = Path.Combine(MyGlobals.PROJECTPATH, returnName.Replace(".", "\\")); 
+            Script nextScript = ScriptConfig.load(path);
             scriptStack.Push(nextScript);
         }
         else
@@ -78,7 +79,8 @@ public class ScriptRunner
             scriptStack.Peek().SetNextState(returnName);
         }
 
-        Script script = _scriptLibrary.GetScript(scriptName);
+        string pathToScript = Path.Combine(MyGlobals.PROJECTPATH, scriptName.Replace(".", "\\") + ".json");
+        Script script = ScriptConfig.load(pathToScript);
         scriptStack.Push(script);
         _currentState = scriptStack.Peek().GetStartingState();
         allowExecute = true;
@@ -94,10 +96,8 @@ public class ScriptRunner
     }
 
     protected void LoadScript(string scriptName)
-    {
-        MyScript myScript = ScriptConfig.load(MyGlobals.CURRENTSCRIPTPATH);
-        Script script = new Script();
-        script.States = myScript.States;
+    { 
+        Script script = ScriptConfig.load(MyGlobals.CURRENTSCRIPTPATH);
         scriptStack.Push(script);
         _currentState = scriptStack.Peek().GetStartingState();       
         // Update the current state in the StaticClass' "currentState" variable:
@@ -212,7 +212,7 @@ public class ScriptRunner
             startIndex = input.IndexOf("[") + 1;
             endIndex = input.IndexOf("]");
             variable = input.Substring(startIndex, endIndex - startIndex);
-            result = ""; // Globals.Get<Database>().GetTable<PropertyTable>().Get(variable);
+            result = Properties.GetProperty(variable);
             if (result == null)
             {
                 Debug.LogError("[ScriptRunner] Variable [" + variable + "] not found in DB");
@@ -295,8 +295,10 @@ public class ScriptRunner
 
     public void ProcessTextInput(string input, int buttonPressed)
     {
-        //Store the last input
-        // - Globals.Get<Database>().GetTable<PropertyTable>().Set(InputVariableName, input);
+        Property prop = new Property();
+        prop.property = InputVariableName;
+        prop.value = input;
+        Properties.SetProperty(prop);
         ProcessMenuChoice(buttonPressed);
     }
     
@@ -318,10 +320,15 @@ public class ScriptRunner
             }
             result += ragMenu.Choices[choice];
         }
-        //TODO Store in a different way? - Yes in file - CHini
-        //Globals.Get<Database>().GetTable<PropertyTable>().Set(InputVariableName, result);
-        //Globals.Get<Database>().GetTable<PropertyTable>().Set("lastCheckboxCount", selectedOptions.Count + "");
-        ProcessMenuChoice(buttonPressed);
+     
+        Property first = new Property();
+        first.property = InputVariableName;
+        first.value = result;
+        Properties.SetProperty(first);
+        Property second = new Property();
+        second.property = "lastCheckboxCount";
+        second.value = selectedOptions.Count + "";
+        Properties.SetProperty(second);
     }
 
     public void ProcessMenuInput(int selectedChoice)
@@ -345,6 +352,7 @@ public class ScriptRunner
         {
             if (menuChoice.ReturnState.Contains("."))
             {
+                // Not implemented
                 Script nextScript = _scriptLibrary.GetScript(menuChoice.ReturnState);
                 scriptStack.Push(nextScript);
             }

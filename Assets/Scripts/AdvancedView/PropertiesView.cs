@@ -10,7 +10,7 @@ public class PropertiesView : MonoBehaviour
 
     void Start()
     {
-        Properties properties = new Properties();
+        Properties properties = Properties.Load();
         if (properties.properties != null)
         {
             foreach (Property property in properties.properties)

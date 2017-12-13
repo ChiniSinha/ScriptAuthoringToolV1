@@ -51,7 +51,7 @@ public class SaveSriptButton : MonoBehaviour
     {
         StatePanelObject[] states = stateContentPanel.GetComponentsInChildren<StatePanelObject>();
         SaveRawScriptFile(states);
-        MyScript script = new MyScript();
+        Script script = new Script();
         script.States = new List<State>();
         foreach (Transform child in stateViewContentPanel)
         {
@@ -98,12 +98,14 @@ public class SaveSriptButton : MonoBehaviour
             {
                 if(state.usermenu.Count > 0)
                 {
-                    //foreach(MenuChoice menu in state.usermenu)
-                    //{
-
-                    //} 
+                    script.AppendLine("USERMENU: ");
+                    foreach(MenuInputPanelObject menu in state.usermenu)
+                    {
+                        script.AppendLine(menu.userResponse.text + " => " + menu.nextState.text);
+                    } 
                 } 
             }
+            script.AppendLine();
         }
 
         string filePath = MyGlobals.CURRENTSCRIPTPATH.Replace(".json", ".script");
@@ -186,7 +188,7 @@ public class SaveSriptButton : MonoBehaviour
         addState.StateName = state.stateName.text;
 
         // Agent Utterances
-        if (state.agentUtterances != null)
+        if (state.agentUtterances.Count > 0)
         {
             foreach (AgentInputObject agent in state.agentUtterances)
             {
@@ -239,42 +241,46 @@ public class SaveSriptButton : MonoBehaviour
                         }
                     }
                 }
-            }
-        }
-        
+            } 
+            
 
-        // Media
-        Action mediaAction = null;
-        string type = state.media.captionText.text;
+            // Media
+            Action mediaAction = null;
+            string type = state.media.captionText.text;
 
-        // TODO: Add other action
-        if ("whiteboard".Equals(type))
-        {
-            mediaAction = new WhiteboardAction();
-            ((WhiteboardAction)mediaAction).Url = state.url.text;
-        }
-                
-        if (addState.ActionSets == null)
-        {
-            addState.ActionSets = new List<List<Action>>();
-        }
-        if (addState.ActionSets.Count == 0)
-        {
-            List<Action> set = new List<Action>();
-            if (mediaAction != null)
+            // TODO: Add other action
+            if ("whiteboard".Equals(type))
             {
-                set.Add(mediaAction);
+                mediaAction = new WhiteboardAction();
+                ((WhiteboardAction)mediaAction).Url = state.url.text;
+                if (addState.ActionSets == null)
+                {
+                    addState.ActionSets = new List<List<Action>>();
+                }
+                if (addState.ActionSets.Count == 0)
+                {
+                    List<Action> set = new List<Action>();
+                    if (mediaAction != null)
+                    {
+                        set.Add(mediaAction);
+                    }
+                    addState.ActionSets.Add(set);
+                }
+                else
+                {
+                    foreach (List<Action> actions in addState.ActionSets)
+                    {
+                        if (mediaAction != null)
+                            actions.Add(mediaAction);
+                    }
+                }
             }
-            addState.ActionSets.Add(set);
         }
-        else
-        {
-            foreach(List<Action> actions in addState.ActionSets)
-            {
-                if(mediaAction != null)
-                    actions.Add(mediaAction);
-            }
-        }
+       
+
+
+
+
 
         // Agent Action
         addState.Execute = Regex.Replace(state.action.text, "\\$", "").Trim();
@@ -283,7 +289,7 @@ public class SaveSriptButton : MonoBehaviour
 
 
         // User Menu
-        if (state.usermenu != null)
+        if (state.usermenu.Count > 0)
         {
             RagMenu menu = new RagMenu();
             foreach (MenuInputPanelObject choice in state.usermenu)
@@ -356,7 +362,7 @@ public class SaveSriptButton : MonoBehaviour
     private void GetStateTransitions(string filePath)
     {
         FileInfo info = new FileInfo(filePath);
-        MyScript script = ScriptConfig.load(filePath);
+        Script script = ScriptConfig.load(filePath);
         List<string> states = new List<string>();
         List<string> transitions = new List<string>();
         foreach(State state in script.States)

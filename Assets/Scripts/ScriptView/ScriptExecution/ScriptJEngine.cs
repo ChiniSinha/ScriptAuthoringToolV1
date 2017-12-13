@@ -6,7 +6,7 @@ using UnityEngine;
 public class ScriptJEngine : JintEngine
 {
     private readonly ScriptRunner _runner;
-    public static Properties properties = new Properties();
+   
 
     public ScriptJEngine(ScriptRunner runner, string functions)
     {
@@ -78,13 +78,12 @@ public class ScriptJEngine : JintEngine
         Property prop = new Property();
         prop.property = name;
         prop.value = value;
-        properties.SetProperty(prop);
+        Properties.SetProperty(prop);
     }
 
     private string GetVariable(string name)
     {
-       
-        return properties.GetProperty(name);
+        return Properties.GetProperty(name);
     }
 
     private string GetText()

@@ -14,8 +14,7 @@ public class PropertyActions : MonoBehaviour
         Property prop = new Property();
         prop.property = propertyName.text;
         prop.value = propertyValue.text;
-        Properties properties = new Properties();
-        properties.SetProperty(prop);
+        Properties.SetProperty(prop);
     }
 
     public void Delete()
@@ -23,8 +22,7 @@ public class PropertyActions : MonoBehaviour
         Property prop = new Property();
         prop.property = propertyName.text;
         prop.value = propertyValue.text;
-        Properties properties = new Properties();
-        properties.DeleteProperty(prop);
+        Properties.DeleteProperty(prop);
         button.gameObject.transform.parent.gameObject.SetActive(false);
     }
 }

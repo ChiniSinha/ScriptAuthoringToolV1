@@ -79,7 +79,7 @@ public class ProjectExpButton : MonoBehaviour {
             }
 
             SimpleObjectPool stateViewPool = GameObject.Find("StateViewObjectPool").GetComponent<SimpleObjectPool>();
-            MyScript script = ScriptConfig.load(this.jsonPath);
+            Script script = ScriptConfig.load(this.jsonPath);
             if(script != null)
             {
                 foreach (State state in script.States)
