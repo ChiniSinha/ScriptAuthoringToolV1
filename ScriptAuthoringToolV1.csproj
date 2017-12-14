@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -511,6 +513,7 @@
     <Compile Include="Assets\Scripts\Actions\AddScriptButton.cs" />
     <Compile Include="Assets\Scripts\Actions\AddStateButton.cs" />
     <Compile Include="Assets\Scripts\Actions\ExitButtonAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\InitiateActionView.cs" />
     <Compile Include="Assets\Scripts\Actions\NewScriptInit.cs" />
     <Compile Include="Assets\Scripts\Actions\ParentFolderButton.cs" />
     <Compile Include="Assets\Scripts\Actions\PreviewButton.cs" />
@@ -521,6 +524,8 @@
     <Compile Include="Assets\Scripts\AdvancedView\PropertyValuePanel.cs" />
     <Compile Include="Assets\Scripts\AdvancedView\RawScriptLoader.cs" />
     <Compile Include="Assets\Scripts\Configurations\Config.cs" />
+    <Compile Include="Assets\Scripts\Configurations\ConfigPanel.cs" />
+    <Compile Include="Assets\Scripts\Configurations\EditConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\MyConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\ProjectConfig.cs" />
     <Compile Include="Assets\Scripts\Configurations\Properties.cs" />

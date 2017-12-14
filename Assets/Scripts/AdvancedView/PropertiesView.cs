@@ -10,6 +10,20 @@ public class PropertiesView : MonoBehaviour
 
     void Start()
     {
+        setUpProperties();
+    }
+
+    private void Update()
+    {
+        setUpProperties();
+    }
+
+    private void setUpProperties()
+    {
+        foreach(Transform child in contentPanel)
+        {
+            Destroy(child.gameObject);
+        }
         Properties properties = Properties.Load();
         if (properties != null)
         {

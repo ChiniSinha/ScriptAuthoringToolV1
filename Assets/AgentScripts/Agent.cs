@@ -110,10 +110,8 @@ public class Agent : MonoBehaviour
 
     private void SetupTts()
     {
-        //TODO: Add drop down to select different tts modes
-        Config.TtsMode ttsMode = Config.TtsMode.WEB_CEREVOICE;
 
-        switch (ttsMode)
+        switch (Globals.Config.Tts.Mode)
         {
             case Config.TtsMode.NATIVE:
                 if (Application.platform == RuntimePlatform.WindowsEditor ||

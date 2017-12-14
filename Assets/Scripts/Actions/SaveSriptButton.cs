@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System;
@@ -15,8 +16,8 @@ public class SaveSriptButton : MonoBehaviour
     public SimpleObjectPool stateViewObjectPool;
     public Transform errorViewContentPanel;
     public SimpleObjectPool errorViewObjectPool;
+    public Button previewButton;
 
-    
     public void HandleSave()
     {
         hasErrors = false;
@@ -32,14 +33,13 @@ public class SaveSriptButton : MonoBehaviour
             config.scriptName = MyGlobals.CURRENTSCRIPTNAME;
             config.scriptJsonPath = MyGlobals.CURRENTSCRIPTPATH;
             config.script = ScriptConfig.load(MyGlobals.CURRENTSCRIPTPATH);
-
             saveScript();
             bool result = checkErrorsInProject();
             if (result)
                 errorMessage.SetActive(true);
             else
             {
-               
+                previewButton.interactable = true;
                 savePanel.SetActive(true);
             }
             
@@ -110,11 +110,14 @@ public class SaveSriptButton : MonoBehaviour
                 else if (state.checkBox != null)
                 {
                     script.AppendLine("USERTEXT: ");
-                    script.AppendLine("Prompt: " + state.checkBox.prompt.text);
+                    script.AppendLine(state.checkBox.prompt.text);
                     script.AppendLine("Choices: ");
                     foreach (ChoicesInput c in state.checkBox.choices)
                     {
-                        script.Append(c.choiceInput.text + "| ");
+                        if (c != state.checkBox.choices[state.checkBox.choices.Count - 1])
+                            script.Append(c.choiceInput.text + "| ");
+                        else
+                            script.Append(c.choiceInput.text);
                     }
                     script.AppendLine();
                     script.AppendLine("Usermenu: ");
@@ -126,7 +129,7 @@ public class SaveSriptButton : MonoBehaviour
                 else if (state.inputPanel != null)
                 {
                     script.AppendLine("USERTEXT: ");
-                    script.AppendLine("Prompt: " + state.inputPanel.prompt.text);
+                    script.AppendLine(state.inputPanel.prompt.text);
                     script.AppendLine("Usermenu: ");
                     foreach (MenuInputPanelObject menu in state.inputPanel.usermenu)
                     {
@@ -195,27 +198,72 @@ public class SaveSriptButton : MonoBehaviour
         }
         if(state.menuToggle.isOn)
         {
-            //if (state.usermenu.Count > 0)
-            //{
-            //    foreach (MenuInputPanelObject menu in state.usermenu)
-            //    {
-            //        if (menu.nextState.text == "")
-            //        {
-            //            hasErrors = true;
-            //            spawnErrorViewObject("Next state text empty at: " + state.stateName.text);
-            //        }
-            //        if (menu.userResponse.text == "")
-            //        {
-            //            hasErrors = true;
-            //            spawnErrorViewObject("User Response text empty at:" + state.stateName.text);
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    hasErrors = true;
-            //    spawnErrorViewObject("No user response added. Please click on plus button to add more responses at " + state.stateName.text);
-            //}
+            int selectedUi = state.uiSelection.value;
+            switch (selectedUi)
+            {
+                case 0:
+                    break;
+                case 1:
+                    if (state.usermenu.Count > 0)
+                    {
+                        checkMenuErrors(state.usermenu, state.stateName.text);
+                    }
+                    else
+                    {
+                        hasErrors = true;
+                        spawnErrorViewObject("No user response added. Please click on plus button to add more responses at " + state.stateName.text);
+                    }
+                    break;
+                case 2:
+                    if(state.checkBox.prompt.text == "")
+                    {
+                        hasErrors = true;
+                        spawnErrorViewObject("Prompt for the checkbox is empty: " + state.stateName.text);
+                    }
+                    if (state.checkBox.choices.Count > 0)
+                    {
+                        foreach (ChoicesInput c in state.checkBox.choices)
+                        {
+                            if (c.choiceInput.text == "")
+                            {
+                                hasErrors = true;
+                                spawnErrorViewObject("Choice text for the checkboxes cannot be empty. State: " + state.stateName.text);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        hasErrors = true;
+                        spawnErrorViewObject("Choices for Checkbox cannot be empty. State: " + state.stateName.text); 
+                    }
+                    if (state.checkBox.usermenu.Count > 0)
+                    {
+                        checkMenuErrors(state.checkBox.usermenu, state.stateName.text);
+                    }
+                    else
+                    {
+                        hasErrors = true;
+                        spawnErrorViewObject("No user response added. Please click on plus button to add more responses at " + state.stateName.text);
+                    }
+                    break;
+                case 3:
+                    if (state.inputPanel.prompt.text == "")
+                    {
+                        hasErrors = true;
+                        spawnErrorViewObject("Prompt for the InputPanel is empty: " + state.stateName.text);
+                    }
+                    if (state.inputPanel.usermenu.Count > 0)
+                    {
+                        checkMenuErrors(state.inputPanel.usermenu, state.stateName.text);
+                    }
+                    else
+                    {
+                        hasErrors = true;
+                        spawnErrorViewObject("No user response added. Please click on plus button to add more responses at " + state.stateName.text);
+                    }
+                    break;
+            }
+            
         }
         if (!state.mediaToggle.isOn && !state.actionToggle.isOn && !state.agentToggle.isOn && !state.menuToggle.isOn)
         {
@@ -530,5 +578,22 @@ public class SaveSriptButton : MonoBehaviour
             menuChoice.NextState = resp.Trim();
         }
         return menuChoice;
+    }
+
+    private void checkMenuErrors(List<MenuInputPanelObject> menus, string statename)
+    {
+        foreach (MenuInputPanelObject menu in menus)
+        {
+            if (menu.nextState.text == "")
+            {
+                hasErrors = true;
+                spawnErrorViewObject("Next state text empty at: " + statename);
+            }
+            if (menu.userResponse.text == "")
+            {
+                hasErrors = true;
+                spawnErrorViewObject("User Response text empty at:" + statename);
+            }
+        }
     }
 }
