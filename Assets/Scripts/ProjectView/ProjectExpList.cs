@@ -36,10 +36,29 @@ public class ProjectExpList : MonoBehaviour {
     public Sprite fileSprite;
     public Sprite folderSprite;
 
-    // Use this for initialization
-	void Start () {
+    private void Awake()
+    {
         Init();
-	}
+    }
+
+    // Use this for initialization
+    void Start () {
+        
+
+        ProjectExpButton[] buttons = contentPanel.GetComponentsInChildren<ProjectExpButton>();
+        foreach (ProjectExpButton exp in buttons)
+        {
+
+            if (exp.contentName.text == "Top.script")
+            {
+                MyGlobals.CURRENTSCRIPTNAME = exp.contentName.text;
+                MyGlobals.CURRENTSCRIPTPATH = exp.jsonPath;
+                exp.button.onClick.AddListener(exp.handleClick);
+                exp.button.onClick.Invoke();
+                break;
+            }
+        }
+    }
 
     public void Init()
     {
@@ -73,7 +92,9 @@ public class ProjectExpList : MonoBehaviour {
             projectName.text = conf.name;
             setUpFiles(conf.files, counter, null);
             setUpProject(conf.folders, counter);
+
         }
+        
     }
 
     private ExpItem setUpFiles(List<ProjectConfig.Files> files, float counter, ExpItem folderItem)

@@ -39,9 +39,7 @@ public class Properties
             }
             return prop.value;
         }
-        return null;
-       
-        
+        return null;   
     }
 
     public static void DeleteProperty(Property property)
@@ -60,11 +58,15 @@ public class Properties
         {
             prop = new Properties();
         }
-        var itemToRemove = prop.properties.Single(r => r.property == property.property);
-        if(itemToRemove != null)
+        if (prop.properties.Count > 0)
         {
-            prop.properties.Remove(itemToRemove);
+            var itemToRemove = prop.properties.Single(r => r.property == property.property);
+            if (itemToRemove != null)
+            {
+                prop.properties.Remove(itemToRemove);
+            }
         }
+            
         prop.properties.Add(property);
         Properties.Save(prop);
     }

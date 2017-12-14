@@ -26,11 +26,11 @@ public class BasicChecklist : UIElementWithMenu
 
     public void CreateChecklist(string[] choices)
     {
-        int i;
-        for (i = 0; i < choices.Length; i++)
+        
+        for (int i = 0; i < choices.Length; i++)
         {
             ChecklistItem item = Instantiate(ChecklistItemPrefab);
-            item.Label.text = choices[i];
+            item.Label.text = choices[i].ToString();
             item.Toggle.isOn = false;
             if (CheckLimit > 0)
             {

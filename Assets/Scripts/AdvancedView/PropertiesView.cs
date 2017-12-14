@@ -11,7 +11,7 @@ public class PropertiesView : MonoBehaviour
     void Start()
     {
         Properties properties = Properties.Load();
-        if (properties.properties != null)
+        if (properties != null)
         {
             foreach (Property property in properties.properties)
             {

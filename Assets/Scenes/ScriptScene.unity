@@ -1041,6 +1041,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textArea: {fileID: 1315767}
+  errorPool: {fileID: 910859008}
+  contentPanel: {fileID: 551616200}
 --- !u!1 &149243985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,6 +2955,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textArea: {fileID: 1315767}
+  errorPool: {fileID: 0}
+  contentPanel: {fileID: 0}
 --- !u!1 &437388014
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -540,6 +542,9 @@
     <Compile Include="Assets\Scripts\ProjectView\ProjectExpButton.cs" />
     <Compile Include="Assets\Scripts\ProjectView\ProjectExpList.cs" />
     <Compile Include="Assets\Scripts\ScriptView\AgentInputObject.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\CheckBox\CheckBoxController.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\CheckBox\CheckBoxInputPanel.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\CheckBox\ChoicesInput.cs" />
     <Compile Include="Assets\Scripts\ScriptView\DeleteState.cs" />
     <Compile Include="Assets\Scripts\ScriptView\InitTop.cs" />
     <Compile Include="Assets\Scripts\ScriptView\MenuInputPanelObject.cs" />
@@ -552,12 +557,14 @@
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ScriptJEngine.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ScriptRunner.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptExecution\ScriptRunnerConnection.cs" />
-    <Compile Include="Assets\Scripts\ScriptView\ScriptObject\MyScript.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptObject\ScriptActions.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptObject\ScriptUI.cs" />
     <Compile Include="Assets\Scripts\ScriptView\ScriptObject\State.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\SelectUIDropDown.cs" />
     <Compile Include="Assets\Scripts\ScriptView\SetUpStateUi.cs" />
     <Compile Include="Assets\Scripts\ScriptView\StatePanelObject.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\TextInput\TextInputController.cs" />
+    <Compile Include="Assets\Scripts\ScriptView\TextInput\TextInputPanel.cs" />
     <Compile Include="Assets\Scripts\ScriptView\UIPanel\AgentDoneButton.cs" />
     <Compile Include="Assets\Scripts\ScriptView\UIPanel\MenuController.cs" />
     <Compile Include="Assets\Scripts\ScriptView\UIPanel\MenuDoneButton.cs" />

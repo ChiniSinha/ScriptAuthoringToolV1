@@ -11,8 +11,8 @@ public class ProjectExpButton : MonoBehaviour {
     public Image contentIcon;
     public bool isClicked;
     public SimpleObjectPool stateObjectPool;
-    string contentPath;
-    string jsonPath;
+    public string contentPath;
+    public string jsonPath;
     ContentType type;
     List<ProjectExpButton> childFiles = new List<ProjectExpButton>();
 
@@ -21,7 +21,7 @@ public class ProjectExpButton : MonoBehaviour {
         button.onClick.AddListener(handleClick);
 	}
 
-    private void handleClick()
+    public void handleClick()
     {
         isClicked = !isClicked;
         if (type == ContentType.FOLDER && isClicked)

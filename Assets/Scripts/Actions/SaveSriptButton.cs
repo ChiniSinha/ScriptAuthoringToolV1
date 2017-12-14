@@ -34,12 +34,15 @@ public class SaveSriptButton : MonoBehaviour
             config.script = ScriptConfig.load(MyGlobals.CURRENTSCRIPTPATH);
 
             saveScript();
-            
             bool result = checkErrorsInProject();
             if (result)
                 errorMessage.SetActive(true);
             else
+            {
+               
                 savePanel.SetActive(true);
+            }
+            
         } 
         catch(Exception ex)
         {
@@ -140,6 +143,22 @@ public class SaveSriptButton : MonoBehaviour
                         hasErrors = true;
                         spawnErrorViewObject("Agent utterance is empty at: " + state.stateName.text);
                     }
+                    string pattern = "\\[\\w+\\]";
+                    Regex reg = new Regex(pattern);
+                    MatchCollection matches = reg.Matches(agent.agentUtterance.text);
+                    if(matches.Count > 0)
+                    {
+                        foreach(Match match  in matches)
+                        {
+                            string input = match.Value.Replace("[", "").Replace("]", "");
+                            string returned = Properties.GetProperty(input);
+                            if (returned == null)
+                            {
+                                hasErrors = true;
+                                spawnErrorViewObject("Property Name: '" + input + "' does not exist.");
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -150,27 +169,27 @@ public class SaveSriptButton : MonoBehaviour
         }
         if(state.menuToggle.isOn)
         {
-            if (state.usermenu.Count > 0)
-            {
-                foreach (MenuInputPanelObject menu in state.usermenu)
-                {
-                    if (menu.nextState.text == "")
-                    {
-                        hasErrors = true;
-                        spawnErrorViewObject("Next state text empty at: " + state.stateName.text);
-                    }
-                    if (menu.userResponse.text == "")
-                    {
-                        hasErrors = true;
-                        spawnErrorViewObject("User Response text empty at:" + state.stateName.text);
-                    }
-                }
-            }
-            else
-            {
-                hasErrors = true;
-                spawnErrorViewObject("No user response added. Please click on plus button to add more responses at " + state.stateName.text);
-            }
+            //if (state.usermenu.Count > 0)
+            //{
+            //    foreach (MenuInputPanelObject menu in state.usermenu)
+            //    {
+            //        if (menu.nextState.text == "")
+            //        {
+            //            hasErrors = true;
+            //            spawnErrorViewObject("Next state text empty at: " + state.stateName.text);
+            //        }
+            //        if (menu.userResponse.text == "")
+            //        {
+            //            hasErrors = true;
+            //            spawnErrorViewObject("User Response text empty at:" + state.stateName.text);
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    hasErrors = true;
+            //    spawnErrorViewObject("No user response added. Please click on plus button to add more responses at " + state.stateName.text);
+            //}
         }
         if (!state.mediaToggle.isOn && !state.actionToggle.isOn && !state.agentToggle.isOn && !state.menuToggle.isOn)
         {
@@ -294,25 +313,37 @@ public class SaveSriptButton : MonoBehaviour
             RagMenu menu = new RagMenu();
             foreach (MenuInputPanelObject choice in state.usermenu)
             {
-                MenuChoice menuChoice = new MenuChoice();
-                string menuText = choice.userResponse.text;
-                if (menuText.Contains(";"))
-                {
-                    menuText = menuText.Replace(";", "|");
-                }
-                menuChoice.Text = menuText;
-                string resp = choice.nextState.text;
-                if (resp.Contains("$"))
-                {
-                    menuChoice.Execute = Regex.Replace(resp, "\\$", "").Trim();
-                }
-                else
-                {
-                    menuChoice.NextState = resp.Trim();
-                }
+                MenuChoice menuChoice = getMenuChoice(choice);
                 menu.Menu.Add(menuChoice);
             }
             addState.Ui = menu;
+        }
+        else if(state.checkBox != null)
+        {
+            Checkbox checkbox = new Checkbox();
+            checkbox.Prompt = state.checkBox.prompt.text;
+            foreach(ChoicesInput choice in state.checkBox.choices)
+            {
+                string choiceInput = choice.choiceInput.text;
+                checkbox.Choices.Add(choiceInput);
+            }
+            foreach(MenuInputPanelObject menuInput in state.checkBox.usermenu)
+            {
+                MenuChoice menu = getMenuChoice(menuInput);
+                checkbox.Menu.Add(menu);
+            }
+            addState.Ui = checkbox;
+        }
+        else if(state.inputPanel != null)
+        {
+            TextPrompt textPrompt = new TextPrompt();
+            textPrompt.Prompt = state.inputPanel.prompt.text;
+            foreach (MenuInputPanelObject menuInput in state.inputPanel.usermenu)
+            {
+                MenuChoice menu = getMenuChoice(menuInput);
+                textPrompt.Menu.Add(menu);
+            }
+            addState.Ui = textPrompt;
         }
         return addState;
     }
@@ -373,7 +404,13 @@ public class SaveSriptButton : MonoBehaviour
                 List<MenuChoice> choices = null;
                 if (state.Ui is RagMenu){
 		    			choices = ((RagMenu) state.Ui).Menu;
-	    		}
+	    		} else if(state.Ui is Checkbox)
+                {
+                    choices = ((Checkbox)state.Ui).Menu;
+                } else if(state.Ui is TextPrompt)
+                {
+                    choices = ((TextPrompt)state.Ui).Menu;
+                }
                 if(choices != null)
                 {
                     foreach (MenuChoice choice in choices)
@@ -446,5 +483,26 @@ public class SaveSriptButton : MonoBehaviour
         errorElement.transform.SetParent(errorViewContentPanel);
         errorElement.transform.Reset();
         errorElement.transform.GetComponent<ErrorViewPanel>().errorText.text = error;
+    }
+
+    private MenuChoice getMenuChoice(MenuInputPanelObject menuInput)
+    {
+        MenuChoice menuChoice = new MenuChoice();
+        string menuText = menuInput.userResponse.text;
+        if (menuText.Contains(";"))
+        {
+            menuText = menuText.Replace(";", "|");
+        }
+        menuChoice.Text = menuText;
+        string resp = menuInput.nextState.text;
+        if (resp.Contains("$"))
+        {
+            menuChoice.Execute = Regex.Replace(resp, "\\$", "").Trim();
+        }
+        else
+        {
+            menuChoice.NextState = resp.Trim();
+        }
+        return menuChoice;
     }
 }

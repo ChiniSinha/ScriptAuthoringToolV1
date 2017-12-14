@@ -10,6 +10,8 @@ public class StatePanelObject : MonoBehaviour
     public InputField action;
     public List<AgentInputObject> agentUtterances;
     public List<MenuInputPanelObject> usermenu;
+    public CheckBoxInputPanel checkBox;
+    public TextInputPanel inputPanel;
     public SimpleObjectPool agentPool;
     public SimpleObjectPool menuPool;
     public Transform agentContent;
@@ -18,6 +20,9 @@ public class StatePanelObject : MonoBehaviour
     public Toggle agentToggle;
     public Toggle actionToggle;
     public Toggle menuToggle;
+    public Dropdown uiSelection;
+    public SimpleObjectPool checkboxPool;
+    public SimpleObjectPool inputPanelPool;
 
     public void setUp(State state)
     {
@@ -59,11 +64,13 @@ public class StatePanelObject : MonoBehaviour
         
 
         UI ui = state.Ui;
-        if(ui is RagMenu && ((RagMenu)ui).Menu != null)
+        if (ui is RagMenu && ((RagMenu)ui).Menu != null)
         {
-            if(((RagMenu)ui).Menu.Count > 0)
+
+            if (((RagMenu)ui).Menu.Count > 0)
             {
                 menuToggle.isOn = true;
+                uiSelection.value = 1;
                 foreach (MenuChoice menu in ((RagMenu)ui).Menu)
                 {
                     GameObject menuObject = menuPool.GetObject();
@@ -74,7 +81,18 @@ public class StatePanelObject : MonoBehaviour
                     choice.SetUp(menu);
                     usermenu.Add(choice);
                 }
-            }     
+            }
+        } else if (ui is Checkbox && ((Checkbox)ui).Menu != null && ((Checkbox)ui).Choices != null)
+        {
+            menuToggle.isOn = true;
+            uiSelection.value = 2;
+            GameObject checkBox = checkboxPool.GetObject();
+            checkBox.transform.SetParent(menuContent);
+            checkBox.transform.Reset();
+
+            CheckBoxInputPanel checkb = checkBox.GetComponent<CheckBoxInputPanel>();
+            checkb.SetUp((Checkbox)ui);
+            this.checkBox = checkb;
         }
     }
 }

@@ -40,6 +40,12 @@ public class Checkbox : UI
     public List<string> Choices;
     public List<MenuChoice> Menu;
     public string Prompt;
+
+    public Checkbox()
+    {
+        Menu = new List<MenuChoice>();
+        Choices = new List<string>();
+    }
 }
 
 [Serializable]
@@ -57,6 +63,11 @@ public class TextPrompt : UI
 {
     public List<MenuChoice> Menu;
     public string Prompt;
+
+    public TextPrompt()
+    {
+        Menu = new List<MenuChoice>();
+    }
 }
 
 [Serializable]
