@@ -11,35 +11,41 @@ public class SelectUIDropDown : MonoBehaviour
     public SimpleObjectPool inputPool;
     public Transform contentPanel;
 
-    private void Start()
-    {
-        addMenu.SetActive(false);
-    }
-
     public void setButtonActive()
     {
         if (dropdown.value == 1)
         {
             destroy();
             addMenu.SetActive(true);
+            
         }
         else if (dropdown.value == 2)
         {
             destroy();
-            addMenu.SetActive(false);
-            GameObject checkBox = checkBoxPool.GetObject();
-            checkBox.transform.SetParent(contentPanel);
-            checkBox.transform.Reset();
-            this.transform.parent.GetComponent<StatePanelObject>().checkBox = checkBox.GetComponent<CheckBoxInputPanel>();
+            
+            if (!MyGlobals.isDisplay)
+            {
+                addMenu.SetActive(false);
+                GameObject checkBox = checkBoxPool.GetObject();
+                checkBox.transform.SetParent(contentPanel);
+                checkBox.transform.Reset();
+                this.transform.parent.GetComponent<StatePanelObject>().checkBox = checkBox.GetComponent<CheckBoxInputPanel>();
+            }
+            
         }
         else if (dropdown.value == 3)
         {
             destroy();
-            addMenu.SetActive(false);
-            GameObject inputText = inputPool.GetObject();
-            inputText.transform.SetParent(contentPanel);
-            inputText.transform.Reset();
-            this.transform.parent.GetComponent<StatePanelObject>().inputPanel = inputText.GetComponent<TextInputPanel>();
+           
+            if (!MyGlobals.isDisplay)
+            {
+                addMenu.SetActive(false);
+                GameObject inputText = inputPool.GetObject();
+                inputText.transform.SetParent(contentPanel);
+                inputText.transform.Reset();
+                this.transform.parent.GetComponent<StatePanelObject>().inputPanel = inputText.GetComponent<TextInputPanel>();
+            }
+            
         }
         else
         {

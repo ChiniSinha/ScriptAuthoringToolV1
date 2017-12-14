@@ -1730,7 +1730,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114995021459868746}
   m_OnClick:
     m_PersistentCalls:
@@ -2517,6 +2517,7 @@ MonoBehaviour:
   inputPanel: {fileID: 0}
   agentPool: {fileID: 114177170925422650}
   menuPool: {fileID: 114158891854088566}
+  addMenuButton: {fileID: 1385618076653090}
   agentContent: {fileID: 224579224610612592}
   menuContent: {fileID: 224493775898767296}
   mediaToggle: {fileID: 114661097421558870}

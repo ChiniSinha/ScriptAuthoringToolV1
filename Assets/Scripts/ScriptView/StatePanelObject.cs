@@ -14,6 +14,7 @@ public class StatePanelObject : MonoBehaviour
     public TextInputPanel inputPanel;
     public SimpleObjectPool agentPool;
     public SimpleObjectPool menuPool;
+    public GameObject addMenuButton;
     public Transform agentContent;
     public Transform menuContent;
     public Toggle mediaToggle;
@@ -66,11 +67,14 @@ public class StatePanelObject : MonoBehaviour
         UI ui = state.Ui;
         if (ui is RagMenu && ((RagMenu)ui).Menu != null)
         {
-
+            addMenuButton.SetActive(true);
             if (((RagMenu)ui).Menu.Count > 0)
             {
                 menuToggle.isOn = true;
                 uiSelection.value = 1;
+                
+
+
                 foreach (MenuChoice menu in ((RagMenu)ui).Menu)
                 {
                     GameObject menuObject = menuPool.GetObject();
@@ -82,10 +86,13 @@ public class StatePanelObject : MonoBehaviour
                     usermenu.Add(choice);
                 }
             }
-        } else if (ui is Checkbox && ((Checkbox)ui).Menu != null && ((Checkbox)ui).Choices != null)
+        }
+        else if (ui is Checkbox && ((Checkbox)ui).Menu != null && ((Checkbox)ui).Choices != null)
         {
             menuToggle.isOn = true;
+            MyGlobals.isDisplay = true;
             uiSelection.value = 2;
+            addMenuButton.SetActive(false);
             GameObject checkBox = checkboxPool.GetObject();
             checkBox.transform.SetParent(menuContent);
             checkBox.transform.Reset();
@@ -93,6 +100,21 @@ public class StatePanelObject : MonoBehaviour
             CheckBoxInputPanel checkb = checkBox.GetComponent<CheckBoxInputPanel>();
             checkb.SetUp((Checkbox)ui);
             this.checkBox = checkb;
+        }
+        else if (ui is TextPrompt && ((TextPrompt)ui).Menu != null)
+        {
+            menuToggle.isOn = true;
+            MyGlobals.isDisplay = true;
+            uiSelection.value = 3;
+            addMenuButton.SetActive(false);
+
+            GameObject inputText = inputPanelPool.GetObject();
+            inputText.transform.SetParent(menuContent);
+            inputText.transform.Reset();
+
+            TextInputPanel inputT = inputText.GetComponent<TextInputPanel>();
+            inputT.SetUp((TextPrompt)ui);
+            this.inputPanel = inputT;
         }
     }
 }

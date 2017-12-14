@@ -11,6 +11,7 @@ public class AddStateButton : MonoBehaviour {
 
     public void handleClick()
     {
+        MyGlobals.isDisplay = false;
         GameObject newState = stateObjectPool.GetObject();
         newState.transform.SetParent(contentPanel);
         newState.transform.Reset();

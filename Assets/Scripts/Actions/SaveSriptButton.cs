@@ -106,7 +106,33 @@ public class SaveSriptButton : MonoBehaviour
                     {
                         script.AppendLine(menu.userResponse.text + " => " + menu.nextState.text);
                     } 
-                } 
+                }
+                else if (state.checkBox != null)
+                {
+                    script.AppendLine("USERTEXT: ");
+                    script.AppendLine("Prompt: " + state.checkBox.prompt.text);
+                    script.AppendLine("Choices: ");
+                    foreach (ChoicesInput c in state.checkBox.choices)
+                    {
+                        script.Append(c.choiceInput.text + "| ");
+                    }
+                    script.AppendLine();
+                    script.AppendLine("Usermenu: ");
+                    foreach (MenuInputPanelObject menu in state.checkBox.usermenu)
+                    {
+                        script.AppendLine(menu.userResponse.text + " => " + menu.nextState.text);
+                    }
+                }
+                else if (state.inputPanel != null)
+                {
+                    script.AppendLine("USERTEXT: ");
+                    script.AppendLine("Prompt: " + state.inputPanel.prompt.text);
+                    script.AppendLine("Usermenu: ");
+                    foreach (MenuInputPanelObject menu in state.inputPanel.usermenu)
+                    {
+                        script.AppendLine(menu.userResponse.text + " => " + menu.nextState.text);
+                    }
+                }
             }
             script.AppendLine();
         }

@@ -24,6 +24,8 @@ public static class MyGlobals
     public static string CURRENTSCRIPTNAME;
     public static string CURRENTSCRIPTPATH;
 
+    public static bool isDisplay = false;
+
     public static void Reset(this Transform transform)
     {
         transform.localPosition = Vector3.zero;

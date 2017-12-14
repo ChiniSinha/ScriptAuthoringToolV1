@@ -325,10 +325,13 @@ public class ScriptRunner
         first.property = InputVariableName;
         first.value = result;
         Properties.SetProperty(first);
+
         Property second = new Property();
         second.property = "lastCheckboxCount";
         second.value = selectedOptions.Count + "";
         Properties.SetProperty(second);
+
+        ProcessMenuChoice(buttonPressed);
     }
 
     public void ProcessMenuInput(int selectedChoice)

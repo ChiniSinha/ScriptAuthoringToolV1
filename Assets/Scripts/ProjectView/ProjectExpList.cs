@@ -36,14 +36,10 @@ public class ProjectExpList : MonoBehaviour {
     public Sprite fileSprite;
     public Sprite folderSprite;
 
-    private void Awake()
-    {
-        Init();
-    }
-
     // Use this for initialization
     void Start () {
-        
+
+        Init();
 
         ProjectExpButton[] buttons = contentPanel.GetComponentsInChildren<ProjectExpButton>();
         foreach (ProjectExpButton exp in buttons)
@@ -57,7 +53,9 @@ public class ProjectExpList : MonoBehaviour {
                 exp.button.onClick.Invoke();
                 break;
             }
+          
         }
+       
     }
 
     public void Init()

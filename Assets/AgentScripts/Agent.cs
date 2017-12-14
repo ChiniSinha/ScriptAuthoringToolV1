@@ -111,7 +111,7 @@ public class Agent : MonoBehaviour
     private void SetupTts()
     {
         //TODO: Add drop down to select different tts modes
-        Config.TtsMode ttsMode = Config.TtsMode.LOCAL_CEREVOICE;
+        Config.TtsMode ttsMode = Config.TtsMode.WEB_CEREVOICE;
 
         switch (ttsMode)
         {

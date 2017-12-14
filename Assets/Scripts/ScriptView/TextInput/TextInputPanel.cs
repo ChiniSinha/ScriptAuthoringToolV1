@@ -12,8 +12,18 @@ public class TextInputPanel : MonoBehaviour
 
     public SimpleObjectPool menuPool;
     
-    public void SetUp(UI ui)
+    public void SetUp(TextPrompt textPrompt)
     {
+        prompt.text = textPrompt.Prompt;
+        foreach (MenuChoice menu in textPrompt.Menu)
+        {
+            GameObject menuObject = menuPool.GetObject();
+            menuObject.transform.SetParent(menuPanel);
+            menuObject.transform.Reset();
 
+            MenuInputPanelObject choice = menuObject.GetComponent<MenuInputPanelObject>();
+            choice.SetUp(menu);
+            usermenu.Add(choice);
+        }
     }
 }

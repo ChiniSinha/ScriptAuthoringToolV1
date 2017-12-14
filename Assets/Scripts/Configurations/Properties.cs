@@ -32,10 +32,13 @@ public class Properties
         Properties properties = Properties.Load();
         if(properties != null)
         {
-            IEnumerable<Property> query = properties.properties.Where(p => p.property == property);
-            foreach (Property p in query)
+            foreach (Property p in properties.properties)
             {
-                prop = p;
+                if (p.property == property)
+                {
+                    prop = p;
+                    break;
+                }
             }
             return prop.value;
         }
@@ -54,16 +57,24 @@ public class Properties
     public static void SetProperty(Property property)
     {
         Properties prop = Properties.Load();
+        List<Property> duplicateItem = new List<Property>();
         if (prop == null)
         {
             prop = new Properties();
         }
         if (prop.properties.Count > 0)
         {
-            var itemToRemove = prop.properties.Single(r => r.property == property.property);
-            if (itemToRemove != null)
+            foreach(Property p in prop.properties)
             {
-                prop.properties.Remove(itemToRemove);
+                if (p.property == property.property)
+                {
+                    duplicateItem.Add(p);
+                }
+                
+            }
+            foreach(Property pr in duplicateItem)
+            {
+                prop.properties.Remove(pr);
             }
         }
             
