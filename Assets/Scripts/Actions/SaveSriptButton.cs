@@ -172,22 +172,22 @@ public class SaveSriptButton : MonoBehaviour
                         hasErrors = true;
                         spawnErrorViewObject("Agent utterance is empty at: " + state.stateName.text);
                     }
-                    string pattern = "\\[\\w+\\]";
-                    Regex reg = new Regex(pattern);
-                    MatchCollection matches = reg.Matches(agent.agentUtterance.text);
-                    if(matches.Count > 0)
-                    {
-                        foreach(Match match  in matches)
-                        {
-                            string input = match.Value.Replace("[", "").Replace("]", "");
-                            string returned = Properties.GetProperty(input);
-                            if (returned == null)
-                            {
-                                hasErrors = true;
-                                spawnErrorViewObject("Property Name: '" + input + "' does not exist.");
-                            }
-                        }
-                    }
+                    //string pattern = "\\[\\w+\\]";
+                    //Regex reg = new Regex(pattern);
+                    //MatchCollection matches = reg.Matches(agent.agentUtterance.text);
+                    //if(matches.Count > 0)
+                    //{
+                    //    foreach(Match match  in matches)
+                    //    {
+                    //        string input = match.Value.Replace("[", "").Replace("]", "");
+                    //        string returned = Properties.GetProperty(input);
+                    //        if (returned == null)
+                    //        {
+                    //            hasErrors = true;
+                    //            spawnErrorViewObject("Property Name: '" + input + "' does not exist.");
+                    //        }
+                    //    }
+                    //}
                 }
             }
             else

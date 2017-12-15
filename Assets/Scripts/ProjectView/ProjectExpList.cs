@@ -40,20 +40,22 @@ public class ProjectExpList : MonoBehaviour {
     void Start () {
 
         Init();
-
-        ProjectExpButton[] buttons = contentPanel.GetComponentsInChildren<ProjectExpButton>();
-        foreach (ProjectExpButton exp in buttons)
+        if (MyGlobals.CURRENTSCRIPTNAME == null && MyGlobals.CURRENTSCRIPTPATH == null)
         {
-
-            if (exp.contentName.text == "Top.script")
+            ProjectExpButton[] buttons = contentPanel.GetComponentsInChildren<ProjectExpButton>();
+            foreach (ProjectExpButton exp in buttons)
             {
-                MyGlobals.CURRENTSCRIPTNAME = exp.contentName.text;
-                MyGlobals.CURRENTSCRIPTPATH = exp.jsonPath;
-                exp.button.onClick.AddListener(exp.handleClick);
-                exp.button.onClick.Invoke();
-                break;
+
+                if (exp.contentName.text == "Top.script")
+                {
+                    MyGlobals.CURRENTSCRIPTNAME = exp.contentName.text;
+                    MyGlobals.CURRENTSCRIPTPATH = exp.jsonPath;
+                    exp.button.onClick.AddListener(exp.handleClick);
+                    exp.button.onClick.Invoke();
+                    break;
+                }
+
             }
-          
         }
        
     }

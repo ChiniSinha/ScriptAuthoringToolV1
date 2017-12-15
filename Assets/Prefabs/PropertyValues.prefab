@@ -238,7 +238,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Enter Property Value
 --- !u!114 &114046970939567374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -523,7 +523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Enter Property Name
 --- !u!114 &114382270765005536
 MonoBehaviour:
   m_ObjectHideFlags: 1

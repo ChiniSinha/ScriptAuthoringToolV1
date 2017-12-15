@@ -47,10 +47,25 @@ public class Properties
 
     public static void DeleteProperty(Property property)
     {
-        Property prop = new Property();
+        
         Properties properties = Properties.Load();
-        var itemToRemove = properties.properties.Single(r => r.property == property.property);
-        properties.properties.Remove(itemToRemove);
+        List<Property> duplicateItem = new List<Property>();
+        if (properties.properties.Count > 0)
+        {
+            foreach (Property p in properties.properties)
+            {
+                if (p.property == property.property)
+                {
+                    duplicateItem.Add(p);
+                }
+
+            }
+            foreach (Property pr in duplicateItem)
+            {
+                properties.properties.Remove(pr);
+            }
+        }
+        
         Save(properties);
     }
 

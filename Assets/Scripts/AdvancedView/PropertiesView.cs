@@ -13,13 +13,10 @@ public class PropertiesView : MonoBehaviour
         setUpProperties();
     }
 
-    private void Update()
-    {
-        setUpProperties();
-    }
 
-    private void setUpProperties()
+    public void setUpProperties()
     {
+       
         foreach(Transform child in contentPanel)
         {
             Destroy(child.gameObject);

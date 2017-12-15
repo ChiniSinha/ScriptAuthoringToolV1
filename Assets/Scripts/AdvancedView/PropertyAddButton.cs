@@ -8,6 +8,7 @@ public class PropertyAddButton : MonoBehaviour
 
     public void addProperty()
     {
+        MyGlobals.propUpdate = false;
         GameObject newProperty = propertyPool.GetObject();
         newProperty.transform.SetParent(contentPanel);
         newProperty.transform.Reset();

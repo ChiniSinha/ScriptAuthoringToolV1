@@ -36,12 +36,14 @@ public class FunctionTextLoader : MonoBehaviour {
 
     public void saveFunctionsFile()
     {
+        string finalFile = textArea.text;
+        File.WriteAllText(functFilePath, finalFile);
         ErrorViewPanel[] errorView = contentPanel.GetComponentsInChildren<ErrorViewPanel>();
         foreach (ErrorViewPanel ev in errorView)
         {
             Destroy(ev.gameObject);
         }
-        string finalFile = textArea.text;
+        
         try
         {
             if (finalFile != "")
@@ -64,7 +66,7 @@ public class FunctionTextLoader : MonoBehaviour {
                 errorElement.transform.Reset();
                 errorElement.transform.GetComponent<ErrorViewPanel>().errorText.text = "Nothing added to functions file.";
             }
-            File.WriteAllText(functFilePath, finalFile);
+            
         }
         catch (Exception ex)
         {

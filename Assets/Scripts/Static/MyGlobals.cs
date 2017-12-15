@@ -17,6 +17,8 @@ public static class MyGlobals
     {
          ProjectConfig = projectConfig;
     }
+
+    public static bool propUpdate = true;
  
     public static string PROJECTNAME;
     public static string PROJECTPATH;

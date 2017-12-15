@@ -11,10 +11,13 @@ public class PropertyActions : MonoBehaviour
     
     public void HandleSave()
     {
+        
         Property prop = new Property();
         prop.property = propertyName.text;
         prop.value = propertyValue.text;
         Properties.SetProperty(prop);
+
+        MyGlobals.propUpdate = true;
     }
 
     public void Delete()

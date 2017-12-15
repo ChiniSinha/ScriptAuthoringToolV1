@@ -12,7 +12,7 @@ public class PreviewButton : MonoBehaviour
 
     public void ShowUIPanel()
     {
-
+   
         Camera main = GameObject.Find("Main Camera").GetComponent<Camera>();
         main.enabled = true;
         Camera agent = GameObject.Find("AgentCamera").GetComponent<Camera>();
