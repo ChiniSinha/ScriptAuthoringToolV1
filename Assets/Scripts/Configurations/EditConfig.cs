@@ -27,5 +27,7 @@ public class EditConfig : MonoBehaviour
             config.Tts.User = "0";
             Config.Save(config, true);
         }
+
+        Globals.SetConfig(config);
     }
 }
